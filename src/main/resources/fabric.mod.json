@@ -18,6 +18,9 @@
 		"main": [
 			"net.hecco.desire.Desire"
 		],
+		"client": [
+			"net.hecco.desire.DesireClient"
+		],
 		"fabric-datagen": [
 			"net.hecco.desire.DesireDataGenerator"
 		]
