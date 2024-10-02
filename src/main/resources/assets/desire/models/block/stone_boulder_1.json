@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"textures": {
+		"2": "desire:block/stone_boulder3",
+		"particle": "desire:block/stone_boulder1"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 1],
+			"to": [9, 3, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 7, 7, 10], "texture": "#2"},
+				"east": {"uv": [0, 3, 5, 6], "texture": "#2"},
+				"south": {"uv": [0, 7, 7, 10], "texture": "#2"},
+				"west": {"uv": [0, 3, 5, 6], "texture": "#2"},
+				"up": {"uv": [7, 16, 0, 11], "texture": "#2"},
+				"down": {"uv": [7, 11, 14, 16], "texture": "#2"}
+			}
+		}
+	]
+}

@@ -1,6 +1,8 @@
 {
+  "block.desire.blackstone_chunk": "Blackstone Chunk",
   "block.desire.chiseled_dripstone": "Chiseled Dripstone",
   "block.desire.chiseled_dripstone_bricks": "Chiseled Dripstone Bricks",
+  "block.desire.deepslate_sheet": "Deepslate Sheet",
   "block.desire.dripstone_brick_slab": "Dripstone Brick Slab",
   "block.desire.dripstone_brick_stairs": "Dripstone Brick Stairs",
   "block.desire.dripstone_brick_wall": "Dripstone Brick Wall",
@@ -11,5 +13,7 @@
   "block.desire.polished_dripstone": "Polished Dripstone",
   "block.desire.polished_dripstone_slab": "Polished Dripstone Slab",
   "block.desire.polished_dripstone_stairs": "Polished Dripstone Stairs",
-  "block.desire.polished_dripstone_wall": "Polished Dripstone Wall"
+  "block.desire.polished_dripstone_wall": "Polished Dripstone Wall",
+  "block.desire.stone_boulder": "Stone Boulder",
+  "itemgroup.desire": "Desire"
 }

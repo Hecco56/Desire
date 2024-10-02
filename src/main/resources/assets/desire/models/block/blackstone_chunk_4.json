@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"textures": {
+		"1": "desire:block/blackstone_chunk2",
+		"particle": "desire:block/blackstone_chunk1"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 8],
+			"to": [6, 4, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 2, 10]},
+			"faces": {
+				"north": {"uv": [11, 8, 15, 12], "texture": "#1"},
+				"east": {"uv": [11, 4, 15, 8], "texture": "#1"},
+				"south": {"uv": [11, 8, 15, 12], "texture": "#1"},
+				"west": {"uv": [11, 4, 15, 8], "texture": "#1"},
+				"up": {"uv": [15, 4, 11, 0], "texture": "#1"},
+				"down": {"uv": [15, 12, 11, 16], "texture": "#1"}
+			}
+		}
+	]
+}

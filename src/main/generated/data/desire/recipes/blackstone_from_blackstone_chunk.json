@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "blackstone",
+  "key": {
+    "#": {
+      "item": "desire:blackstone_chunk"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "minecraft:blackstone"
+  },
+  "show_notification": true
+}

@@ -38,6 +38,8 @@ public class ModLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
+        generateRaw(translationBuilder, "itemgroup.desire", "Desire");
+
         for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(Desire.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
             if(usedTranslationKeys.contains(key)) { continue; }

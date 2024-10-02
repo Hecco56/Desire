@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"textures": {
+		"1": "desire:block/deepslate_sheet2",
+		"particle": "desire:block/deepslate_sheet1"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 2],
+			"to": [6, 2, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 0, 4]},
+			"faces": {
+				"north": {"uv": [11, 14, 16, 16], "texture": "#1"},
+				"east": {"uv": [10, 12, 16, 14], "texture": "#1"},
+				"south": {"uv": [11, 14, 16, 16], "texture": "#1"},
+				"west": {"uv": [10, 12, 16, 14], "texture": "#1"},
+				"up": {"uv": [16, 6, 11, 0], "texture": "#1"},
+				"down": {"uv": [16, 6, 11, 12], "texture": "#1"}
+			}
+		}
+	]
+}
