@@ -2,6 +2,7 @@ package net.hecco.desire.util;
 
 import net.hecco.desire.Desire;
 import net.hecco.desire.datagen.ModBlockTagProvider;
+import net.hecco.desire.datagen.ModDatagenUtils;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -108,153 +109,187 @@ public class BlockSetMaker {
             }
             String id = prefix + name;
             if (raw) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                Block block = registerBlock(id, new Block(settings));
+                BLOCK_SET_BLOCKS.put(id, block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.BASE_BLOCK_IDS.add(id);
             }
             if (raw_stairs) {
-                BLOCK_SET_BLOCKS.put(id + "_stairs", registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id).getDefaultState(), settings)));
-                ModBlockTagProvider.STAIRS.add(BLOCK_SET_BLOCKS.get(id + "_stairs"));
+                Block block = registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id).getDefaultState(), settings));
+                BLOCK_SET_BLOCKS.put(id + "_stairs", block);
+                ModBlockTagProvider.STAIRS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
             if (raw_slab) {
-                BLOCK_SET_BLOCKS.put(id + "_slab", registerBlock(id + "_slab", new SlabBlock(settings)));
-                ModBlockTagProvider.SLABS.add(BLOCK_SET_BLOCKS.get(id + "_slab"));
+                Block block = registerBlock(id + "_slab", new SlabBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_slab", block);
+                ModBlockTagProvider.SLABS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
             if (raw_wall) {
-                BLOCK_SET_BLOCKS.put(id + "_wall", registerBlock(id + "_wall", new WallBlock(settings)));
-                ModBlockTagProvider.WALLS.add(BLOCK_SET_BLOCKS.get(id + "_wall"));
+                Block block = registerBlock(id + "_wall", new WallBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_wall", block);
+                ModBlockTagProvider.WALLS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
 
             id = prefix + "polished_" + name;
             if (polished) {
+                Block block = registerBlock(id, new Block(settings));
                 BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.BASE_BLOCK_IDS.add(id);
             }
             if (polished_stairs) {
-                BLOCK_SET_BLOCKS.put(id + "_stairs", registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id).getDefaultState(), settings)));
-                ModBlockTagProvider.STAIRS.add(BLOCK_SET_BLOCKS.get(id + "_stairs"));
+                Block block = registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id).getDefaultState(), settings));
+                BLOCK_SET_BLOCKS.put(id + "_stairs", block);
+                ModBlockTagProvider.STAIRS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
             if (polished_slab) {
-                BLOCK_SET_BLOCKS.put(id + "_slab", registerBlock(id + "_slab", new SlabBlock(settings)));
-                ModBlockTagProvider.SLABS.add(BLOCK_SET_BLOCKS.get(id + "_slab"));
+                Block block = registerBlock(id + "_slab", new SlabBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_slab", block);
+                ModBlockTagProvider.SLABS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
             if (polished_wall) {
-                BLOCK_SET_BLOCKS.put(id + "_wall", registerBlock(id + "_wall", new WallBlock(settings)));
-                ModBlockTagProvider.WALLS.add(BLOCK_SET_BLOCKS.get(id + "_wall"));
+                Block block = registerBlock(id + "_wall", new WallBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_wall", block);
+                ModBlockTagProvider.WALLS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id));
             }
 
             id = prefix + "chiseled_" + name;
             if (chiseled) {
+                Block block = registerBlock(id, new Block(settings));
                 BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
 
             id = prefix + name + "_brick";
             if (bricks) {
-                BLOCK_SET_BLOCKS.put(id + "s", registerBlock(id + "s", new Block(settings)));
+                Block block = registerBlock(id + "s", new Block(settings));
+                BLOCK_SET_BLOCKS.put(id + "s", block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.BASE_BLOCK_IDS.add(id + "s");
             }
             if (brick_stairs) {
-                BLOCK_SET_BLOCKS.put(id + "_stairs", registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id + "s").getDefaultState(), settings)));
-                ModBlockTagProvider.STAIRS.add(BLOCK_SET_BLOCKS.get(id + "_stairs"));
+                Block block = registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id + "s").getDefaultState(), settings));
+                BLOCK_SET_BLOCKS.put(id + "_stairs", block);
+                ModBlockTagProvider.STAIRS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             if (brick_slab) {
-                BLOCK_SET_BLOCKS.put(id + "_slab", registerBlock(id + "_slab", new SlabBlock(settings)));
-                ModBlockTagProvider.SLABS.add(BLOCK_SET_BLOCKS.get(id + "_slab"));
+                Block block = registerBlock(id + "_slab", new SlabBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_slab", block);
+                ModBlockTagProvider.SLABS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             if (brick_wall) {
-                BLOCK_SET_BLOCKS.put(id + "_wall", registerBlock(id + "_wall", new WallBlock(settings)));
+                Block block = registerBlock(id + "_wall", new WallBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_wall", block);
                 ModBlockTagProvider.WALLS.add(BLOCK_SET_BLOCKS.get(id + "_wall"));
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             id = prefix + "cracked_" + name + "_bricks";
             if (cracked_bricks) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                Block block = registerBlock(id, new Block(settings));
+                BLOCK_SET_BLOCKS.put(id, block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
             id = prefix + "chiseled_" + name + "_bricks";
             if (chiseled_bricks) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                Block block = registerBlock(id, new Block(settings));
+                BLOCK_SET_BLOCKS.put(id, block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
 
             id = prefix + name + "_tile";
             if (tiles) {
-                BLOCK_SET_BLOCKS.put(id + "s", registerBlock(id + "s", new Block(settings)));
+                Block block = registerBlock(id + "s", new Block(settings));
+                BLOCK_SET_BLOCKS.put(id + "s", block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.BASE_BLOCK_IDS.add(id + "s");
             }
             if (tile_stairs) {
-                BLOCK_SET_BLOCKS.put(id + "_stairs", registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id + "s").getDefaultState(), settings)));
-                ModBlockTagProvider.STAIRS.add(BLOCK_SET_BLOCKS.get(id + "_stairs"));
+                Block block = registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id + "s").getDefaultState(), settings));
+                BLOCK_SET_BLOCKS.put(id + "_stairs", block);
+                ModBlockTagProvider.STAIRS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             if (tile_slab) {
-                BLOCK_SET_BLOCKS.put(id + "_slab", registerBlock(id + "_slab", new SlabBlock(settings)));
-                ModBlockTagProvider.SLABS.add(BLOCK_SET_BLOCKS.get(id + "_slab"));
+                Block block = registerBlock(id + "_slab", new SlabBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_slab", block);
+                ModBlockTagProvider.SLABS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             if (tile_wall) {
-                BLOCK_SET_BLOCKS.put(id + "_wall", registerBlock(id + "_wall", new WallBlock(settings)));
-                ModBlockTagProvider.WALLS.add(BLOCK_SET_BLOCKS.get(id + "_wall"));
+                Block block = registerBlock(id + "_wall", new WallBlock(settings));
+                BLOCK_SET_BLOCKS.put(id + "_wall", block);
+                ModBlockTagProvider.WALLS.add(block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(id + "s"));
             }
             id = prefix + "cracked_" + name + "_tiles";
             if (cracked_tiles) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                Block block = registerBlock(id, new Block(settings));
+                BLOCK_SET_BLOCKS.put(id, block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
 
             id = prefix + name + "_pillar";
             if (pillar) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new PillarBlock(settings)));
+                Block block = registerBlock(id, new PillarBlock(settings));
+                BLOCK_SET_BLOCKS.put(id, block);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
         }
     }
-
-    public static class GemstoneBlockSetMaker {
-
-        public GemstoneBlockSetMaker(List<String> colorVariantsList, boolean colorAtBeginning, String name, AbstractBlock.Settings settings,
-                                     boolean cut,
-                                     boolean cut_stairs,
-                                     boolean cut_slab,
-                                     boolean cut_wall,
-                                     boolean pillar) {
-            if (colorAtBeginning) {
-                for (String color : colorVariantsList) {
-                    registerBlocks(color, name, settings, cut, cut_slab, cut_stairs, cut_wall, pillar);
-                }
-            } else {
-                for (String color : colorVariantsList) {
-                    registerBlocks("", color + "_" + name, settings, cut, cut_slab, cut_stairs, cut_wall, pillar);
-                }
+    public static class BlockSetExtension {
+        public BlockSetExtension(Block block, AbstractBlock.Settings settings, String name, boolean stairs, boolean slab, boolean wall, boolean chiseled, boolean pillar) {
+            if (stairs) {
+                Block newBlock = registerBlock(name + "_stairs", new StairsBlock(block.getDefaultState(), settings));
+                BLOCK_SET_BLOCKS.put(name + "_stairs", newBlock);
+                ModBlockTagProvider.STAIRS.add(newBlock);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(newBlock);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(newBlock, block);
             }
-        }
-        public GemstoneBlockSetMaker(String prefix, String name, AbstractBlock.Settings settings,
-                                     boolean cut,
-                                     boolean cut_stairs,
-                                     boolean cut_slab,
-                                     boolean cut_wall,
-                                     boolean pillar) {
-
-            registerBlocks(prefix, name, settings, cut, cut_slab, cut_stairs, cut_wall, pillar);
-        }
-
-        private static void registerBlocks(String prefix, String name, AbstractBlock.Settings settings,
-                                           boolean cut,
-                                           boolean cut_slab,
-                                           boolean cut_stairs,
-                                           boolean cut_wall,
-                                           boolean pillar) {
-            if (!Objects.equals(prefix, "")) {
-                prefix = prefix + "_";
+            if (slab) {
+                Block newBlock = registerBlock(name + "_slab", new SlabBlock(settings));
+                BLOCK_SET_BLOCKS.put(name + "_slab", newBlock);
+                ModBlockTagProvider.SLABS.add(newBlock);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(newBlock);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(newBlock, block);
             }
-            String id = prefix + "cut_" + name;
-            if (cut) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+            if (wall) {
+                Block newBlock = registerBlock(name + "_wall", new WallBlock(settings));
+                BLOCK_SET_BLOCKS.put(name + "_wall", newBlock);
+                ModBlockTagProvider.WALLS.add(newBlock);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(newBlock);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(newBlock, block);
             }
-            if (cut_stairs) {
-                BLOCK_SET_BLOCKS.put(id + "_stairs", registerBlock(id + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(id).getDefaultState(), settings)));
-                ModBlockTagProvider.STAIRS.add(BLOCK_SET_BLOCKS.get(id + "_stairs"));
+            if (chiseled) {
+                Block newBlock = registerBlock("chiseled_" + name, new Block(settings));
+                BLOCK_SET_BLOCKS.put("chiseled_" + name, newBlock);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(newBlock);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(newBlock, block);
             }
-            if (cut_slab) {
-                BLOCK_SET_BLOCKS.put(id + "_slab", registerBlock(id + "_slab", new SlabBlock(settings)));
-                ModBlockTagProvider.SLABS.add(BLOCK_SET_BLOCKS.get(id + "_slab"));
-            }
-            if (cut_wall) {
-                BLOCK_SET_BLOCKS.put(id + "_wall", registerBlock(id + "_wall", new WallBlock(settings)));
-                ModBlockTagProvider.WALLS.add(BLOCK_SET_BLOCKS.get(id + "_wall"));
-            }
-
-            id = prefix + name + "_pillar";
             if (pillar) {
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new PillarBlock(settings)));
+                Block newBlock = registerBlock(name + "_pillar", new PillarBlock(settings));
+                BLOCK_SET_BLOCKS.put(name + "_pillar", newBlock);
+                ModBlockTagProvider.PICKAXE_MINEABLE.add(newBlock);
+                ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(newBlock, block);
             }
         }
     }

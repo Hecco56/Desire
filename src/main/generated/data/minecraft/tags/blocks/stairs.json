@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "desire:smooth_stone_stairs",
+    "desire:cut_sandstone_stairs",
+    "desire:cut_red_sandstone_stairs",
+    "desire:smooth_basalt_stairs",
+    "desire:quartz_brick_stairs",
+    "desire:calcite_stairs",
+    "desire:cobblestone_brick_stairs",
+    "desire:mossy_cobblestone_brick_stairs"
+  ]
+}

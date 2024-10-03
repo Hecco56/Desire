@@ -2,6 +2,8 @@ package net.hecco.desire.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.hecco.desire.Desire;
+import net.hecco.desire.util.BlockSetMaker;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -17,6 +19,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STONE_BOULDER);
                         entries.add(ModBlocks.DEEPSLATE_SHEET);
                         entries.add(ModBlocks.BLACKSTONE_CHUNK);
+                        for (Block block : BlockSetMaker.BLOCK_SET_BLOCKS.values()) {
+                            entries.add(block);
+                        }
                     }).build());
     public static void register() {
     }

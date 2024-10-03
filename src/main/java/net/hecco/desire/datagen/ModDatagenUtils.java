@@ -1,13 +1,19 @@
 package net.hecco.desire.datagen;
 
+import net.hecco.desire.registry.ModBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class ModDatagenUtils {
+    public static final Map<Block, Block> VARIANT_TO_BASE_BLOCK = new HashMap<>();
+    public static final ArrayList<String> BASE_BLOCK_IDS = new ArrayList<>();
+    public static final ArrayList<Block> CUSTOM_STAIRS_MODEL = new ArrayList<>();
+    public static final ArrayList<Block> CUSTOM_SLAB_MODEL = new ArrayList<>();
+    public static final ArrayList<Block> CUSTOM_WALL_MODEL = new ArrayList<>();
     public static Set<Identifier> allBlockIdsInNamespace(String namespace) {
         Set<Identifier> set = Registries.BLOCK.getIds();
         Set<Identifier> a = new HashSet<>();
@@ -17,6 +23,16 @@ public class ModDatagenUtils {
             }
         }
         return a;
+    }
+
+    public static Block getBlockFromId(String name) {
+        Set<Identifier> set = Registries.BLOCK.getIds();
+        for(Identifier id : set) {
+            if(Objects.equals(id.getPath(), name)) {
+                return Registries.BLOCK.get(id);
+            }
+        }
+        return Blocks.AIR;
     }
     public static Set<Identifier> allItemIdsInNamespace(String namespace) {
         Set<Identifier> set = Registries.ITEM.getIds();

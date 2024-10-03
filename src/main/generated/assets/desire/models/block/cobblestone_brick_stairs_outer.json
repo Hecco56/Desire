@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "desire:block/cobblestone_bricks",
+    "side": "desire:block/cobblestone_bricks",
+    "top": "desire:block/cobblestone_bricks"
+  }
+}

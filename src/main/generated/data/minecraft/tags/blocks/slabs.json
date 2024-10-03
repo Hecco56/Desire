@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "desire:smooth_basalt_slab",
+    "desire:quartz_brick_slab",
+    "desire:calcite_slab",
+    "desire:cobblestone_brick_slab",
+    "desire:mossy_cobblestone_brick_slab"
+  ]
+}

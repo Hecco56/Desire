@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "desire:stone_wall",
+    "desire:polished_andesite_wall",
+    "desire:polished_granite_wall",
+    "desire:polished_diorite_wall",
+    "desire:smooth_sandstone_wall",
+    "desire:smooth_red_sandstone_wall",
+    "desire:smooth_quartz_wall",
+    "desire:dark_prismarine_wall",
+    "desire:prismarine_brick_wall",
+    "desire:smooth_basalt_wall",
+    "desire:quartz_brick_wall",
+    "desire:calcite_wall",
+    "desire:cobblestone_brick_wall",
+    "desire:mossy_cobblestone_brick_wall"
+  ]
+}

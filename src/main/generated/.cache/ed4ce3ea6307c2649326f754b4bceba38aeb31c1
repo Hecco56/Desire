@@ -1,1 +1,5 @@
-// 1.20.1	2024-10-01T23:53:54.472608	Desire/Tags for minecraft:block
+// 1.20.1	2024-10-03T13:13:16.498028	Desire/Tags for minecraft:block
+1553a38d4d7820c01cfd6d1faaf3eb98b5f17142 data/minecraft/tags/blocks/stairs.json
+31f926c18df60e317c55d81ef95c6def95dc54f4 data/minecraft/tags/blocks/slabs.json
+f947347b9c0a61887a5dc16ae02dd91670990963 data/minecraft/tags/blocks/walls.json
+8cbdd9e81427a75496b994169bc38ace13c3f45f data/minecraft/tags/blocks/mineable/pickaxe.json
