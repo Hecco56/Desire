@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "desire:block/rough_concrete",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "desire:block/rough_concrete"
+    },
+    "axis=z": {
+      "model": "desire:block/rough_concrete",
+      "x": 90
+    }
+  }
+}

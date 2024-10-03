@@ -8,6 +8,15 @@
     "desire:quartz_brick_stairs",
     "desire:calcite_stairs",
     "desire:cobblestone_brick_stairs",
-    "desire:mossy_cobblestone_brick_stairs"
+    "desire:mossy_cobblestone_brick_stairs",
+    "desire:smooth_stone_brick_stairs",
+    "desire:polished_stone_stairs",
+    "desire:stone_tile_stairs",
+    "desire:polished_granite_brick_stairs",
+    "desire:polished_andesite_brick_stairs",
+    "desire:polished_diorite_brick_stairs",
+    "desire:polished_mud_stairs",
+    "desire:smooth_basalt_brick_stairs",
+    "desire:rough_concrete_stairs"
   ]
 }

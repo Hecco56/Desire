@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockSetMaker;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -20,6 +19,28 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSingleton(BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_stone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks"));
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_cobblestone_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("smooth_stone_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_stone"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("stone_tiles"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_stone_tiles"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_granite_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_andesite_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_diorite_bricks"));
+        blockStateModelGenerator.registerSingleton(BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_deepslate_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_bricks"));
+        blockStateModelGenerator.registerSingleton(BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockSetMaker.BLOCK_SET_BLOCKS.get("brick_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete_block"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_mud"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_mud_bricks"));
+        blockStateModelGenerator.registerSingleton(BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_mud_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockSetMaker.BLOCK_SET_BLOCKS.get("smooth_packed_mud"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_polished_basalt_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetMaker.BLOCK_SET_BLOCKS.get("smooth_basalt_bricks"));
 
         for (Block block : ModBlockTagProvider.STAIRS) {
             if (!ModDatagenUtils.CUSTOM_STAIRS_MODEL.contains(block)) {

@@ -8,11 +8,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
@@ -44,8 +50,39 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateSSWFamily(exporter, Blocks.SMOOTH_BASALT, "smooth_basalt");
         generateSSWFamily(exporter, Blocks.QUARTZ_BRICKS, "quartz_brick");
         generateSSWFamily(exporter, Blocks.CALCITE, "calcite");
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks"), Blocks.COBBLESTONE);
         generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks"), "cobblestone_brick");
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_cobblestone_bricks"), Blocks.MOSSY_COBBLESTONE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_cobblestone_bricks"))
+                .input(BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks"))
+                .input(Blocks.MOSS_BLOCK)
+                .group("mossy_cobblestone")
+                .criterion(hasItem(BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks")), conditionsFromItem(BlockSetMaker.BLOCK_SET_BLOCKS.get("cobblestone_bricks")))
+                .offerTo(exporter, "mossy_cobblestone_bricks_from_cobblestone_bricks");
         generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_cobblestone_bricks"), "mossy_cobblestone_brick");
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("smooth_stone_bricks"), "smooth_stone_brick");
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("stone_tiles"), "stone_tile");
+        offerCrackingRecipe(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_stone_tiles"), BlockSetMaker.BLOCK_SET_BLOCKS.get("stone_tiles"));
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_granite_bricks"), "polished_granite_brick");
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_andesite_bricks"), "polished_andesite_brick");
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_diorite_bricks"), "polished_diorite_brick");
+        offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_deepslate_bricks"), Blocks.DEEPSLATE_BRICK_SLAB);
+        offerCrackingRecipe(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_bricks"), Blocks.BRICKS);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("mossy_bricks"))
+                .input(Blocks.BRICKS)
+                .input(Blocks.MOSS_BLOCK)
+                .group("mossy_bricks")
+                .criterion(hasItem(Blocks.BRICKS), conditionsFromItem(Blocks.BRICKS))
+                .offerTo(exporter);
+        for (String color : ModDatagenUtils.VANILLA_COLORS) {
+            createRoughConcreteRecipe(BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete"), Registries.BLOCK.get(Identifier.of("minecraft", color + "_concrete"))).offerTo(exporter, color + "_rough_concrete");
+        }
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete_block"), BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete"));
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("rough_concrete_block"), "rough_concrete");
+        generateSSWFamily(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("polished_mud"), "polished_mud");
+        offerCrackingRecipe(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("cracked_mud_bricks"), Blocks.MUD_BRICKS);
+        offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetMaker.BLOCK_SET_BLOCKS.get("chiseled_mud_bricks"), Blocks.MUD_BRICK_SLAB);
+        offerCrackingRecipe(exporter, BlockSetMaker.BLOCK_SET_BLOCKS.get("smooth_packed_mud"), Blocks.PACKED_MUD);
     }
 
     public static void generateSSFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
@@ -56,5 +93,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public static void generateSSWFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
         BlockFamily family = register(baseBlock).stairs(BlockSetMaker.BLOCK_SET_BLOCKS.get(name + "_stairs")).slab(BlockSetMaker.BLOCK_SET_BLOCKS.get(name + "_slab")).wall(BlockSetMaker.BLOCK_SET_BLOCKS.get(name + "_wall")).build();
         generateFamily(exporter, family);
+    }
+
+    public static CookingRecipeJsonBuilder createRoughConcreteRecipe(ItemConvertible output, ItemConvertible input) {
+        return CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input));
     }
 }

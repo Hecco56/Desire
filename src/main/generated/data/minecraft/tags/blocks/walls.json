@@ -14,6 +14,15 @@
     "desire:quartz_brick_wall",
     "desire:calcite_wall",
     "desire:cobblestone_brick_wall",
-    "desire:mossy_cobblestone_brick_wall"
+    "desire:mossy_cobblestone_brick_wall",
+    "desire:smooth_stone_brick_wall",
+    "desire:polished_stone_wall",
+    "desire:stone_tile_wall",
+    "desire:polished_granite_brick_wall",
+    "desire:polished_andesite_brick_wall",
+    "desire:polished_diorite_brick_wall",
+    "desire:polished_mud_wall",
+    "desire:smooth_basalt_brick_wall",
+    "desire:rough_concrete_wall"
   ]
 }

@@ -5,6 +5,15 @@
     "desire:quartz_brick_slab",
     "desire:calcite_slab",
     "desire:cobblestone_brick_slab",
-    "desire:mossy_cobblestone_brick_slab"
+    "desire:mossy_cobblestone_brick_slab",
+    "desire:smooth_stone_brick_slab",
+    "desire:polished_stone_slab",
+    "desire:stone_tile_slab",
+    "desire:polished_granite_brick_slab",
+    "desire:polished_andesite_brick_slab",
+    "desire:polished_diorite_brick_slab",
+    "desire:polished_mud_slab",
+    "desire:smooth_basalt_brick_slab",
+    "desire:rough_concrete_slab"
   ]
 }

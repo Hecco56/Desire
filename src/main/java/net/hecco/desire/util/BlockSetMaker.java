@@ -139,7 +139,7 @@ public class BlockSetMaker {
             id = prefix + "polished_" + name;
             if (polished) {
                 Block block = registerBlock(id, new Block(settings));
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                BLOCK_SET_BLOCKS.put(id, block);
                 ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
                 ModDatagenUtils.BASE_BLOCK_IDS.add(id);
             }
@@ -257,7 +257,7 @@ public class BlockSetMaker {
         }
     }
     public static class BlockSetExtension {
-        public BlockSetExtension(Block block, AbstractBlock.Settings settings, String name, boolean stairs, boolean slab, boolean wall, boolean chiseled, boolean pillar) {
+        public BlockSetExtension(Block block, AbstractBlock.Settings settings, String name, boolean stairs, boolean slab, boolean wall, boolean cracked, boolean mossy, boolean chiseled, boolean pillar) {
             if (stairs) {
                 Block newBlock = registerBlock(name + "_stairs", new StairsBlock(block.getDefaultState(), settings));
                 BLOCK_SET_BLOCKS.put(name + "_stairs", newBlock);
