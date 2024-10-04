@@ -8,9 +8,8 @@
     }
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "##",
+    "##"
   ],
   "result": {
     "item": "minecraft:cobbled_deepslate"

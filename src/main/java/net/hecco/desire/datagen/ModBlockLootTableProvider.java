@@ -8,13 +8,17 @@ import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockSetMaker;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerbedBlock;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -41,6 +45,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STONE_BOULDER, placeableRockDrops(ModBlocks.STONE_BOULDER));
         addDrop(ModBlocks.DEEPSLATE_SHEET, placeableRockDrops(ModBlocks.DEEPSLATE_SHEET));
         addDrop(ModBlocks.BLACKSTONE_CHUNK, placeableRockDrops(ModBlocks.BLACKSTONE_CHUNK));
+        addDrop(BlockSetMaker.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore"), dropsWithSilkTouch(BlockSetMaker.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore"), this.applyExplosionDecay(BlockSetMaker.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore"), ItemEntry.builder(Items.NAUTILUS_SHELL).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))));
         for (Block block : ModBlockTagProvider.SLABS) {
             addDrop(block, slabDrops(block));
         }

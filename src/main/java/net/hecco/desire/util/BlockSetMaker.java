@@ -10,10 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class BlockSetMaker {
     public static Map<String, Block> BLOCK_SET_BLOCKS = new HashMap<>();
@@ -21,6 +18,17 @@ public class BlockSetMaker {
     private static Block registerBlock(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(Desire.MOD_ID, name), new BlockItem(block, new Item.Settings()));
         return Registry.register(Registries.BLOCK, Identifier.of(Desire.MOD_ID, name), block);
+    }
+
+    public static void registerSingleBlock(String name, Block block, boolean pickaxeMineable, boolean axeMineable) {
+        Block block2 = registerBlock(name, block);
+        BLOCK_SET_BLOCKS.put(name, block2);
+        if (pickaxeMineable) {
+            ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
+        } else if (axeMineable) {
+            ModBlockTagProvider.AXE_MINEABLE.add(block);
+        }
+        ModDatagenUtils.BASE_BLOCK_IDS.add(name);
     }
 
     public static class StoneBlockSetMaker {
@@ -168,7 +176,7 @@ public class BlockSetMaker {
             id = prefix + "chiseled_" + name;
             if (chiseled) {
                 Block block = registerBlock(id, new Block(settings));
-                BLOCK_SET_BLOCKS.put(id, registerBlock(id, new Block(settings)));
+                BLOCK_SET_BLOCKS.put(id, block);
                 ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
 
@@ -254,6 +262,45 @@ public class BlockSetMaker {
                 BLOCK_SET_BLOCKS.put(id, block);
                 ModBlockTagProvider.PICKAXE_MINEABLE.add(block);
             }
+        }
+    }
+
+    public static class WoodVariantsBlockMaker {
+        public static final List<String> WOOD_TYPES = List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "crimson", "warped");
+        public static final List<Block> WOOD_BLOCKS = List.of(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.MANGROVE_PLANKS, Blocks.CHERRY_PLANKS, Blocks.BAMBOO_PLANKS, Blocks.CRIMSON_PLANKS, Blocks.WARPED_PLANKS);
+        public static final List<Block> WOOD_SLABS = List.of(Blocks.OAK_SLAB, Blocks.SPRUCE_SLAB, Blocks.BIRCH_SLAB, Blocks.JUNGLE_SLAB, Blocks.ACACIA_SLAB, Blocks.DARK_OAK_SLAB, Blocks.MANGROVE_SLAB, Blocks.CHERRY_SLAB, Blocks.BAMBOO_SLAB, Blocks.CRIMSON_SLAB, Blocks.WARPED_SLAB);
+        public final String name;
+        public final String baseBlockName;
+        public final boolean ignoreBamboo;
+        public WoodVariantsBlockMaker(String baseBlockName, String name, boolean ignoreBamboo) {
+            this.name = name;
+            this.baseBlockName = baseBlockName;
+            this.ignoreBamboo = ignoreBamboo;
+            for (String wood : WOOD_TYPES) {
+                if (!(ignoreBamboo && wood == "bamboo")) {
+                    Block block = registerBlock(wood + "_" + baseBlockName, new Block(AbstractBlock.Settings.copy(WOOD_BLOCKS.get(WOOD_TYPES.indexOf(wood)))));
+                    BLOCK_SET_BLOCKS.put(wood + "_" + baseBlockName, block);
+                    ModBlockTagProvider.AXE_MINEABLE.add(block);
+                }
+            }
+        }
+        public WoodVariantsBlockMaker stairsAndSlab() {
+            for (String wood : WOOD_TYPES) {
+                if (!(ignoreBamboo && wood == "bamboo")) {
+                    Block block = registerBlock(wood + "_" + name + "_stairs", new StairsBlock(BLOCK_SET_BLOCKS.get(wood + "_" + baseBlockName).getDefaultState(), AbstractBlock.Settings.copy(BLOCK_SET_BLOCKS.get(wood + "_" + baseBlockName))));
+                    BLOCK_SET_BLOCKS.put(wood + "_" + name + "_stairs", block);
+                    ModBlockTagProvider.STAIRS.add(block);
+                    ModBlockTagProvider.AXE_MINEABLE.add(block);
+                    ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(wood + "_" + baseBlockName));
+
+                    block = registerBlock(wood + "_" + name + "_slab", new SlabBlock(AbstractBlock.Settings.copy(BLOCK_SET_BLOCKS.get(wood + "_" + baseBlockName))));
+                    BLOCK_SET_BLOCKS.put(wood + "_" + name + "_slab", block);
+                    ModBlockTagProvider.SLABS.add(block);
+                    ModBlockTagProvider.AXE_MINEABLE.add(block);
+                    ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(block, BLOCK_SET_BLOCKS.get(wood + "_" + baseBlockName));
+                }
+            }
+            return this;
         }
     }
     public static class BlockSetExtension {

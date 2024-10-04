@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "desire:block/stripped_dripstone",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "desire:block/stripped_dripstone"
+    },
+    "axis=z": {
+      "model": "desire:block/stripped_dripstone",
+      "x": 90
+    }
+  }
+}

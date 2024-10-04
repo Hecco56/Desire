@@ -14,6 +14,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public static final ArrayList<Block> SLABS = new ArrayList<>();
     public static final ArrayList<Block> WALLS = new ArrayList<>();
     public static final ArrayList<Block> PICKAXE_MINEABLE = new ArrayList<>();
+    public static final ArrayList<Block> AXE_MINEABLE = new ArrayList<>();
 
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
@@ -32,6 +33,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         }
         for (Block block : PICKAXE_MINEABLE) {
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block);
+        }
+        for (Block block : AXE_MINEABLE) {
+            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block);
         }
     }
 }

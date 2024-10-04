@@ -4,7 +4,7 @@
       "model": "desire:block/rough_concrete_slab"
     },
     "type=double": {
-      "model": "desire:block/rough_concrete_block"
+      "model": "desire:block/rough_concrete_slab_double"
     },
     "type=top": {
       "model": "desire:block/rough_concrete_slab_top"

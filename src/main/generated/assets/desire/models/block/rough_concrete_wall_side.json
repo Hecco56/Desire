@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/template_wall_side",
+  "parent": "desire:block/template_wall_side_bottom_top",
   "textures": {
-    "wall": "desire:block/rough_concrete_block"
+    "bottom": "desire:block/rough_concrete_block_top",
+    "side": "desire:block/rough_concrete_block",
+    "top": "desire:block/rough_concrete_block_top"
   }
 }
