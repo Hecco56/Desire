@@ -4,7 +4,7 @@
       "model": "desire:block/polished_granite_brick_slab"
     },
     "type=double": {
-      "model": "desire:block/polished_granite_bricks"
+      "model": "desire:block/polished_granite_brick_slab_double"
     },
     "type=top": {
       "model": "desire:block/polished_granite_brick_slab_top"

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/wall_inventory",
+  "parent": "desire:block/wall_inventory_polished",
   "textures": {
-    "wall": "minecraft:block/polished_granite"
+    "post": "desire:block/polished_granite_wall_post",
+    "side": "desire:block/polished_granite_wall_side",
+    "tallside": "minecraft:block/polished_granite"
   }
 }

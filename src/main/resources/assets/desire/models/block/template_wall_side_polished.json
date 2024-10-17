@@ -1,0 +1,20 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"particle": "#tallside"
+	},
+	"elements": [
+		{
+			"name": "wall",
+			"from": [5, 0, 0],
+			"to": [11, 14, 8],
+			"faces": {
+				"north": {"uv": [4, 2, 10, 16], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [8, 2, 16, 16], "texture": "#side"},
+				"west": {"uv": [0, 2, 8, 16], "texture": "#side"},
+				"up": {"uv": [5, 0, 11, 8], "texture": "#tallside"},
+				"down": {"uv": [5, 8, 11, 16], "texture": "#tallside", "cullface": "down"}
+			}
+		}
+	]
+}

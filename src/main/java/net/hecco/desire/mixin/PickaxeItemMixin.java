@@ -1,14 +1,10 @@
 package net.hecco.desire.mixin;
 
-import com.google.common.collect.BiMap;
-import net.hecco.desire.util.BlockSetMaker;
+import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Oxidizable;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.PickaxeItem;
@@ -22,8 +18,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-
-import java.util.Optional;
 
 @Mixin(PickaxeItem.class)
 public class PickaxeItemMixin {
@@ -40,9 +34,9 @@ public class PickaxeItemMixin {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);
             }
             if (Random.create().nextFloat() > 0.1f) {
-                world.setBlockState(blockPos, BlockSetMaker.BLOCK_SET_BLOCKS.get("stripped_dripstone").getDefaultState(), 11);
+                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("stripped_dripstone").getDefaultState(), 11);
             } else {
-                world.setBlockState(blockPos, BlockSetMaker.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore").getDefaultState(), 11);
+                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore").getDefaultState(), 11);
             }
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, blockState));
             if (playerEntity != null) {

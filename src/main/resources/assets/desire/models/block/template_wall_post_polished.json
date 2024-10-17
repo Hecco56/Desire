@@ -1,0 +1,21 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"particle": "#tallside"
+	},
+	"elements": [
+		{
+			"name": "Center post",
+			"from": [4, 0, 4],
+			"to": [12, 16, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "texture": "#post"},
+				"east": {"uv": [0, 0, 8, 16], "texture": "#post"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#post"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#post"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#post", "cullface": "up"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#post", "cullface": "down"}
+			}
+		}
+	]
+}

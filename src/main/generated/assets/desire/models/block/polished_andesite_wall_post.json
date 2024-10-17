@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/template_wall_post",
+  "parent": "desire:block/template_wall_post_polished",
   "textures": {
-    "wall": "minecraft:block/polished_andesite"
+    "post": "desire:block/polished_andesite_wall_post",
+    "side": "desire:block/polished_andesite_wall_side",
+    "tallside": "minecraft:block/polished_andesite"
   }
 }

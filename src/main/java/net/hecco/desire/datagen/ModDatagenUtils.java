@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import java.util.*;
 
 public class ModDatagenUtils {
-    public static final List<String> VANILLA_COLORS = List.of("red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown", "white", "light_gray", "gray", "black");
+    public static final List<String> VANILLA_COLORS = List.of( "white", "light_gray", "gray", "black", "brown", "red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink");
     public static final Map<Block, Block> VARIANT_TO_BASE_BLOCK = new HashMap<>();
     public static final ArrayList<String> BASE_BLOCK_IDS = new ArrayList<>();
     public static final ArrayList<Block> CUSTOM_STAIRS_MODEL = new ArrayList<>();
