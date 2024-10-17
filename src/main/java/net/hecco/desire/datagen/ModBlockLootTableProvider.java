@@ -7,25 +7,35 @@ import net.hecco.desire.block.PlaceableRockBlock;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.IntStream;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     public static final ArrayList<Block> usedBlocks = new ArrayList<>();
+
+    public ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
+    }
+
     @Override
     public void addDrop(Block block, LootTable.Builder lootTable) {
         if(usedBlocks.contains(block)) {
@@ -34,16 +44,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         super.addDrop(block, lootTable);
         usedBlocks.add(block);
     }
-    public ModBlockLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput);
-    }
 
     @Override
     public void generate() {
         addDrop(ModBlocks.STONE_BOULDER, placeableRockDrops(ModBlocks.STONE_BOULDER));
         addDrop(ModBlocks.DEEPSLATE_SHEET, placeableRockDrops(ModBlocks.DEEPSLATE_SHEET));
         addDrop(ModBlocks.BLACKSTONE_CHUNK, placeableRockDrops(ModBlocks.BLACKSTONE_CHUNK));
-        addDrop(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), dropsWithSilkTouch(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), this.applyExplosionDecay(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), ItemEntry.builder(Items.NAUTILUS_SHELL).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))));
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        addDrop(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), dropsWithSilkTouch(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), this.applyExplosionDecay(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), ItemEntry.builder(Items.NAUTILUS_SHELL).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE))))));
         for (Block block : ModBlockTagProvider.SLABS) {
             addDrop(block, slabDrops(block));
         }

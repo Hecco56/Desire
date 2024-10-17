@@ -2,15 +2,16 @@ package net.hecco.desire.util;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.desire.Desire;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -19,9 +20,10 @@ public class StonecutterRecipeTreeGenerator extends FabricRecipeProvider {
     public static List<Map.Entry<ItemConvertible, ItemConvertible>> RECIPES = new ArrayList<>();
     private static final Map<Map.Entry<ItemConvertible, ItemConvertible>, Integer> ENTRY_TO_COUNT = new HashMap<>();
 
-    public StonecutterRecipeTreeGenerator(FabricDataOutput output) {
-        super(output);
+    public StonecutterRecipeTreeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
+
 
     public static void putShadowRecipe(ItemConvertible output, ItemConvertible input) {
         SHADOW_RECIPES.add(Map.entry(input, output));
@@ -41,7 +43,7 @@ public class StonecutterRecipeTreeGenerator extends FabricRecipeProvider {
         ENTRY_TO_COUNT.put(Map.entry(input, output), count);
     }
 
-    public static void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
+    public static void generateRecipes(RecipeExporter exporter) {
         for (Map.Entry<ItemConvertible, ItemConvertible> entry : RECIPES) {
             offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, entry.getValue(), entry.getKey(), ENTRY_TO_COUNT.get(entry));
         }
@@ -70,7 +72,7 @@ public class StonecutterRecipeTreeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
 
     }
 }

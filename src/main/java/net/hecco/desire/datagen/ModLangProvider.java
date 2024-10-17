@@ -6,18 +6,22 @@ import net.hecco.desire.Desire;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 import static net.hecco.desire.datagen.ModDatagenUtils.toSentanceCase;
 
 public class ModLangProvider extends FabricLanguageProvider {
     Set<String> usedTranslationKeys = new HashSet<>();
-    public ModLangProvider(FabricDataOutput dataOutput) {
-        super(dataOutput, "en_us");
+
+    public ModLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
+
     private void generate(TranslationBuilder translationBuilder, String key, String translation) {
         if(usedTranslationKeys.contains(key)) {
             return;
@@ -37,7 +41,7 @@ public class ModLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         generateRaw(translationBuilder, "itemgroup.desire", "Desire");
 
         for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(Desire.MOD_ID)) {

@@ -236,20 +236,20 @@ public class ModModelProvider extends FabricModelProvider {
     }
     public void sideTopWall(BlockStateModelGenerator blockStateModelGenerator, Block block, Identifier sideTexture, Identifier topTexture, Identifier bottomTexture) {
         TextureMap textures = new TextureMap().put(TextureKey.SIDE, sideTexture).put(TextureKey.TOP, topTexture).put(TextureKey.BOTTOM, bottomTexture);
-        Identifier identifier = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_post_bottom_top")), Optional.of("_post"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier2 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_side_bottom_top")), Optional.of("_side"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier3 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_side_tall_bottom_top")), Optional.of("_side_tall"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_post_bottom_top")), Optional.of("_post"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_side_bottom_top")), Optional.of("_side"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier3 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_side_tall_bottom_top")), Optional.of("_side_tall"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(block, identifier, identifier2, identifier3));
-        Identifier identifier4 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/wall_inventory_bottom_top")), Optional.of("_inventory"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier4 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/wall_inventory_bottom_top")), Optional.of("_inventory"), TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP).upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.registerParentedItemModel(block, identifier4);
     }
     public void polishedWall(BlockStateModelGenerator blockStateModelGenerator, Block block, Identifier postTexture, Identifier sideTexture, Identifier tallSideTexture) {
         TextureMap textures = new TextureMap().put(POST, postTexture).put(TextureKey.SIDE, sideTexture).put(TALLSIDE, tallSideTexture);
-        Identifier identifier = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_post_polished")), Optional.of("_post"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier2 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_side_polished")), Optional.of("_side"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier3 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/template_wall_side_tall_polished")), Optional.of("_side_tall"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_post_polished")), Optional.of("_post"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_side_polished")), Optional.of("_side"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier3 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/template_wall_side_tall_polished")), Optional.of("_side_tall"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(block, identifier, identifier2, identifier3));
-        Identifier identifier4 = new Model(Optional.of(new Identifier(Desire.MOD_ID, "block/wall_inventory_polished")), Optional.of("_inventory"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier4 = new Model(Optional.of(Identifier.of(Desire.MOD_ID, "block/wall_inventory_polished")), Optional.of("_inventory"), POST, TextureKey.SIDE, TALLSIDE).upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.registerParentedItemModel(block, identifier4);
     }
 

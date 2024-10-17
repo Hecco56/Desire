@@ -4,6 +4,7 @@ import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -40,9 +41,7 @@ public class PickaxeItemMixin {
             }
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, blockState));
             if (playerEntity != null) {
-                itemStack.damage(1, playerEntity, (p) -> {
-                    p.sendToolBreakStatus(context.getHand());
-                });
+                itemStack.damage(1, playerEntity, LivingEntity.getSlotForHand(context.getHand()));
             }
 
             return ActionResult.success(world.isClient);
