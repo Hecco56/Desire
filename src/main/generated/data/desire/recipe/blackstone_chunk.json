@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "blackstone_chunk",
+  "ingredients": [
+    {
+      "item": "minecraft:blackstone"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "desire:blackstone_chunk"
+  }
+}

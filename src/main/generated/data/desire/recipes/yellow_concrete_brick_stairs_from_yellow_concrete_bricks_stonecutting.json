@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "desire:yellow_concrete_bricks"
-  },
-  "result": "desire:yellow_concrete_brick_stairs"
-}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "deepslate_sheet",
+  "ingredients": [
+    {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "desire:deepslate_sheet"
+  }
+}

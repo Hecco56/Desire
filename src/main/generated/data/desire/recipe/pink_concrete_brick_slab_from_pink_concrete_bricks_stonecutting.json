@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:pink_concrete_bricks"
+  },
+  "result": {
+    "count": 2,
+    "id": "desire:pink_concrete_brick_slab"
+  }
+}
