@@ -17,6 +17,6 @@ public class Desire implements ModInitializer {
 	public void onInitialize() {
 		ModBlocks.register();
 		ModItemGroups.register();
-		ModRegistries.registerOxidizables();
+		ModRegistries.register();
 	}
 }
