@@ -13,7 +13,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public static final ArrayList<Block> STAIRS = new ArrayList<>();
     public static final ArrayList<Block> SLABS = new ArrayList<>();
     public static final ArrayList<Block> WALLS = new ArrayList<>();
-    public static final ArrayList<Block> POLISHED_WALLS = new ArrayList<>();
     public static final ArrayList<Block> PICKAXE_MINEABLE = new ArrayList<>();
     public static final ArrayList<Block> AXE_MINEABLE = new ArrayList<>();
 
