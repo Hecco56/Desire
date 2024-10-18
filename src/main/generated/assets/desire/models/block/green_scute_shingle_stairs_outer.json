@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "desire:block/green_scute_shingles",
+    "side": "desire:block/green_scute_shingles",
+    "top": "desire:block/green_scute_shingles"
+  }
+}

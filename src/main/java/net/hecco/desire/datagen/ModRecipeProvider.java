@@ -137,11 +137,29 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("calcite_bricks"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_calcite"));
         generateSSWFamily(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("calcite_bricks"), "calcite_brick");
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_calcite_bricks"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("calcite_brick_slab"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"), 2)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .input('#', Items.ARMADILLO_SCUTE)
+                .criterion(hasItem(Items.ARMADILLO_SCUTE), conditionsFromItem(Items.ARMADILLO_SCUTE))
+                .offerTo(exporter);
+        generateSSFamily(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"), "scute_shingle");
         for (String color : ModDatagenUtils.VANILLA_COLORS) {
             offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_concrete_bricks"), Registries.BLOCK.get(Identifier.of("minecraft", color + "_concrete")));
             generateSSWFamily(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_concrete_bricks"), color + "_concrete_brick");
             offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic"), Registries.BLOCK.get(Identifier.of("minecraft", color + "_glazed_terracotta")));
             generateSSWFamily(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic"), color + "_terracotta_mosaic");
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles"), 8)
+                    .input('#', BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"))
+                    .input('X', Registries.ITEM.get(Identifier.of("minecraft", color + "_dye")))
+                    .pattern("###")
+                    .pattern("#X#")
+                    .pattern("###")
+                    .group("colored_scute_shingles")
+                    .criterion("has_scute_shingles", conditionsFromItem(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles")))
+                    .offerTo(exporter);
+            generateSSFamily(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles"), color + "_scute_shingle");
         }
 
         StonecutterRecipeTreeGenerator.putRecipe(BlockSetGenerator.BLOCK_SET_BLOCKS.get("stone_wall"), Blocks.STONE);

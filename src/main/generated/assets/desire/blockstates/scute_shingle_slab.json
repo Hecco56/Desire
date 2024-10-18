@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "desire:block/scute_shingle_slab"
+    },
+    "type=double": {
+      "model": "desire:block/scute_shingles"
+    },
+    "type=top": {
+      "model": "desire:block/scute_shingle_slab_top"
+    }
+  }
+}

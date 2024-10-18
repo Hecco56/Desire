@@ -147,6 +147,11 @@ public class ModItemGroups {
                             entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic_slab"));
                             entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic_wall"));
                         }
+                        for (String color : ModDatagenUtils.VANILLA_COLORS) {
+                            entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles"));
+                            entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingle_stairs"));
+                            entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingle_slab"));
+                        }
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cut_sandstone_stairs"));
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cut_red_sandstone_stairs"));
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("quartz_brick_stairs"));

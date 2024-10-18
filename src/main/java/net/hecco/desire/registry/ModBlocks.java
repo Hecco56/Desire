@@ -6,11 +6,14 @@ import net.hecco.desire.block.PlaceableRockBlock;
 import net.hecco.desire.datagen.ModDatagenUtils;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Instrument;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -212,6 +215,10 @@ public class ModBlocks {
                 false, false, false, false, false, false
         );
 
+
+        BlockSetGenerator.registerSingleBlock("scute_shingles", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(1.0F, 16F)), true, false);
+        BlockSetGenerator.BlockSetExtension SCUTE_SHINGLE_EXTENTION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles")), "scute_shingle", true, true, false, false, false,false, false);
+
         for (String color : ModDatagenUtils.VANILLA_COLORS) {
             BlockSetGenerator.StoneBlockSetMaker CONCRETE_BRICKS = new BlockSetGenerator.StoneBlockSetMaker(color, "concrete", AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", color + "_concrete"))),
                     false, false, false, false, false, false, false, false, false,
@@ -223,6 +230,10 @@ public class ModBlocks {
             );
             BlockSetGenerator.registerSingleBlock(color + "_terracotta_mosaic", new Block(AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", color + "_glazed_terracotta")))), true, false);
             BlockSetGenerator.BlockSetExtension TERRACOTTA_MOSAIC_EXTENSION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic")), color + "_terracotta_mosaic", true, true, true, false, false,false, false);
+
+            BlockSetGenerator.registerSingleBlock(color + "_scute_shingles", new Block(AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles")).mapColor(DyeColor.byName(color, DyeColor.WHITE))), true, false);
+            BlockSetGenerator.BlockSetExtension COLORED_SCUTE_SHINGLE_EXTENTION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles")), color + "_scute_shingle", true, true, false, false, false,false, false);
+
         }
 
         BlockSetGenerator.registerSingleBlock("chiseled_deepslate_bricks", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)), true, false);

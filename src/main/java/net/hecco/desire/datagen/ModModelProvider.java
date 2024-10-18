@@ -81,9 +81,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_calcite_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), TexturedModel.END_FOR_TOP_CUBE_COLUMN.get(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone")).textures((textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"))))).upload(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), blockStateModelGenerator.modelCollector));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"));
         for (String color : ModDatagenUtils.VANILLA_COLORS) {
             blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_concrete_bricks"));
             blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic"));
+            blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_scute_shingles"));
         }
 
 
