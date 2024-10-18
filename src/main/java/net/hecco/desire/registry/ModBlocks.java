@@ -216,7 +216,7 @@ public class ModBlocks {
         );
 
 
-        BlockSetGenerator.registerSingleBlock("scute_shingles", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(1.0F, 16F)), true, false);
+        BlockSetGenerator.registerSingleBlock("scute_shingles", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(0.8F, 16F)), true, false);
         BlockSetGenerator.BlockSetExtension SCUTE_SHINGLE_EXTENTION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles")), "scute_shingle", true, true, false, false, false,false, false);
 
         for (String color : ModDatagenUtils.VANILLA_COLORS) {
