@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "desire:stone_boulder",
+    "desire:deepslate_sheet",
+    "desire:blackstone_chunk",
     "desire:stone_wall",
     "desire:chiseled_stone",
     "desire:polished_andesite_wall",

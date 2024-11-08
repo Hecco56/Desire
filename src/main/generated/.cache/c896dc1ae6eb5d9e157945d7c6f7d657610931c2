@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-16T19:52:07.641981	Desire/Block Loot Tables
+// 1.20.1	2024-11-03T10:35:33.84215	Desire/Block Loot Tables
 ca7cad753116da9604a8cca10e35361d8b7f17bf data/desire/loot_tables/blocks/polished_granite_bricks.json
 240de0107cbd7215f420a7fd6a1800406ff1a8e2 data/desire/loot_tables/blocks/smooth_basalt_stairs.json
 808fc32149d35fa3376cb4168707ba6773668b81 data/desire/loot_tables/blocks/orange_concrete_brick_slab.json
@@ -152,8 +152,8 @@ cd6ed2fd3ea1b3abce430febb64e362a220071b7 data/desire/loot_tables/blocks/white_co
 1dc5333deb43a69ba8c059e789bc387fae91cfc2 data/desire/loot_tables/blocks/magenta_concrete_brick_wall.json
 bb4cc8000cbca241e9715c41eb55e2cafe5c82a9 data/desire/loot_tables/blocks/yellow_concrete_brick_stairs.json
 cbd0c49b85917a35fbe9c0f0d5d57b4a47ebd35c data/desire/loot_tables/blocks/yellow_terracotta_mosaic_slab.json
-676438b1a1c890cf91c57b1127784d49a8c7dc84 data/desire/loot_tables/blocks/chiseled_blackstone.json
 77bdcf7e5aac5b34102b8d70c0110d03b3f85680 data/desire/loot_tables/blocks/cracked_polished_diorite_bricks.json
+676438b1a1c890cf91c57b1127784d49a8c7dc84 data/desire/loot_tables/blocks/chiseled_blackstone.json
 031c5031d7893a0b57fa7b9e715ae9f274660ce5 data/desire/loot_tables/blocks/polished_stone_slab.json
 a05ac6c31f8c60f314461bea13fc82ef6ccec5b5 data/desire/loot_tables/blocks/polished_calcite_slab.json
 66507379e2284e862ef6ce039d38d7f471e0076b data/desire/loot_tables/blocks/green_terracotta_mosaic_stairs.json

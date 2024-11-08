@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.desire.Desire;
 import net.hecco.desire.registry.ModBlocks;
+import net.hecco.desire.registry.ModItemGroups;
+import net.hecco.desire.registry.ModItems;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -151,6 +153,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.STONE_BOULDER.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.DEEPSLATE_SHEET.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.BLACKSTONE_CHUNK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.DESIRE_ICON.asItem(), Models.GENERATED);
     }
 
     public void stairs(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {

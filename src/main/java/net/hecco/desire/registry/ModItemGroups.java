@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
     public static ItemGroup DESIRE = Registry.register(Registries.ITEM_GROUP, Identifier.of(Desire.MOD_ID, "desire"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.desire"))
-                    .icon(() -> new ItemStack(ModBlocks.STONE_BOULDER)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.DESIRE_ICON)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.STONE_BOULDER);
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_stone"));
                         entries.add(ModBlocks.DEEPSLATE_SHEET);
