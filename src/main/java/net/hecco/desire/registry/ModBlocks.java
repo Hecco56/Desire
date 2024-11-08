@@ -3,6 +3,7 @@ package net.hecco.desire.registry;
 import net.hecco.desire.Desire;
 import net.hecco.desire.block.OxidizablePillarBlock;
 import net.hecco.desire.block.PlaceableRockBlock;
+import net.hecco.desire.datagen.ModBlockTagProvider;
 import net.hecco.desire.datagen.ModDatagenUtils;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.*;
@@ -26,6 +27,9 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, Identifier.of(Desire.MOD_ID, name), block);
     }
     public static void register() {
+        ModBlockTagProvider.PICKAXE_MINEABLE.add(ModBlocks.STONE_BOULDER);
+        ModBlockTagProvider.PICKAXE_MINEABLE.add(ModBlocks.DEEPSLATE_SHEET);
+        ModBlockTagProvider.PICKAXE_MINEABLE.add(ModBlocks.BLACKSTONE_CHUNK);
         BlockSetGenerator.BlockSetExtension STONE_EXTENSION = new BlockSetGenerator.BlockSetExtension(Blocks.STONE, AbstractBlock.Settings.copy(Blocks.STONE), "stone", false, false, true, false, false, true, false);
         BlockSetGenerator.BlockSetExtension POLISHED_ANDESITE_EXTENSION = new BlockSetGenerator.BlockSetExtension(Blocks.POLISHED_ANDESITE, AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE), "polished_andesite", false, false, true, true, false,false, false);
         ModDatagenUtils.CUSTOM_WALL_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_andesite_wall"));
