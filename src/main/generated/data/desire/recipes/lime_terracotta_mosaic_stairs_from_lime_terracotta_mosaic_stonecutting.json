@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "desire:lime_terracotta_mosaic"
-  },
-  "result": "desire:lime_terracotta_mosaic_stairs"
-}

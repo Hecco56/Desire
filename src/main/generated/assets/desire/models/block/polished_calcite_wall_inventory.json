@@ -1,8 +1,0 @@
-{
-  "parent": "desire:block/wall_inventory_polished",
-  "textures": {
-    "post": "desire:block/polished_calcite_wall_post",
-    "side": "desire:block/polished_calcite_wall_side",
-    "tallside": "desire:block/polished_calcite"
-  }
-}

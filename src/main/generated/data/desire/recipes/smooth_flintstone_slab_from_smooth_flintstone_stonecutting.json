@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "desire:smooth_flintstone"
-  },
-  "result": "desire:smooth_flintstone_slab"
-}

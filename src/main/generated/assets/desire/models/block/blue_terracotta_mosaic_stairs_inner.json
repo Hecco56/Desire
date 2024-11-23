@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "desire:block/blue_terracotta_mosaic",
-    "side": "desire:block/blue_terracotta_mosaic",
-    "top": "desire:block/blue_terracotta_mosaic"
-  }
-}

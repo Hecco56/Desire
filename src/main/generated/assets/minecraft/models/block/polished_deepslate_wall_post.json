@@ -1,8 +1,0 @@
-{
-  "parent": "desire:block/template_wall_post_polished",
-  "textures": {
-    "post": "desire:block/polished_deepslate_wall_post",
-    "side": "desire:block/polished_deepslate_wall_side",
-    "tallside": "minecraft:block/polished_deepslate"
-  }
-}
