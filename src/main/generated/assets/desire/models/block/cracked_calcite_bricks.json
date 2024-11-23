@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "desire:block/rough_concrete_block"
+    "all": "desire:block/cracked_calcite_bricks"
   }
 }

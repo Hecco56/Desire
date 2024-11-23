@@ -35,9 +35,9 @@ public class PickaxeItemMixin {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);
             }
             if (Random.create().nextFloat() > 0.1f) {
-                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("stripped_dripstone").getDefaultState(), 11);
+                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone").getDefaultState(), 11);
             } else {
-                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("stripped_dripstone_ore").getDefaultState(), 11);
+                world.setBlockState(blockPos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore").getDefaultState(), 11);
             }
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, blockState));
             if (playerEntity != null) {
