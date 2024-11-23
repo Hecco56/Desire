@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_mirrored",
+  "textures": {
+    "end": "desire:block/rough_concrete_top",
+    "side": "desire:block/rough_concrete"
+  }
+}

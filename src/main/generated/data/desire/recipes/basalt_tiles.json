@@ -1,16 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "building",
-  "ingredients": [
-    {
+  "key": {
+    "#": {
       "item": "minecraft:polished_basalt"
     },
-    {
+    "B": {
       "item": "minecraft:polished_blackstone"
     }
+  },
+  "pattern": [
+    "#B",
+    "B#"
   ],
   "result": {
     "count": 4,
     "item": "desire:basalt_tiles"
-  }
+  },
+  "show_notification": true
 }

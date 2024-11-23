@@ -7,8 +7,9 @@
     }
   },
   "pattern": [
-    "##",
-    "##"
+    "###",
+    "###",
+    "###"
   ],
   "result": {
     "item": "minecraft:flint"

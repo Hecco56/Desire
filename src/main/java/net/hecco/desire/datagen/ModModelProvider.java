@@ -42,8 +42,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("mossy_bricks"));
         blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("brick_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_block"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_block"));
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_mud"));
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cracked_mud_bricks"));
         blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_mud_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
@@ -79,6 +78,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerNorthDefaultHorizontalRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_flint_block"), TexturedModel.TEMPLATE_GLAZED_TERRACOTTA);
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_calcite"));
         blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("calcite_bricks"));
+        blockStateModelGenerator.registerSimpleCubeAll(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cracked_calcite_bricks"));
         blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_calcite"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_calcite_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);

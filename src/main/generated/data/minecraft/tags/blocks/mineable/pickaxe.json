@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "desire:stone_boulder",
-    "desire:deepslate_sheet",
-    "desire:blackstone_chunk",
     "desire:stone_wall",
     "desire:chiseled_stone",
     "desire:polished_andesite_wall",
@@ -107,6 +104,7 @@
     "desire:calcite_brick_stairs",
     "desire:calcite_brick_slab",
     "desire:calcite_brick_wall",
+    "desire:cracked_calcite_bricks",
     "desire:chiseled_calcite_bricks",
     "desire:white_concrete_bricks",
     "desire:white_concrete_brick_stairs",
