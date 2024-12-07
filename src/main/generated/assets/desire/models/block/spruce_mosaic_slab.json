@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "desire:block/spruce_mosaic",
-    "side": "desire:block/spruce_mosaic",
-    "top": "desire:block/spruce_mosaic"
-  }
-}

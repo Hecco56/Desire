@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "desire:light_blue_terracotta_mosaic"
-  },
-  "result": "desire:light_blue_terracotta_mosaic_slab"
-}

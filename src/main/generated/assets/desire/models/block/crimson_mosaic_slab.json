@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "desire:block/crimson_mosaic",
-    "side": "desire:block/crimson_mosaic",
-    "top": "desire:block/crimson_mosaic"
-  }
-}
