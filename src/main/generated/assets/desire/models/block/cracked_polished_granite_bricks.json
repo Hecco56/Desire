@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "desire:block/cracked_polished_granite_bricks_top",
+    "side": "desire:block/cracked_polished_granite_bricks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "desire:block/light_gray_concrete_brick_slab"
+    },
+    "type=double": {
+      "model": "desire:block/light_gray_concrete_bricks"
+    },
+    "type=top": {
+      "model": "desire:block/light_gray_concrete_brick_slab_top"
+    }
+  }
+}
