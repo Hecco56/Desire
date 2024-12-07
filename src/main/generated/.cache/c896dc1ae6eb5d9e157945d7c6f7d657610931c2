@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-22T23:34:35.3516564	Desire/Block Loot Tables
+// 1.21.1	2024-12-06T22:06:10.8444652	Desire/Block Loot Tables
 5cbc9be0db5bd317e6547d2d41eb2c297fe8f5ce data\desire\loot_table\blocks\magenta_terracotta_mosaic_slab.json
 c04aebec14d52f1e4a947d7d46548376da0086eb data\desire\loot_table\blocks\brown_scute_shingles.json
 9678b4a39a5afd7520f9788471fd340ed79daeb2 data\desire\loot_table\blocks\red_concrete_brick_stairs.json
@@ -15,8 +15,8 @@ d995eb78fa5f69c0bb987c446d731ae09735af02 data\desire\loot_table\blocks\red_concr
 1697621480818d04f4791f351083a248e07fcb7b data\desire\loot_table\blocks\red_terracotta_mosaic_slab.json
 ef50111352898c898b77f1ddd1e2167a07968ead data\desire\loot_table\blocks\acacia_mosaic_slab.json
 4827270f851d588096094d474eda1e24c3a804d6 data\desire\loot_table\blocks\waxed_copper_pillar.json
-eba1d8c61cf9d9bdf5494437dd15b06cba076dfe data\desire\loot_table\blocks\brown_concrete_brick_slab.json
 901e495ad8056408079dd2247d9fd516acd13fcd data\desire\loot_table\blocks\lime_concrete_brick_stairs.json
+eba1d8c61cf9d9bdf5494437dd15b06cba076dfe data\desire\loot_table\blocks\brown_concrete_brick_slab.json
 97c2d00434a80a19b55a7ebc8a6d788926b57d17 data\desire\loot_table\blocks\rough_concrete_slab.json
 e2f1e86486f0c28b32a13303ac67e8fbaa0929cb data\desire\loot_table\blocks\waxed_oxidized_copper_pillar.json
 0b90261306e6e791daa74cd2ae70758489cc4c9a data\desire\loot_table\blocks\yellow_concrete_bricks.json
@@ -239,8 +239,8 @@ f3309e014c3d077a6a4023d3e37ccd3421dc6eb5 data\desire\loot_table\blocks\flintston
 ffd2763189ea2e3b4ae915c48f3c321b1998d6bb data\desire\loot_table\blocks\smooth_basalt_slab.json
 69108e451fb112279be284b133a9da213f7c81af data\desire\loot_table\blocks\polished_diorite_bricks.json
 a8d042d1bdb0293c303938ff3ba0c4b00bf88418 data\desire\loot_table\blocks\exposed_copper_pillar.json
-c226ac57c94698986cf6a951ea51f47f12c2fca6 data\desire\loot_table\blocks\carved_dripstone.json
 11b41cce98642ff98c05d40cbed9da14a691aecb data\desire\loot_table\blocks\purple_concrete_brick_stairs.json
+c226ac57c94698986cf6a951ea51f47f12c2fca6 data\desire\loot_table\blocks\carved_dripstone.json
 681940012251cf37f5a0b490b1ea58ef55538554 data\desire\loot_table\blocks\flintstone_wall.json
 47a760fa4c30794263e609d5c5b39ea7dfd14533 data\desire\loot_table\blocks\green_terracotta_mosaic_wall.json
 7ccd171c12afe4a4a25df2e1d44895f0bacb3754 data\desire\loot_table\blocks\spruce_mosaic.json

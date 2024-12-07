@@ -143,7 +143,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerPillarRecipe(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_exposed_copper_pillar"), Blocks.WAXED_EXPOSED_COPPER);
         offerPillarRecipe(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_weathered_copper_pillar"), Blocks.WAXED_WEATHERED_COPPER);
         offerPillarRecipe(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_oxidized_copper_pillar"), Blocks.WAXED_WEATHERED_COPPER);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"), RecipeCategory.BUILDING_BLOCKS, Items.FLINT);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.FLINT, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"));
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_flint_block"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"));
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_calcite"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("calcite_slab"));
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_calcite"), Blocks.CALCITE);

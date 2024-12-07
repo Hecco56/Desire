@@ -18,9 +18,9 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-    public static final Block STONE_BOULDER = register("stone_boulder", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.STONE_GRAY).breakInstantly().strength(1.0F, 2.0F)));
-    public static final Block DEEPSLATE_SHEET = register("deepslate_sheet", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.DEEPSLATE_GRAY).sounds(BlockSoundGroup.DEEPSLATE).breakInstantly().strength(1.5F, 2.0F)));
-    public static final Block BLACKSTONE_CHUNK = register("blackstone_chunk", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.BLACK).breakInstantly().strength(1.0F, 2.0F)));
+    public static final Block STONE_BOULDER = register("stone_boulder", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.STONE_GRAY).strength(0.2F, 2.0F)));
+    public static final Block DEEPSLATE_SHEET = register("deepslate_sheet", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.DEEPSLATE_GRAY).sounds(BlockSoundGroup.DEEPSLATE).strength(0.4F, 2.0F)));
+    public static final Block BLACKSTONE_CHUNK = register("blackstone_chunk", new PlaceableRockBlock(AbstractBlock.Settings.create().nonOpaque().mapColor(MapColor.BLACK).strength(0.2F, 2.0F)));
 
     private static Block register(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(Desire.MOD_ID, name), new BlockItem(block, new Item.Settings()));
@@ -217,7 +217,7 @@ public class ModBlocks {
         );
 
 
-        BlockSetGenerator.registerSingleBlock("scute_shingles", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(0.8F, 16F)), true, false);
+        BlockSetGenerator.registerSingleBlock("scute_shingles", new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).sounds(BlockSoundGroup.BAMBOO_WOOD).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(0.8F, 16F)), true, false);
         BlockSetGenerator.BlockSetExtension SCUTE_SHINGLE_EXTENTION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("scute_shingles")), "scute_shingle", true, true, false, false, false,false, false);
 
         for (String color : ModDatagenUtils.VANILLA_COLORS) {

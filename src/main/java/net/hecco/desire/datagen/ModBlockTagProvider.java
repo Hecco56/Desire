@@ -2,6 +2,7 @@ package net.hecco.desire.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.desire.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
@@ -22,6 +23,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.STONE_BOULDER)
+                .add(ModBlocks.DEEPSLATE_SHEET)
+                .add(ModBlocks.BLACKSTONE_CHUNK)
+        ;
+
         for (Block block : WALLS) {
             getOrCreateTagBuilder(BlockTags.WALLS).add(block);
         }
