@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "desire:block/carved_dripstone_ore",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "desire:block/carved_dripstone_ore"
+    },
+    "axis=z": {
+      "model": "desire:block/carved_dripstone_ore",
+      "x": 90
+    }
+  }
+}

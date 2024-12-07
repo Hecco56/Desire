@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "desire:smooth_basalt_bricks"
+  },
+  "result": "desire:smooth_basalt_brick_wall"
+}

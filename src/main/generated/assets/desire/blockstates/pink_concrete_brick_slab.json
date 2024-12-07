@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "desire:block/pink_concrete_brick_slab"
+    },
+    "type=double": {
+      "model": "desire:block/pink_concrete_bricks"
+    },
+    "type=top": {
+      "model": "desire:block/pink_concrete_brick_slab_top"
+    }
+  }
+}

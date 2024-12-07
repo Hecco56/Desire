@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "desire:block/yellow_concrete_bricks"
+  }
+}
