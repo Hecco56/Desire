@@ -3,13 +3,14 @@
 	"id": "desire",
 	"version": "${version}",
 	"name": "Desire",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A mod that focuses on building and simple gameplay tweaks to expand the classic experience to the max!!",
 	"authors": [
-		"WorkGoblin",
-		"Hecco"
+		"Hecco",
+		"WorkGoblin"
 	],
 	"contact": {
-		"sources": "https://github.com/Hecco56/Desire"
+		"sources": "https://github.com/Hecco56/Desire",
+		"issues": "https://github.com/Hecco56/Desire/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/desire/icon.png",
