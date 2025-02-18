@@ -3,6 +3,7 @@ package net.hecco.desire.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.hecco.desire.Desire;
+import net.hecco.desire.util.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -51,6 +52,13 @@ public class ModLangProvider extends FabricLanguageProvider {
             if (usedTranslationKeys.contains(key)) {
                 continue;
             }
+            usedTranslationKeys.add(key);
+            translationBuilder.add(key, toSentanceCase(id.getPath()));
+        }
+
+        for(Identifier id : ModCompat.COMPAT_BLOCKS.keySet()) {
+            String key = Registries.BLOCK.get(id).getTranslationKey();
+            if(usedTranslationKeys.contains(key)) { continue; }
             usedTranslationKeys.add(key);
             translationBuilder.add(key, toSentanceCase(id.getPath()));
         }

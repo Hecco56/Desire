@@ -30,6 +30,9 @@
     "desire:crimson_mosaic_stairs",
     "desire:crimson_mosaic_slab",
     "desire:warped_mosaic_stairs",
-    "desire:warped_mosaic_slab"
+    "desire:warped_mosaic_slab",
+    "netherexp:claret_mosaic",
+    "netherexp:claret_mosaic_stairs",
+    "netherexp:claret_mosaic_slab"
   ]
 }

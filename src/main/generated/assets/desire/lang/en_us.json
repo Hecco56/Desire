@@ -287,6 +287,9 @@
   "block.desire.yellow_terracotta_mosaic_slab": "Yellow Terracotta Mosaic Slab",
   "block.desire.yellow_terracotta_mosaic_stairs": "Yellow Terracotta Mosaic Stairs",
   "block.desire.yellow_terracotta_mosaic_wall": "Yellow Terracotta Mosaic Wall",
+  "block.netherexp.claret_mosaic": "Claret Mosaic",
+  "block.netherexp.claret_mosaic_slab": "Claret Mosaic Slab",
+  "block.netherexp.claret_mosaic_stairs": "Claret Mosaic Stairs",
   "item.desire.desire_icon": "Desire Icon",
   "itemgroup.desire": "Desire"
 }

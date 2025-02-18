@@ -2,6 +2,8 @@ package net.hecco.desire;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItemGroups;
 import net.hecco.desire.registry.ModItems;
@@ -11,8 +13,18 @@ import org.slf4j.LoggerFactory;
 
 public class Desire implements ModInitializer {
 	public static final String MOD_ID = "desire";
+	public static final String NATURES_SPIRIT = "natures_spirit";
+	public static final String JADENS_NETHER_EXPANSION = "netherexp";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static boolean isModLoaded(String modId) {
+		return FabricLoader.getInstance().isModLoaded(modId);
+	}
+
+	public static boolean isDatagen() {
+		return System.getProperty("fabric-api.datagen") != null;
+	}
 
 	@Override
 	public void onInitialize() {
@@ -20,5 +32,7 @@ public class Desire implements ModInitializer {
 		ModItems.register();
 		ModItemGroups.register();
 		ModRegistries.register();
+
+		JNEModBlocks.register();
 	}
 }

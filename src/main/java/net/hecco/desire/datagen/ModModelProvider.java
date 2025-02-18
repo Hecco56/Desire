@@ -3,6 +3,7 @@ package net.hecco.desire.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItemGroups;
 import net.hecco.desire.registry.ModItems;
@@ -146,6 +147,14 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier chiseledRedSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CHISELED_RED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CHISELED_RED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/chiseled_red_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")), blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledRedSandstoneModel)));
         blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_RED_SANDSTONE, chiseledRedSandstoneModel);
+
+
+
+
+
+//        COMPAT
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CLARET_MOSAIC);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CLARET_MOSAIC, Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_mosaic"));
     }
 
     @Override

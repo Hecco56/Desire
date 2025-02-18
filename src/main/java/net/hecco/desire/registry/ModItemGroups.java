@@ -2,6 +2,7 @@ package net.hecco.desire.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.ModDatagenUtils;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.Blocks;
@@ -29,6 +30,9 @@ public class ModItemGroups {
                                 entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(wood + "_mosaic_slab"));
                             }
                         }
+                        entries.add(JNEModBlocks.CLARET_MOSAIC);
+                        entries.add(JNEModBlocks.CLARET_MOSAIC_STAIRS);
+                        entries.add(JNEModBlocks.CLARET_MOSAIC_SLAB);
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_stone"));
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_stone_stairs"));
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_stone_slab"));
