@@ -1,4 +1,4 @@
-package net.hecco.desire.datagen;
+package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;

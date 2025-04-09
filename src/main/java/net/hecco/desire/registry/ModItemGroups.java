@@ -1,15 +1,19 @@
 package net.hecco.desire.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hecco.desire.Desire;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
-import net.hecco.desire.datagen.ModDatagenUtils;
+import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -195,5 +199,15 @@ public class ModItemGroups {
                         entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("dark_prismarine_wall"));
                         }).build());
     public static void register() {
+
+        if (Desire.isModLoaded(Desire.JADENS_NETHER_EXPANSION)) {
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Desire.JADENS_NETHER_EXPANSION, "netherexp"))).register(entries -> {
+                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_planks")), JNEModBlocks.CLARET_MOSAIC);
+                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_stairs")), JNEModBlocks.CLARET_MOSAIC_STAIRS);
+                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_slab")), JNEModBlocks.CLARET_MOSAIC_SLAB);
+            }
+            );
+
+        }
     }
 }

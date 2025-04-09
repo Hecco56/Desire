@@ -3,7 +3,9 @@ package net.hecco.desire;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.desire.compat.ModPacks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
+import net.hecco.desire.datagen.nether_exp.JNEDatagenItems;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItemGroups;
 import net.hecco.desire.registry.ModItems;
@@ -23,7 +25,12 @@ public class Desire implements ModInitializer {
 	}
 
 	public static boolean isDatagen() {
-		return System.getProperty("fabric-api.datagen") != null;
+		try {
+			Class.forName("net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint");
+			return System.getProperty("fabric-api.datagen") != null;
+		} catch (ClassNotFoundException e) {
+			return false;
+		}
 	}
 
 	@Override
@@ -34,5 +41,8 @@ public class Desire implements ModInitializer {
 		ModRegistries.register();
 
 		JNEModBlocks.register();
+		JNEDatagenItems.register();
+
+		ModPacks.registerBuiltinPacks();
 	}
 }

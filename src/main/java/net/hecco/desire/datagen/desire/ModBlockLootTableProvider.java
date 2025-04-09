@@ -1,9 +1,10 @@
-package net.hecco.desire.datagen;
+package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.desire.Desire;
 import net.hecco.desire.block.PlaceableRockBlock;
+import net.hecco.desire.datagen.DesireBlockLootTableProvider;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.minecraft.block.Block;
@@ -24,18 +25,9 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
-public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public static final ArrayList<Block> usedBlocks = new ArrayList<>();
-    @Override
-    public void addDrop(Block block, LootTable.Builder lootTable) {
-        if(usedBlocks.contains(block)) {
-            return;
-        }
-        super.addDrop(block, lootTable);
-        usedBlocks.add(block);
-    }
+public class ModBlockLootTableProvider extends DesireBlockLootTableProvider {
     public ModBlockLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput);
+        super(dataOutput, Desire.MOD_ID);
     }
 
     @Override

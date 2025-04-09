@@ -6,13 +6,12 @@ import net.hecco.desire.compat.CompatBlock;
 import net.hecco.desire.compat.CompatBlockItem;
 import net.hecco.desire.compat.CompatSlabBlock;
 import net.hecco.desire.compat.CompatStairsBlock;
-import net.hecco.desire.datagen.ModBlockTagProvider;
-import net.hecco.desire.datagen.ModDatagenUtils;
+import net.hecco.desire.datagen.desire.ModBlockTagProvider;
+import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.util.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -24,6 +23,11 @@ public class JNEModBlocks {
     public static final Block CLARET_MOSAIC = registerBlock("claret_mosaic", new CompatBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block CLARET_MOSAIC_STAIRS = registerBlock("claret_mosaic_stairs", new CompatStairsBlock(CLARET_MOSAIC.getDefaultState(), FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block CLARET_MOSAIC_SLAB = registerBlock("claret_mosaic_slab", new CompatSlabBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
+    public static final Block POLISHED_NETHER_BRICKS = registerBlock("polished_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
+    public static final Block POLISHED_RED_NETHER_BRICKS = registerBlock("polished_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
+    public static final Block POLISHED_BLUE_NETHER_BRICKS = registerBlock("polished_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
+    public static final Block CRACKED_RED_NETHER_BRICKS = registerBlock("cracked_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
+    public static final Block CRACKED_BLUE_NETHER_BRICKS = registerBlock("cracked_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
 
     private static Block registerBlock(String name, Block block) {
         Block newBlock = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);

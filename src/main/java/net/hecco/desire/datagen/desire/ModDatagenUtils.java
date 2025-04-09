@@ -1,8 +1,6 @@
-package net.hecco.desire.datagen;
+package net.hecco.desire.datagen.desire;
 
-import net.hecco.desire.registry.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 

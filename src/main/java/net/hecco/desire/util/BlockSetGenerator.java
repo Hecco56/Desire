@@ -1,8 +1,8 @@
 package net.hecco.desire.util;
 
 import net.hecco.desire.Desire;
-import net.hecco.desire.datagen.ModBlockTagProvider;
-import net.hecco.desire.datagen.ModDatagenUtils;
+import net.hecco.desire.datagen.desire.ModBlockTagProvider;
+import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

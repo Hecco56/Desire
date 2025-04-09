@@ -1,7 +1,8 @@
-package net.hecco.desire.datagen;
+package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.hecco.desire.datagen.DesireRecipeProvider;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockSetGenerator;
 import net.hecco.desire.util.StonecutterRecipeTreeGenerator;
@@ -24,7 +25,7 @@ import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
 
-public class ModRecipeProvider extends FabricRecipeProvider {
+public class ModRecipeProvider extends DesireRecipeProvider {
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
     }
@@ -326,37 +327,5 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
         StonecutterRecipeTreeGenerator.generateRecipes(exporter);
-    }
-
-    public static void generateSSFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
-        BlockFamily family = register(baseBlock).stairs(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_stairs")).slab(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_slab")).build();
-        generateFamily(exporter, family);
-    }
-
-    public static void generateSSWFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
-        BlockFamily family = register(baseBlock).stairs(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_stairs")).slab(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_slab")).wall(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_wall")).build();
-        generateFamily(exporter, family);
-    }
-
-    public static CookingRecipeJsonBuilder createRoughConcreteRecipe(ItemConvertible output, ItemConvertible input) {
-        return CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), RecipeCategory.BUILDING_BLOCKS, output, 0.1F, 200).criterion(hasItem(input), conditionsFromItem(input));
-    }
-
-    public static void offerPillarRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output)
-                .pattern("#")
-                .pattern("#")
-                .input('#', input)
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
-    }
-
-    public static void offer2x2ReversibleCompactingRecipes(Consumer<RecipeJsonProvider> exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem) {
-        offer2x2ReversibleCompactingRecipes(exporter, reverseCategory, baseItem, compactingCategory, compactItem, getRecipeName(compactItem), null, getRecipeName(baseItem), null);
-    }
-
-    public static void offer2x2ReversibleCompactingRecipes(Consumer<RecipeJsonProvider> exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem, String compactingId, @Nullable String compactingGroup, String reverseId, @Nullable String reverseGroup) {
-        ShapelessRecipeJsonBuilder.create(reverseCategory, baseItem, 4).input(compactItem).group(reverseGroup).criterion(hasItem(compactItem), conditionsFromItem(compactItem)).offerTo(exporter, new Identifier(reverseId));
-        ShapedRecipeJsonBuilder.create(compactingCategory, compactItem).input('#', baseItem).pattern("##").pattern("##").group(compactingGroup).criterion(hasItem(baseItem), conditionsFromItem(baseItem)).offerTo(exporter, new Identifier(compactingId));
     }
 }

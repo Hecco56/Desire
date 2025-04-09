@@ -1,4 +1,4 @@
-package net.hecco.desire.datagen;
+package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 import java.util.HashSet;
 import java.util.Set;
 
-import static net.hecco.desire.datagen.ModDatagenUtils.toSentanceCase;
+import static net.hecco.desire.datagen.desire.ModDatagenUtils.toSentanceCase;
 
 public class ModLangProvider extends FabricLanguageProvider {
     Set<String> usedTranslationKeys = new HashSet<>();
