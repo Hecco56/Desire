@@ -8,7 +8,7 @@ import net.hecco.desire.compat.CompatSlabBlock;
 import net.hecco.desire.compat.CompatStairsBlock;
 import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
-import net.hecco.desire.util.ModCompat;
+import net.hecco.desire.oldutil.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;

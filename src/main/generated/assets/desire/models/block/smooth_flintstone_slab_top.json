@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "desire:block/flintstone_top",
-    "side": "desire:block/flintstone_top",
-    "top": "desire:block/flintstone_top"
-  }
-}

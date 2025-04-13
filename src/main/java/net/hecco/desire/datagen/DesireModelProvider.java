@@ -24,7 +24,6 @@ public abstract class DesireModelProvider extends FabricModelProvider {
 
     public static final TextureKey POST = TextureKey.of("post");
     public static final TextureKey TALLSIDE = TextureKey.of("tallside");
-
     public void stairs(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {
         TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
         TextureMap textures = texturedModel.getTextures();
@@ -33,6 +32,64 @@ public abstract class DesireModelProvider extends FabricModelProvider {
         Identifier identifier3 = Models.OUTER_STAIRS.upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(block, identifier, identifier2, identifier3));
         blockStateModelGenerator.registerParentedItemModel(block, identifier2);
+    }
+
+    public void slab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.SLAB.upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.SLAB_TOP.upload(block, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, identifier, identifier2, Identifier.of(Registries.BLOCK.getId(baseBlock).getNamespace(), "block/" + Registries.BLOCK.getId(baseBlock).getPath())));
+        blockStateModelGenerator.registerParentedItemModel(block, identifier);
+    }
+
+    public void wall(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.TEMPLATE_WALL_POST.upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(block, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(block, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(block, identifier, identifier2, identifier3));
+        Identifier identifier4 = Models.WALL_INVENTORY.upload(block, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.registerParentedItemModel(block, identifier4);
+    }
+
+    public void fence(BlockStateModelGenerator blockStateModelGenerator, Block fenceBlock, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.FENCE_POST.upload(fenceBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.FENCE_SIDE.upload(fenceBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(fenceBlock, identifier, identifier2));
+        Identifier identifier3 = Models.FENCE_INVENTORY.upload(fenceBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.registerParentedItemModel(fenceBlock, identifier3);
+    }
+
+    public void fenceGate(BlockStateModelGenerator blockStateModelGenerator, Block fenceGateBlock, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(fenceGateBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier4 = Models.TEMPLATE_FENCE_GATE_WALL.upload(fenceGateBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createFenceGateBlockState(fenceGateBlock, identifier, identifier2, identifier3, identifier4, true));
+    }
+
+    public void pressurePlate(BlockStateModelGenerator blockStateModelGenerator, Block pressurePlateBlock, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.PRESSURE_PLATE_UP.upload(pressurePlateBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.PRESSURE_PLATE_DOWN.upload(pressurePlateBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(pressurePlateBlock, identifier, identifier2));
+    }
+
+    public void button(BlockStateModelGenerator blockStateModelGenerator, Block buttonBlock, Block baseBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
+        TextureMap textures = texturedModel.getTextures();
+        Identifier identifier = Models.BUTTON.upload(buttonBlock, textures, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = Models.BUTTON_PRESSED.upload(buttonBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(buttonBlock, identifier, identifier2));
+        Identifier identifier3 = Models.BUTTON_INVENTORY.upload(buttonBlock, textures, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.registerParentedItemModel(buttonBlock, identifier3);
     }
 
     public void customTextureStairs(BlockStateModelGenerator blockStateModelGenerator, Block block, Identifier textureName) {
@@ -50,15 +107,6 @@ public abstract class DesireModelProvider extends FabricModelProvider {
         Identifier identifier3 = Models.OUTER_STAIRS.upload(block, textures, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(block, identifier, identifier2, identifier3));
         blockStateModelGenerator.registerParentedItemModel(block, identifier2);
-    }
-
-    public void slab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {
-        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
-        TextureMap textures = texturedModel.getTextures();
-        Identifier identifier = Models.SLAB.upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier2 = Models.SLAB_TOP.upload(block, textures, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, identifier, identifier2, Identifier.of(Registries.BLOCK.getId(baseBlock).getNamespace(), "block/" + Registries.BLOCK.getId(baseBlock).getPath())));
-        blockStateModelGenerator.registerParentedItemModel(block, identifier);
     }
 
     public void customTextureSlab(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock, Identifier textureName) {
@@ -85,16 +133,6 @@ public abstract class DesireModelProvider extends FabricModelProvider {
         Identifier identifier3 = ModelIds.getBlockModelId(baseBlock);
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, identifier, identifier2, identifier3));
         blockStateModelGenerator.registerParentedItemModel(block, identifier);
-    }
-    public void wall(BlockStateModelGenerator blockStateModelGenerator, Block block, Block baseBlock) {
-        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(baseBlock);
-        TextureMap textures = texturedModel.getTextures();
-        Identifier identifier = Models.TEMPLATE_WALL_POST.upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(block, textures, blockStateModelGenerator.modelCollector);
-        Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(block, textures, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(block, identifier, identifier2, identifier3));
-        Identifier identifier4 = Models.WALL_INVENTORY.upload(block, textures, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.registerParentedItemModel(block, identifier4);
     }
 
     public void customTextureWall(BlockStateModelGenerator blockStateModelGenerator, Block block, Identifier textureName) {

@@ -3,7 +3,7 @@ package net.hecco.desire.datagen.desire;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.hecco.desire.Desire;
-import net.hecco.desire.util.ModCompat;
+import net.hecco.desire.oldutil.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;

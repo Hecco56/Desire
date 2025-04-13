@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "netherexp:block/claret_mosaic",
-    "side": "netherexp:block/claret_mosaic",
-    "top": "netherexp:block/claret_mosaic"
-  }
-}

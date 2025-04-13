@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "desire:block/cyan_terracotta_mosaic",
-    "side": "desire:block/cyan_terracotta_mosaic",
-    "top": "desire:block/cyan_terracotta_mosaic"
-  }
-}

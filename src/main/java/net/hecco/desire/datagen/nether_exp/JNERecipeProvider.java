@@ -3,7 +3,7 @@ package net.hecco.desire.datagen.nether_exp;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
 import net.hecco.desire.datagen.DesireRecipeProvider;
-import net.hecco.desire.util.BlockSetGenerator;
+import net.hecco.desire.oldutil.BlockSetGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
