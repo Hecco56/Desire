@@ -8,6 +8,7 @@ import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.oldutil.BlockSetGenerator;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.WoodType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -27,13 +28,13 @@ public class ModItemGroups {
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_deepslate_bricks"));
                         entries.add(ModBlocks.BLACKSTONE_CHUNK);
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_blackstone"));
-//                        for (String wood : BlockSetGenerator.WoodVariantsBlockMaker.WOOD_TYPES) {
-//                            if (wood != "bamboo") {
-//                                entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(wood + "_mosaic"));
-//                                entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(wood + "_mosaic_stairs"));
-//                                entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(wood + "_mosaic_slab"));
-//                            }
-//                        }
+                        for (WoodType wood : WoodType.stream().toList()) {
+                            if (wood.name() != "bamboo" && !wood.name().contains(":")) {
+                                entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get(wood.name()).getVariant("mosaic"));
+                                entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get(wood.name()).getVariant("mosaic_stairs"));
+                                entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get(wood.name()).getVariant("mosaic_slab"));
+                            }
+                        }
 //                        entries.add(JNEModBlocks.CLARET_MOSAIC);
 //                        entries.add(JNEModBlocks.CLARET_MOSAIC_STAIRS);
 //                        entries.add(JNEModBlocks.CLARET_MOSAIC_SLAB);
@@ -93,30 +94,30 @@ public class ModItemGroups {
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_bricks"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("brick_pillar"));
                         entries.add(Blocks.PACKED_MUD);
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_mud"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_mud_stairs"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_mud_slab"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_mud_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("polished"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("polished_stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("polished_slab"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("polished_wall"));
                         entries.add(Blocks.MUD_BRICKS);
                         entries.add(Blocks.MUD_BRICK_STAIRS);
                         entries.add(Blocks.MUD_BRICK_SLAB);
                         entries.add(Blocks.MUD_BRICK_WALL);
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cracked_mud_bricks"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_mud_bricks"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_packed_mud"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("cracked_bricks"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("chiseled_bricks"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("smooth_packed"));
                         entries.add(Blocks.GRAVEL);
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_stairs"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_slab"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_bricks"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_brick_stairs"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_brick_slab"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_brick_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_stairs"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_slab"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant(""));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("slab"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("wall"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("bricks"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("brick_stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("brick_slab"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("brick_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("smooth"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("smooth_stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("smooth_slab"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("flintstone").getVariant("smooth_wall"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_flint_block"));
                         entries.add(Blocks.CALCITE);
@@ -137,11 +138,11 @@ public class ModItemGroups {
                         entries.add(Blocks.DRIPSTONE_BLOCK);
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_block"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_stairs"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_slab"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant(""));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("block"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("slab"));
+                        entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("wall"));
                         entries.add(Blocks.BASALT);
                         entries.add(Blocks.POLISHED_BASALT);
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_basalt_bricks"));
@@ -188,15 +189,15 @@ public class ModItemGroups {
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("quartz_brick_stairs"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("quartz_brick_slab"));
 //                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("quartz_brick_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("stone_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_granite_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("stone_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("polished_granite_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_andesite_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_diorite_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_sandstone_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_red_sandstone_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_quartz_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("prismarine_brick_wall"));
-//                        entries.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("dark_prismarine_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("polished_diorite_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_sandstone_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_red_sandstone_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_quartz_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("prismarine_brick_wall"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("dark_prismarine_wall"));
                         }).build());
     public static void register() {
 

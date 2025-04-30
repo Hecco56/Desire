@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "desire:block/smooth_packed_mud_top",
+    "side": "desire:block/smooth_packed_mud"
+  }
+}

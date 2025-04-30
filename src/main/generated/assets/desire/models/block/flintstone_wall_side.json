@@ -1,0 +1,8 @@
+{
+  "parent": "desire:block/template_wall_side_bottom_top",
+  "textures": {
+    "bottom": "desire:block/flintstone_bottom",
+    "side": "desire:block/flintstone_side",
+    "top": "desire:block/flintstone_top"
+  }
+}

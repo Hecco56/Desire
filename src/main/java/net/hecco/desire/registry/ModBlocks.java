@@ -112,7 +112,7 @@ public class ModBlocks {
                 AbstractBlock.Settings.copy(Blocks.DARK_PRISMARINE),
                 false
         )
-                .wall(true)
+                .wall()
         ;
         new BlockFamilyGenerator(
                 "prismarine_brick",
@@ -122,17 +122,7 @@ public class ModBlocks {
                 AbstractBlock.Settings.copy(Blocks.PRISMARINE),
                 false
         )
-                .wall(true)
-        ;
-        new BlockFamilyGenerator(
-                "smooth_stone",
-                Mineables.PICKAXE,
-                MinMiningToolTier.NONE,
-                Blocks.SMOOTH_STONE,
-                AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE),
-                false
-        )
-                .stairs(true)
+                .wall()
         ;
         new BlockFamilyGenerator(
                 "cut_sandstone",
@@ -220,6 +210,7 @@ public class ModBlocks {
                 AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE),
                 false
         )
+                .stairs(true)
                 .block("", "bricks", true).stairs().slab().wall()
         ;
 
@@ -233,68 +224,73 @@ public class ModBlocks {
         )
                 .block("polished", "", true).stairs().slab().wall(true)
                 .block("cracked", "bricks", true)
-                .block("chiseled", "bricks", true)
+                .block("chiseled", "bricks", false)
+                .block("smooth_packed", "", new PillarBlock(AbstractBlock.Settings.copy(Blocks.MUD_BRICKS)), false)
         ;
 
-//        BlockSetGenerator.StoneBlockSetMaker SMOOTH_BASALT_BRICKS = new BlockSetGenerator.StoneBlockSetMaker("", "smooth_basalt", AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT),
-//                false, false, false, false, false, false, false, false, false,
-//                true,
-//                true,
-//                true,
-//                true,
-//                false, false, false, false, false, false, false, false
-//        );
-//        BlockSetGenerator.StoneBlockSetMaker BASALT_TILES = new BlockSetGenerator.StoneBlockSetMaker("", "basalt", AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT),
-//                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-//                true,
-//                true,
-//                true,
-//                true,
-//                false, false
-//        );
-//        BlockSetGenerator.StoneBlockSetMaker BLACKSTONE_TILES = new BlockSetGenerator.StoneBlockSetMaker("", "polished_blackstone", AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE_BRICKS),
-//                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-//                true,
-//                true,
-//                true,
-//                true,
-//                true,
-//                false
-//        );
-//        BlockSetGenerator.WoodVariantsBlockMaker MOSAIC = new BlockSetGenerator.WoodVariantsBlockMaker("mosaic", "mosaic", true).stairsAndSlab();
-//        BlockSetGenerator.StoneBlockSetMaker FLINTSTONE = new BlockSetGenerator.StoneBlockSetMaker("", "flintstone", AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY),
-//                true,
-//                true,
-//                true,
-//                true,
-//                false, false, false, false, false,
-//                true,
-//                true,
-//                true,
-//                true,
-//                false, false, false, false, false, false, false, false
-//        );
-//        ModDatagenUtils.CUSTOM_STAIRS_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_stairs"));
-//        ModDatagenUtils.CUSTOM_SLAB_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_slab"));
-//        ModDatagenUtils.CUSTOM_WALL_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_wall"));
-//        BlockSetGenerator.StoneBlockSetMaker SMOOTH_FLINTSTONE = new BlockSetGenerator.StoneBlockSetMaker("", "smooth_flintstone", AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY),
-//                true,
-//                true,
-//                true,
-//                true,
-//                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-//        );
-//        ModDatagenUtils.CUSTOM_STAIRS_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_stairs"));
-//        ModDatagenUtils.CUSTOM_SLAB_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_slab"));
-//        ModDatagenUtils.CUSTOM_WALL_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_wall"));
-//
-//        BlockSetGenerator.registerSingleBlock("rough_concrete", new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)), true, false);
-//        BlockSetGenerator.registerSingleBlock("rough_concrete_block", new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)), true, false);
-//        BlockSetGenerator.BlockSetExtension ROUGH_CONCRETE_EXTENSION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_block"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_block")), "rough_concrete", true, true, true, false, false,false, false);
-//
-//        ModDatagenUtils.CUSTOM_STAIRS_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_stairs"));
-//        ModDatagenUtils.CUSTOM_SLAB_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_slab"));
-//        ModDatagenUtils.CUSTOM_WALL_MODEL.add(BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_wall"));
+        new BlockFamilyGenerator(
+                "basalt",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.SMOOTH_BASALT,
+                AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT),
+                false
+        )
+                .block("smooth", "bricks", true).stairs().slab().wall()
+                .block("", "tiles", true).stairs().slab().wall()
+        ;
+
+        new BlockFamilyGenerator(
+                "blackstone",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.POLISHED_BLACKSTONE_BRICKS,
+                AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE_BRICKS),
+                false
+        )
+                .block("polished", "tiles", true).stairs().slab().wall()
+                .block("cracked_polished", "tiles", true)
+        ;
+
+        for (WoodType woodType : WoodType.stream().toList()) {
+            if (woodType.name() != "bamboo" && !woodType.name().contains(":")) {
+                new BlockFamilyGenerator(
+                        woodType.name(),
+                        Mineables.PICKAXE,
+                        MinMiningToolTier.NONE,
+                        Registries.BLOCK.get(Identifier.of("minecraft", woodType.name() + "_planks")),
+                        AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", woodType.name() + "_planks"))),
+                        false
+                )
+                        .block("", "mosaic", true).stairs().slab()
+                ;
+            }
+        }
+
+        new BlockFamilyGenerator(
+                "flintstone",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                register("flintstone", new Block(AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY))),
+                AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY),
+                false
+        )
+                .stairs(true).slab(true).wall(true)
+                .block("", "bricks", true).stairs().slab().wall()
+                .block("smooth", "", false).stairs(true).slab(true).wall(true)
+        ;
+
+        new BlockFamilyGenerator(
+                "rough_concrete",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                register("rough_concrete", new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY))),
+                AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY),
+                false
+        )
+                .stairs(true).slab(true).wall(true)
+                .block("", "block", false)
+        ;
 
 //        for (String color : ModDatagenUtils.VANILLA_COLORS) {
 //            BlockSetGenerator.StoneBlockSetMaker CONCRETE_BRICKS = new BlockSetGenerator.StoneBlockSetMaker(color, "concrete", AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", color + "_concrete"))),

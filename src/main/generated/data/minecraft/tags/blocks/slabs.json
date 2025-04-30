@@ -14,6 +14,23 @@
     "desire:cobblestone_brick_slab",
     "desire:mossy_cobblestone_brick_slab",
     "desire:smooth_stone_brick_slab",
-    "desire:polished_mud_slab"
+    "desire:polished_mud_slab",
+    "desire:smooth_basalt_brick_slab",
+    "desire:basalt_tile_slab",
+    "desire:polished_blackstone_tile_slab",
+    "desire:oak_mosaic_slab",
+    "desire:spruce_mosaic_slab",
+    "desire:birch_mosaic_slab",
+    "desire:acacia_mosaic_slab",
+    "desire:cherry_mosaic_slab",
+    "desire:jungle_mosaic_slab",
+    "desire:dark_oak_mosaic_slab",
+    "desire:crimson_mosaic_slab",
+    "desire:warped_mosaic_slab",
+    "desire:mangrove_mosaic_slab",
+    "desire:flintstone_slab",
+    "desire:flintstone_brick_slab",
+    "desire:smooth_flintstone_slab",
+    "desire:rough_concrete_slab"
   ]
 }

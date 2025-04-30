@@ -67,6 +67,7 @@ public class ModModelProvider extends DesireModelProvider {
             blockStateModelGenerator.registerFlowerPotPlant(((FlowerPotBlock) block).getContent(), block, BlockStateModelGenerator.TintType.NOT_TINTED);
         }
 
+
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("stone").getVariant("chiseled"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("polished_granite").getVariant("bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("polished_granite").getVariant("cracked_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
@@ -76,7 +77,7 @@ public class ModModelProvider extends DesireModelProvider {
 //        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
 //        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("brick_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_packed_mud"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("smooth_packed"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
 //        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
 //        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cracked_polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
 //        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_blackstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
@@ -88,50 +89,33 @@ public class ModModelProvider extends DesireModelProvider {
 //        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_exposed_copper_pillar"));
 //        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_weathered_copper_pillar"));
 //        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("oxidized_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_oxidized_copper_pillar"));
-//        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone"), TexturedModel.CUBE_BOTTOM_TOP);
-//
-//        Identifier smoothFlintstoneModel = Models.CUBE_ALL.upload(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone"), TextureMap.all(Identifier.of(Desire.MOD_ID, "block/flintstone_top")), blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone"), BlockStateVariant.create().put(VariantSettings.MODEL, smoothFlintstoneModel)));
-//        blockStateModelGenerator.registerParentedItemModel(BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone"), smoothFlintstoneModel);
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("flintstone"), TexturedModel.CUBE_BOTTOM_TOP);
+        Identifier smoothFlintstoneModel = Models.CUBE_ALL.upload(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), TextureMap.all(Identifier.of(Desire.MOD_ID, "block/flintstone_top")), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), BlockStateVariant.create().put(VariantSettings.MODEL, smoothFlintstoneModel)));
+        blockStateModelGenerator.registerParentedItemModel(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), smoothFlintstoneModel);
 //        registerMushroomLikeBlock(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"));
 //        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_flint_block"), TexturedModel.TEMPLATE_GLAZED_TERRACOTTA);
 //        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
 //        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), TexturedModel.END_FOR_TOP_CUBE_COLUMN.get(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone")).textures((textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"))))).upload(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), blockStateModelGenerator.modelCollector));
-//
-//
-//        for (Block block : ModBlockTagProvider.STAIRS) {
-//            if (!ModDatagenUtils.CUSTOM_STAIRS_MODEL.contains(block)) {
-//                stairs(blockStateModelGenerator, block, ModDatagenUtils.VARIANT_TO_BASE_BLOCK.get(block));
-//            }
-//        }
-//        for (Block block : ModBlockTagProvider.SLABS) {
-//            if (!ModDatagenUtils.CUSTOM_SLAB_MODEL.contains(block)) {
-//                slab(blockStateModelGenerator, block, ModDatagenUtils.VARIANT_TO_BASE_BLOCK.get(block));
-//            }
-//        }
-//        for (Block block : ModBlockTagProvider.WALLS) {
-//            if (!ModDatagenUtils.CUSTOM_WALL_MODEL.contains(block)) {
-//                wall(blockStateModelGenerator, block, ModDatagenUtils.VARIANT_TO_BASE_BLOCK.get(block));
-//            }
-//        }
+
         customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_sandstone_wall"), Identifier.of("minecraft", "block/sandstone_top"));
         customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_red_sandstone_wall"), Identifier.of("minecraft", "block/red_sandstone_top"));
         customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_quartz_wall"), Identifier.of("minecraft", "block/quartz_block_bottom"));
         sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_stone_stairs"), Identifier.of("minecraft", "block/smooth_stone_slab_side"), Identifier.of("minecraft", "block/smooth_stone"), Identifier.of("minecraft", "block/smooth_stone"));
-//        sideTopStairs(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_stairs"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"));
-//        sideTopSlab(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_slab"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_slab_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"));
-//        customTextureStairs(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_stairs"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
-//        customTextureSlab(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_slab"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
-//        customTextureWall(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("smooth_flintstone_wall"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
-//        sideTopStairs(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_stairs"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
-//        sideTopSlab(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_slab"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
-//        sideTopWall(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flintstone_wall"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
+        sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("rough_concrete_stairs"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"));
+        sideTopSlab(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("rough_concrete_slab"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_slab_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"));
+        customTextureStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_flintstone_stairs"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
+        customTextureSlab(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_flintstone_slab"), BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
+        customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_flintstone_wall"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"));
+        sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("flintstone_stairs"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
+        sideTopSlab(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("flintstone_slab"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
+        sideTopWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("flintstone_wall"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
         sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_brick_stairs"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"));
         sideTopSlab(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_brick_slab"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"));
-//
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("block"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_stone_wall"), Identifier.of(Desire.MOD_ID, "block/polished_stone_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_stone_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_stone"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_mud_wall"), Identifier.of(Desire.MOD_ID, "block/polished_mud_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_mud_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_mud"));
-//        polishedWall(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("rough_concrete_wall"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_post"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block"));
+        polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("rough_concrete_wall"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_post"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_calcite_wall"), Identifier.of(Desire.MOD_ID, "block/polished_calcite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_calcite_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_calcite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_andesite_wall"), new Identifier(Desire.MOD_ID, "block/polished_andesite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_andesite_wall_side"), new Identifier("minecraft", "block/polished_andesite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_wall"), new Identifier(Desire.MOD_ID, "block/polished_granite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_granite_wall_side"), new Identifier("minecraft", "block/polished_granite"));

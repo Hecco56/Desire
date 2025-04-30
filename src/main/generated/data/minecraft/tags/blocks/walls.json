@@ -23,6 +23,13 @@
     "desire:cobblestone_brick_wall",
     "desire:mossy_cobblestone_brick_wall",
     "desire:smooth_stone_brick_wall",
-    "desire:polished_mud_wall"
+    "desire:polished_mud_wall",
+    "desire:smooth_basalt_brick_wall",
+    "desire:basalt_tile_wall",
+    "desire:polished_blackstone_tile_wall",
+    "desire:flintstone_wall",
+    "desire:flintstone_brick_wall",
+    "desire:smooth_flintstone_wall",
+    "desire:rough_concrete_wall"
   ]
 }

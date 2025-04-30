@@ -115,6 +115,7 @@ public class BlockFamilyGenerator {
     private final Mineables mineable;
     private final MinMiningToolTier minMiningToolTier;
     private Block baseBlock;
+    private final Block masterBaseBlock;
     private final AbstractBlock.Settings settings;
     private final ArrayList<Block> blockFamilyBlocks = new ArrayList<>();
 
@@ -123,10 +124,12 @@ public class BlockFamilyGenerator {
         this.mineable = mineable;
         this.minMiningToolTier = minMiningToolTier;
         this.baseBlock = baseBlock;
+        this.masterBaseBlock = baseBlock;
         this.settings = settings;
         if (generateBaseBlockModel) {
             CUBE_ALL.add(baseBlock);
         }
+        BLOCKS.put(Registries.BLOCK.getId(baseBlock).getPath(), baseBlock);
         BLOCK_FAMILIES.put(name, this);
     }
 
@@ -368,7 +371,7 @@ public class BlockFamilyGenerator {
 
     public Block getVariant(String variant) {
         if (!variant.isEmpty()) {
-            for (Block block : blockFamilyBlocks) {
+            for (Block block : this.blockFamilyBlocks) {
                 if (Registries.BLOCK.getId(block).getPath().contains(this.name)) {
                     String id = Registries.BLOCK.getId(block).getPath().replace(this.name + "_", "").replace("_" + this.name, "");
                     if (id.equals(variant)) {
@@ -377,9 +380,9 @@ public class BlockFamilyGenerator {
                 }
             }
         } else {
-            return baseBlock;
+            return this.masterBaseBlock;
         }
-        throw new RuntimeException("No such " + this.name + " block variant exists");
+        throw new RuntimeException("No such " + this.name + " block variant " + variant + " exists");
     }
 
     public void addAllBlocksToItemGroup(ItemGroup.Entries entries) {
