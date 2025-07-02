@@ -3,7 +3,7 @@ package net.hecco.desire.datagen.nether_exp;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
 import net.hecco.desire.datagen.DesireRecipeProvider;
-import net.hecco.desire.oldutil.BlockSetGenerator;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -17,6 +17,6 @@ public class JNERecipeProvider extends DesireRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        generateCraftingFix(exporter, BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_basalt_bricks"), Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "polished_basalt_bricks")));
+        generateCraftingFix(exporter, BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"), Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "polished_basalt_bricks")));
     }
 }

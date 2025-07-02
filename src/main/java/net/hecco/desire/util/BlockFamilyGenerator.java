@@ -72,6 +72,30 @@ public class BlockFamilyGenerator {
     public static final ArrayList<Block> CUSTOM_SLAB_MODEL = new ArrayList<>();
     public static final ArrayList<Block> CUSTOM_WALL_MODEL = new ArrayList<>();
 
+
+
+    public static void registerSingleBlock(String name, Block block, Mineables mineable, MinMiningToolTier minMiningToolTier, boolean generateModel) {
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
+        Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
+        switch (mineable) {
+            case PICKAXE -> PICKAXE_MINEABLE.add(block1);
+            case AXE -> AXE_MINEABLE.add(block1);
+            case SHOVEL -> SHOVEL_MINEABLE.add(block1);
+            case HOE -> HOE_MINEABLE.add(block1);
+        }
+        switch (minMiningToolTier) {
+            case STONE -> NEEDS_STONE_TOOL.add(block1);
+            case IRON -> NEEDS_IRON_TOOL.add(block1);
+            case DIAMOND -> NEEDS_DIAMOND_TOOL.add(block1);
+        }
+        BLOCKS.put(name, block1);
+
+        if (generateModel) {
+            CUBE_ALL.add(block1);
+        }
+    }
+
+
     private Block registerBlock(String name, Mineables mineable, Block block) {
         Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
         Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);

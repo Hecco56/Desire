@@ -7,6 +7,7 @@ import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItems;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
@@ -72,31 +73,31 @@ public class ModModelProvider extends DesireModelProvider {
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("polished_granite").getVariant("bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("polished_granite").getVariant("cracked_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("calcite").getVariant("chiseled"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("calcite").getVariant("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_deepslate_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("brick_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("chiseled_calcite_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("chiseled_deepslate_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("brick_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("chiseled_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCK_FAMILIES.get("mud").getVariant("smooth_packed"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("cracked_polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerSingleton(BlockSetGenerator.BLOCK_SET_BLOCKS.get("chiseled_blackstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("oxidized_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_copper_pillar"));
-//        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_exposed_copper_pillar"));
-//        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_weathered_copper_pillar"));
-//        registerParentedPillar(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("oxidized_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_oxidized_copper_pillar"));
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("cracked_polished_basalt_bricks"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("chiseled_blackstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        registerParentedPillar(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_copper_pillar"));
+        registerParentedPillar(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_exposed_copper_pillar"));
+        registerParentedPillar(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_weathered_copper_pillar"));
+        registerParentedPillar(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_oxidized_copper_pillar"));
         blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCKS.get("flintstone"), TexturedModel.CUBE_BOTTOM_TOP);
         Identifier smoothFlintstoneModel = Models.CUBE_ALL.upload(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), TextureMap.all(Identifier.of(Desire.MOD_ID, "block/flintstone_top")), blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), BlockStateVariant.create().put(VariantSettings.MODEL, smoothFlintstoneModel)));
         blockStateModelGenerator.registerParentedItemModel(BlockFamilyGenerator.BLOCKS.get("smooth_flintstone"), smoothFlintstoneModel);
-//        registerMushroomLikeBlock(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"));
-//        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("polished_flint_block"), TexturedModel.TEMPLATE_GLAZED_TERRACOTTA);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), TexturedModel.END_FOR_TOP_CUBE_COLUMN.get(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone")).textures((textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"))))).upload(BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore"), blockStateModelGenerator.modelCollector));
+        registerMushroomLikeBlock(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("flint_block"));
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(BlockFamilyGenerator.BLOCKS.get("polished_flint_block"), TexturedModel.TEMPLATE_GLAZED_TERRACOTTA);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("carved_dripstone"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), TexturedModel.END_FOR_TOP_CUBE_COLUMN.get(BlockFamilyGenerator.BLOCKS.get("carved_dripstone")).textures((textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"))))).upload(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), blockStateModelGenerator.modelCollector));
 
         customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_sandstone_wall"), Identifier.of("minecraft", "block/sandstone_top"));
         customTextureWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("smooth_red_sandstone_wall"), Identifier.of("minecraft", "block/red_sandstone_top"));
@@ -120,27 +121,27 @@ public class ModModelProvider extends DesireModelProvider {
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_andesite_wall"), new Identifier(Desire.MOD_ID, "block/polished_andesite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_andesite_wall_side"), new Identifier("minecraft", "block/polished_andesite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_wall"), new Identifier(Desire.MOD_ID, "block/polished_granite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_granite_wall_side"), new Identifier("minecraft", "block/polished_granite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_diorite_wall"), new Identifier(Desire.MOD_ID, "block/polished_diorite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_diorite_wall_side"), new Identifier("minecraft", "block/polished_diorite"));
-//        polishedWall(blockStateModelGenerator, Blocks.POLISHED_BLACKSTONE_WALL, Identifier.of(Desire.MOD_ID, "block/polished_blackstone_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_blackstone_wall_side"), Identifier.of("minecraft", "block/polished_blackstone"));
-//        polishedWall(blockStateModelGenerator, Blocks.POLISHED_DEEPSLATE_WALL, Identifier.of(Desire.MOD_ID, "block/polished_deepslate_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_deepslate_wall_side"), Identifier.of("minecraft", "block/polished_deepslate"));
-//        sideTopStairs(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("cut_sandstone_stairs"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"));
-//        sideTopStairs(blockStateModelGenerator, BlockSetGenerator.BLOCK_SET_BLOCKS.get("cut_red_sandstone_stairs"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"));
-//
-//        Identifier cutSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CUT_SANDSTONE, TextureMap.sideTopBottom(Blocks.CUT_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/cut_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")), blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CUT_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, cutSandstoneModel)));
-//        blockStateModelGenerator.registerParentedItemModel(Blocks.CUT_SANDSTONE, cutSandstoneModel);
-//        Identifier cutRedSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CUT_RED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CUT_RED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/cut_red_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")), blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CUT_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, cutRedSandstoneModel)));
-//        blockStateModelGenerator.registerParentedItemModel(Blocks.CUT_RED_SANDSTONE, cutRedSandstoneModel);
-//        cutSandstoneSlab(blockStateModelGenerator, Blocks.CUT_SANDSTONE_SLAB, Blocks.CUT_SANDSTONE, Identifier.of(Desire.MOD_ID, "block/cut_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"));
-//        cutSandstoneSlab(blockStateModelGenerator, Blocks.CUT_RED_SANDSTONE_SLAB, Blocks.CUT_RED_SANDSTONE, Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"));
-//
-//        Identifier chiseledSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CHISELED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CHISELED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/chiseled_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")), blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledSandstoneModel)));
-//        blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_SANDSTONE, chiseledSandstoneModel);
-//        Identifier chiseledRedSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CHISELED_RED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CHISELED_RED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/chiseled_red_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")), blockStateModelGenerator.modelCollector);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledRedSandstoneModel)));
-//        blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_RED_SANDSTONE, chiseledRedSandstoneModel);
-//
+        polishedWall(blockStateModelGenerator, Blocks.POLISHED_BLACKSTONE_WALL, Identifier.of(Desire.MOD_ID, "block/polished_blackstone_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_blackstone_wall_side"), Identifier.of("minecraft", "block/polished_blackstone"));
+        polishedWall(blockStateModelGenerator, Blocks.POLISHED_DEEPSLATE_WALL, Identifier.of(Desire.MOD_ID, "block/polished_deepslate_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_deepslate_wall_side"), Identifier.of("minecraft", "block/polished_deepslate"));
+        sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("cut_sandstone_stairs"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"));
+        sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("cut_red_sandstone_stairs"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"));
+
+        Identifier cutSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CUT_SANDSTONE, TextureMap.sideTopBottom(Blocks.CUT_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/cut_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CUT_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, cutSandstoneModel)));
+        blockStateModelGenerator.registerParentedItemModel(Blocks.CUT_SANDSTONE, cutSandstoneModel);
+        Identifier cutRedSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CUT_RED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CUT_RED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/cut_red_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CUT_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, cutRedSandstoneModel)));
+        blockStateModelGenerator.registerParentedItemModel(Blocks.CUT_RED_SANDSTONE, cutRedSandstoneModel);
+        cutSandstoneSlab(blockStateModelGenerator, Blocks.CUT_SANDSTONE_SLAB, Blocks.CUT_SANDSTONE, Identifier.of(Desire.MOD_ID, "block/cut_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top"));
+        cutSandstoneSlab(blockStateModelGenerator, Blocks.CUT_RED_SANDSTONE_SLAB, Blocks.CUT_RED_SANDSTONE, Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_slab"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"), Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top"));
+
+        Identifier chiseledSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CHISELED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CHISELED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/chiseled_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_sandstone_top")), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledSandstoneModel)));
+        blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_SANDSTONE, chiseledSandstoneModel);
+        Identifier chiseledRedSandstoneModel = Models.CUBE_BOTTOM_TOP.upload(Blocks.CHISELED_RED_SANDSTONE, TextureMap.sideTopBottom(Blocks.CHISELED_RED_SANDSTONE).put(TextureKey.SIDE, Identifier.of("minecraft", "block/chiseled_red_sandstone")).put(TextureKey.TOP , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")).put(TextureKey.BOTTOM , Identifier.of(Desire.MOD_ID, "block/cut_red_sandstone_top")), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledRedSandstoneModel)));
+        blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_RED_SANDSTONE, chiseledRedSandstoneModel);
+
 //        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CLARET_MOSAIC);
 //        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CLARET_MOSAIC, Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_mosaic").withPrefixedPath("block/"));
     }

@@ -5,11 +5,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.hecco.desire.datagen.desire.*;
 import net.hecco.desire.datagen.nether_exp.JNEBlockLootTableProvider;
 import net.hecco.desire.datagen.nether_exp.JNERecipeProvider;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 public class DesireDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+		Desire.LOGGER.info(Registries.BLOCK.getIds().stream().filter(block -> block.getNamespace() == Desire.MOD_ID).toList().toString());
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(ModBlockLootTableProvider::new);
 		pack.addProvider(ModBlockTagProvider::new);

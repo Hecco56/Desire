@@ -2,7 +2,7 @@ package net.hecco.desire.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.desire.oldutil.BlockSetGenerator;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
@@ -29,12 +29,12 @@ public abstract class DesireRecipeProvider extends FabricRecipeProvider {
     public abstract void generate(Consumer<RecipeJsonProvider> exporter);
 
     public static void generateSSFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
-        BlockFamily family = register(baseBlock).stairs(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_stairs")).slab(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_slab")).build();
+        BlockFamily family = register(baseBlock).stairs(BlockFamilyGenerator.BLOCKS.get(name + "_stairs")).slab(BlockFamilyGenerator.BLOCKS.get(name + "_slab")).build();
         generateFamily(exporter, family);
     }
 
     public static void generateSSWFamily(Consumer<RecipeJsonProvider> exporter, Block baseBlock, String name) {
-        BlockFamily family = register(baseBlock).stairs(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_stairs")).slab(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_slab")).wall(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_wall")).build();
+        BlockFamily family = register(baseBlock).stairs(BlockFamilyGenerator.BLOCKS.get(name + "_stairs")).slab(BlockFamilyGenerator.BLOCKS.get(name + "_slab")).wall(BlockFamilyGenerator.BLOCKS.get(name + "_wall")).build();
         generateFamily(exporter, family);
     }
 

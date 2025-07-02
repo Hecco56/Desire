@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "desire:block/oxidized_copper_pillar_top",
+    "side": "desire:block/oxidized_copper_pillar"
+  }
+}

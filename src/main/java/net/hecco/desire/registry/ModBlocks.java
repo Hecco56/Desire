@@ -3,8 +3,6 @@ package net.hecco.desire.registry;
 import net.hecco.desire.Desire;
 import net.hecco.desire.block.OxidizablePillarBlock;
 import net.hecco.desire.block.PlaceableRockBlock;
-import net.hecco.desire.datagen.desire.ModDatagenUtils;
-import net.hecco.desire.oldutil.BlockSetGenerator;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.hecco.desire.util.MinMiningToolTier;
 import net.hecco.desire.util.Mineables;
@@ -14,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -237,6 +236,9 @@ public class ModBlocks {
                 false
         )
                 .block("smooth", "bricks", true).stairs().slab().wall()
+                .block("polished", "bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), false)
+                .block("cracked_polished", "bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), false)
+                .block("chiseled_polished", "bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), true)
                 .block("", "tiles", true).stairs().slab().wall()
         ;
 
@@ -250,13 +252,14 @@ public class ModBlocks {
         )
                 .block("polished", "tiles", true).stairs().slab().wall()
                 .block("cracked_polished", "tiles", true)
+                .block("chiseled", "", false)
         ;
 
         for (WoodType woodType : WoodType.stream().toList()) {
             if (woodType.name() != "bamboo" && !woodType.name().contains(":")) {
                 new BlockFamilyGenerator(
                         woodType.name(),
-                        Mineables.PICKAXE,
+                        Mineables.AXE,
                         MinMiningToolTier.NONE,
                         Registries.BLOCK.get(Identifier.of("minecraft", woodType.name() + "_planks")),
                         AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", woodType.name() + "_planks"))),
@@ -292,40 +295,72 @@ public class ModBlocks {
                 .block("", "block", false)
         ;
 
-//        for (String color : ModDatagenUtils.VANILLA_COLORS) {
-//            BlockSetGenerator.StoneBlockSetMaker CONCRETE_BRICKS = new BlockSetGenerator.StoneBlockSetMaker(color, "concrete", AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", color + "_concrete"))),
-//                    false, false, false, false, false, false, false, false, false,
-//                    true,
-//                    true,
-//                    true,
-//                    true,
-//                    false, false, false, false, false, false, false, false
-//            );
-//            BlockSetGenerator.registerSingleBlock(color + "_terracotta_mosaic", new Block(AbstractBlock.Settings.copy(Registries.BLOCK.get(Identifier.of("minecraft", color + "_glazed_terracotta")))), true, false);
-//            BlockSetGenerator.BlockSetExtension TERRACOTTA_MOSAIC_EXTENSION = new BlockSetGenerator.BlockSetExtension(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic"), AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get(color + "_terracotta_mosaic")), color + "_terracotta_mosaic", true, true, true, false, false,false, false);
-//        }
-//
-//        BlockSetGenerator.registerSingleBlock("chiseled_deepslate_bricks", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("cracked_bricks", new Block(AbstractBlock.Settings.copy(Blocks.BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("mossy_bricks", new Block(AbstractBlock.Settings.copy(Blocks.BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("chiseled_bricks", new Block(AbstractBlock.Settings.copy(Blocks.BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("brick_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("smooth_packed_mud", new PillarBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD)), true, false);
-//        BlockSetGenerator.registerSingleBlock("polished_basalt_bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), true, false);
-//        BlockSetGenerator.registerSingleBlock("cracked_polished_basalt_bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), true, false);
-//        BlockSetGenerator.registerSingleBlock("chiseled_polished_basalt_bricks", new PillarBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_BASALT)), true, false);
-//        BlockSetGenerator.registerSingleBlock("chiseled_blackstone",new Block(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE_BRICKS)), true, false);
-//        BlockSetGenerator.registerSingleBlock("copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("exposed_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("weathered_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("oxidized_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("waxed_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("waxed_exposed_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("waxed_weathered_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("waxed_oxidized_copper_pillar",  new PillarBlock(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)), true, false);
-//        BlockSetGenerator.registerSingleBlock("flint_block", new MushroomBlock(AbstractBlock.Settings.copy(Blocks.STONE).mapColor(MapColor.DEEPSLATE_GRAY).hardness(1.8f).sounds(BlockSoundGroup.GILDED_BLACKSTONE)), true, false);
-//        BlockSetGenerator.registerSingleBlock("polished_flint_block", new GlazedTerracottaBlock(AbstractBlock.Settings.copy(BlockSetGenerator.BLOCK_SET_BLOCKS.get("flint_block"))), true, false);
-//        BlockSetGenerator.registerSingleBlock("carved_dripstone", new PillarBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK)), true, false);
-//        BlockSetGenerator.registerSingleBlock("carved_dripstone_ore", new PillarBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK)), true, false);
+        for (DyeColor color : DyeColor.values()) {
+            new BlockFamilyGenerator(
+                    color.getName() + "_concrete",
+                    Mineables.PICKAXE,
+                    MinMiningToolTier.NONE,
+                    Blocks.WHITE_CONCRETE,
+                    AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE).mapColor(color),
+                    false
+            )
+                    .block("", "bricks", true).stairs().slab().wall()
+            ;
+            new BlockFamilyGenerator(
+                    color.getName() + "_terracotta",
+                    Mineables.PICKAXE,
+                    MinMiningToolTier.NONE,
+                    Blocks.WHITE_GLAZED_TERRACOTTA,
+                    AbstractBlock.Settings.copy(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(color),
+                    false
+            )
+                    .block("", "mosaic", true).stairs().slab().wall()
+            ;
+        }
+        new BlockFamilyGenerator(
+                "deepslate",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.POLISHED_DEEPSLATE,
+                AbstractBlock.Settings.copy(Blocks.POLISHED_DEEPSLATE),
+                false
+        )
+                .block("chiseled", "bricks", false)
+        ;
+        new BlockFamilyGenerator(
+                "bricks",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.BRICKS,
+                AbstractBlock.Settings.copy(Blocks.BRICKS),
+                false
+        )
+                .block("cracked", "", true)
+                .block("mossy", "", true)
+                .block("chiseled", "", false)
+        ;
+        new BlockFamilyGenerator(
+                "brick",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.BRICKS,
+                AbstractBlock.Settings.copy(Blocks.BRICKS),
+                false
+        )
+                .block("", "pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.BRICKS)), false)
+        ;
+
+        BlockFamilyGenerator.registerSingleBlock("copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("exposed_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("weathered_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("oxidized_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("waxed_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("waxed_exposed_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("waxed_weathered_copper_pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("waxed_oxidized_copper_pillar",  new PillarBlock(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("flint_block", new MushroomBlock(AbstractBlock.Settings.copy(Blocks.STONE).mapColor(MapColor.DEEPSLATE_GRAY).hardness(1.8f).sounds(BlockSoundGroup.GILDED_BLACKSTONE)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("polished_flint_block", new GlazedTerracottaBlock(AbstractBlock.Settings.copy(BlockFamilyGenerator.BLOCKS.get("flint_block"))), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("carved_dripstone", new PillarBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
+        BlockFamilyGenerator.registerSingleBlock("carved_dripstone_ore", new PillarBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
     }
 }

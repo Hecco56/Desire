@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "desire:block/magenta_terracotta_mosaic_slab"
+    },
+    "type=double": {
+      "model": "desire:block/magenta_terracotta_mosaic"
+    },
+    "type=top": {
+      "model": "desire:block/magenta_terracotta_mosaic_slab_top"
+    }
+  }
+}

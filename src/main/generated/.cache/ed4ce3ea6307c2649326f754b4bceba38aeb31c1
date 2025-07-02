@@ -1,5 +1,6 @@
-// 1.20.1	2025-04-30T18:13:53.4138374	Desire/Tags for minecraft:block
-44949bb55c3b6351efccfcceb97f71d2ac8db1b1 data\minecraft\tags\blocks\stairs.json
-db85838f479cddb280fb8a834bd589f7b93c2289 data\minecraft\tags\blocks\mineable\pickaxe.json
-a35296ef0b31f694e9ff1865ddf64e3b7d1e87de data\minecraft\tags\blocks\walls.json
-dc4af4482ffa58e5372748a35691d62f09024bb0 data\minecraft\tags\blocks\slabs.json
+// 1.20.1	2025-07-02T00:43:27.7499828	Desire/Tags for minecraft:block
+9a9f7e3257317c48d963b698caed0eadbc1b5c0d data\minecraft\tags\blocks\mineable\axe.json
+99a11e1fbc11184ae0ed6b0eae401aa3a89b1c15 data\minecraft\tags\blocks\stairs.json
+3dc5e300f7a97932552dfe83cad5a2d845ce1b8a data\minecraft\tags\blocks\mineable\pickaxe.json
+f37eba722a05a70798c6810076a28e7bb3c4c548 data\minecraft\tags\blocks\walls.json
+4146065419c092cfc903cf7d8980d3907c9c2ca4 data\minecraft\tags\blocks\slabs.json
