@@ -20,8 +20,8 @@ public class DesireDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 
-//		FabricDataGenerator.Pack jnePack = fabricDataGenerator.createBuiltinResourcePack(new Identifier(Desire.MOD_ID, Desire.JADENS_NETHER_EXPANSION + "_dat"));
-//		jnePack.addProvider(JNEBlockLootTableProvider::new);
-//		jnePack.addProvider(JNERecipeProvider::new);
+		FabricDataGenerator.Pack jnePack = fabricDataGenerator.createBuiltinResourcePack(new Identifier(Desire.MOD_ID, Desire.JADENS_NETHER_EXPANSION + "_dat"));
+		jnePack.addProvider(JNEBlockLootTableProvider::new);
+		jnePack.addProvider(JNERecipeProvider::new);
 	}
 }

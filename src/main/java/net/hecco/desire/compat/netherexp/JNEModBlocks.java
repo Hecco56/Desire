@@ -25,9 +25,11 @@ public class JNEModBlocks {
     public static final Block CLARET_MOSAIC_SLAB = registerBlock("claret_mosaic_slab", new CompatSlabBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block POLISHED_NETHER_BRICKS = registerBlock("polished_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
     public static final Block POLISHED_RED_NETHER_BRICKS = registerBlock("polished_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
-    public static final Block POLISHED_BLUE_NETHER_BRICKS = registerBlock("polished_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
-    public static final Block CRACKED_RED_NETHER_BRICKS = registerBlock("cracked_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
-    public static final Block CRACKED_BLUE_NETHER_BRICKS = registerBlock("cracked_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
+    public static final Block POLISHED_BLUE_NETHER_BRICKS = registerBlock("polished_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
+    public static final Block CRACKED_RED_NETHER_BRICKS = registerBlock("cracked_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
+    public static final Block CRACKED_BLUE_NETHER_BRICKS = registerBlock("cracked_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
+    public static final Block CHISELED_RED_NETHER_BRICKS = registerBlock("chiseled_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
+    public static final Block CHISELED_BLUE_NETHER_BRICKS = registerBlock("chiseled_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
 
     private static Block registerBlock(String name, Block block) {
         Block newBlock = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);

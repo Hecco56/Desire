@@ -115,8 +115,8 @@ public class ModRecipeProvider extends DesireRecipeProvider {
         offerCrackingRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("cracked_polished_blackstone_tiles"), BlockFamilyGenerator.BLOCKS.get("polished_blackstone_tiles"));
         for (WoodType wood : WoodType.stream().toList()) {
             String name = wood.name();
-            if (getFirstBlockNameMatch(name + "_mosaic") == null) {
-                offerMosaicRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), getFirstBlockNameMatch(name + "_slab"));
+            if (wood.name() != "bamboo" && !wood.name().contains(":")) {
+                offerMosaicRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), Registries.BLOCK.get(Identifier.of("minecraft", name + "_slab")));
                 generateSSFamily(exporter, BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), name + "_mosaic");
             }
         }

@@ -2,6 +2,7 @@ package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireModelProvider;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItems;
@@ -10,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.data.client.*;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -142,8 +144,32 @@ public class ModModelProvider extends DesireModelProvider {
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(Blocks.CHISELED_RED_SANDSTONE, BlockStateVariant.create().put(VariantSettings.MODEL, chiseledRedSandstoneModel)));
         blockStateModelGenerator.registerParentedItemModel(Blocks.CHISELED_RED_SANDSTONE, chiseledRedSandstoneModel);
 
-//        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CLARET_MOSAIC);
-//        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CLARET_MOSAIC, Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_mosaic").withPrefixedPath("block/"));
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CLARET_MOSAIC);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CLARET_MOSAIC, Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_mosaic").withPrefixedPath("block/"));
+        stairs(blockStateModelGenerator, JNEModBlocks.CLARET_MOSAIC_STAIRS, JNEModBlocks.CLARET_MOSAIC);
+        slab(blockStateModelGenerator, JNEModBlocks.CLARET_MOSAIC_SLAB, JNEModBlocks.CLARET_MOSAIC);
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.POLISHED_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.POLISHED_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.POLISHED_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.POLISHED_RED_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.POLISHED_RED_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.POLISHED_RED_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CRACKED_RED_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CRACKED_RED_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CRACKED_RED_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CHISELED_RED_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CHISELED_RED_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS).withPrefixedPath("block/"));
+
     }
 
     @Override

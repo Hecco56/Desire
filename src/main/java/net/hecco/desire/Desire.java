@@ -10,8 +10,14 @@ import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItemGroups;
 import net.hecco.desire.registry.ModItems;
 import net.hecco.desire.registry.ModRegistries;
+import net.minecraft.block.WoodType;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
 
 public class Desire implements ModInitializer {
 	public static final String MOD_ID = "desire";
@@ -35,11 +41,15 @@ public class Desire implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		LOGGER.info("BEFORE");
+		LOGGER.info(Arrays.toString(DyeColor.values()));
+		LOGGER.info(WoodType.stream().map(WoodType::name).toList().toString());
 		ModBlocks.register();
 		ModItems.register();
 		ModItemGroups.register();
 		ModRegistries.register();
 
+		//COMPAT
 		JNEModBlocks.register();
 		JNEDatagenItems.register();
 
