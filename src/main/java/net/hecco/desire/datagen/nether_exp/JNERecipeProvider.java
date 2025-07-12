@@ -6,8 +6,9 @@ import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireRecipeProvider;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -32,6 +33,22 @@ public class JNERecipeProvider extends DesireRecipeProvider {
         offerCrackingRecipe(exporter, JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_SLAB);
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_slab")));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.RED_NETHER_BRICK_FENCE, 6)
+                .pattern("#B#")
+                .pattern("#B#")
+                .input('#', Blocks.RED_NETHER_BRICKS)
+                .input('B', Items.NETHER_BRICK)
+                .criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.BLUE_NETHER_BRICK_FENCE, 6)
+                .pattern("#B#")
+                .pattern("#B#")
+                .input('#', Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")))
+                .input('B', Items.NETHER_BRICK)
+                .criterion("has_blue_nether_bricks", conditionsFromItem(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks"))))
+                .offerTo(exporter);
+
+
         generateCraftingFix(exporter, BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"), Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "polished_basalt_bricks")));
     }
 }

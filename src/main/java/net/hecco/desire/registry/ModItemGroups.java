@@ -193,9 +193,11 @@ public class ModItemGroups {
                         entries.add(JNEModBlocks.POLISHED_RED_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CRACKED_RED_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CHISELED_RED_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.RED_NETHER_BRICK_FENCE);
                         entries.add(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.BLUE_NETHER_BRICK_FENCE);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("copper_pillar"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"));

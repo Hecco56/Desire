@@ -287,6 +287,7 @@
   "block.desire.yellow_terracotta_mosaic_slab": "Yellow Terracotta Mosaic Slab",
   "block.desire.yellow_terracotta_mosaic_stairs": "Yellow Terracotta Mosaic Stairs",
   "block.desire.yellow_terracotta_mosaic_wall": "Yellow Terracotta Mosaic Wall",
+  "block.netherexp.blue_nether_brick_fence": "Blue Nether Brick Fence",
   "block.netherexp.chiseled_blue_nether_bricks": "Chiseled Blue Nether Bricks",
   "block.netherexp.chiseled_red_nether_bricks": "Chiseled Red Nether Bricks",
   "block.netherexp.claret_mosaic": "Claret Mosaic",
@@ -297,6 +298,7 @@
   "block.netherexp.polished_blue_nether_bricks": "Polished Blue Nether Bricks",
   "block.netherexp.polished_nether_bricks": "Polished Nether Bricks",
   "block.netherexp.polished_red_nether_bricks": "Polished Red Nether Bricks",
+  "block.netherexp.red_nether_brick_fence": "Red Nether Brick Fence",
   "item.desire.desire_icon": "Desire Icon",
   "itemgroup.desire": "Desire"
 }

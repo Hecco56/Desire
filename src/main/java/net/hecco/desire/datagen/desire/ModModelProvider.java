@@ -170,6 +170,7 @@ public class ModModelProvider extends DesireModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS);
         blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS).withPrefixedPath("block/"));
 
+        fence(blockStateModelGenerator, JNEModBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
     }
 
     @Override

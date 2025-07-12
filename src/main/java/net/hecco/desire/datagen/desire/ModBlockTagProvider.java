@@ -2,6 +2,7 @@ package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
@@ -29,6 +30,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STONE_BOULDER)
                 .add(ModBlocks.DEEPSLATE_SHEET)
                 .add(ModBlocks.BLACKSTONE_CHUNK)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.FENCES)
+                .add(JNEModBlocks.RED_NETHER_BRICK_FENCE)
+                .add(JNEModBlocks.BLUE_NETHER_BRICK_FENCE)
         ;
 
         for (Block block : BlockFamilyGenerator.WALLS) {
