@@ -4,16 +4,15 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.desire.compat.ModPacks;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
-import net.hecco.desire.datagen.nether_exp.JNEDatagenItems;
+import net.hecco.desire.datagen.DatagenItems;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.registry.ModItemGroups;
 import net.hecco.desire.registry.ModItems;
 import net.hecco.desire.registry.ModRegistries;
 import net.minecraft.block.WoodType;
-import net.minecraft.registry.Registries;
 import net.minecraft.util.DyeColor;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,9 +40,6 @@ public class Desire implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("BEFORE");
-		LOGGER.info(Arrays.toString(DyeColor.values()));
-		LOGGER.info(WoodType.stream().map(WoodType::name).toList().toString());
 		ModBlocks.register();
 		ModItems.register();
 		ModItemGroups.register();
@@ -51,8 +47,9 @@ public class Desire implements ModInitializer {
 
 		//COMPAT
 		JNEModBlocks.register();
-		JNEDatagenItems.register();
+		NSModBlocks.register();
 
+		DatagenItems.register();
 		ModPacks.registerBuiltinPacks();
 	}
 }

@@ -2,6 +2,7 @@ package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireModelProvider;
 import net.hecco.desire.registry.ModBlocks;
@@ -12,6 +13,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.registry.Registries;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -171,6 +173,19 @@ public class ModModelProvider extends DesireModelProvider {
         blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS).withPrefixedPath("block/"));
 
         fence(blockStateModelGenerator, JNEModBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
+
+
+
+        for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {
+            wall(blockStateModelGenerator, NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(color), Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, color.getName() + "_kaolin_bricks")));
+        }
+
+        for (String wood : NSModBlocks.WOOD_TYPES) {
+            blockStateModelGenerator.registerSimpleCubeAll(NSModBlocks.WOOD_MOSAICS.get(wood));
+            blockStateModelGenerator.registerParentedItemModel(NSModBlocks.WOOD_MOSAICS.get(wood), Identifier.of(Desire.NATURES_SPIRIT, wood + "_mosaic").withPrefixedPath("block/"));
+            stairs(blockStateModelGenerator, NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood), NSModBlocks.WOOD_MOSAICS.get(wood));
+            slab(blockStateModelGenerator, NSModBlocks.WOOD_MOSAIC_SLABS.get(wood), NSModBlocks.WOOD_MOSAICS.get(wood));
+        }
     }
 
     @Override

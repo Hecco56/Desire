@@ -2,7 +2,7 @@ package net.hecco.desire.compat.netherexp;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.desire.Desire;
-import net.hecco.desire.compat.*;
+import net.hecco.desire.compat.blocks.*;
 import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.oldutil.ModCompat;
@@ -11,8 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
-import java.lang.reflect.Constructor;
 
 public class JNEModBlocks {
     public static final String MOD_ID = Desire.JADENS_NETHER_EXPANSION;

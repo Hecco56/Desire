@@ -26,6 +26,7 @@ public class ModPacks {
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(Desire.MOD_ID);
         if (modContainer.isPresent()) {
             registerBuiltinDataPack(modContainer.get(), Desire.JADENS_NETHER_EXPANSION);
+            registerBuiltinDataPack(modContainer.get(), Desire.NATURES_SPIRIT);
         }
     }
 }
