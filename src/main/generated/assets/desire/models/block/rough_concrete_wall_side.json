@@ -3,6 +3,6 @@
   "textures": {
     "post": "desire:block/rough_concrete_wall_post",
     "side": "desire:block/rough_concrete_wall_side",
-    "tallside": "desire:block/rough_concrete_block_top"
+    "tallside": "desire:block/rough_concrete_block"
   }
 }

@@ -50,6 +50,7 @@ public class NSModBlocks {
             Desire.LOGGER.info(color.getName() + " " + color.getName() + "_kaolin_brick_wall");
             DYED_KAOLIN_BRICK_WALLS.put(color, registerBlock(color.getName() + "_kaolin_brick_wall", new CompatWallBlock(AbstractBlock.Settings.copy(KAOLIN_BRICK_WALL).mapColor(color), MOD_ID)));
             ModBlockTagProvider.PICKAXE_MINEABLE.add(DYED_KAOLIN_BRICK_WALLS.get(color));
+            ModBlockTagProvider.WALLS.add(DYED_KAOLIN_BRICK_WALLS.get(color));
         }
         for (String wood : WOOD_TYPES) {
             WOOD_MOSAICS.put(wood, registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
@@ -58,11 +59,17 @@ public class NSModBlocks {
             ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAICS.get(wood));
             ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
             ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
+            ModBlockTagProvider.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            ModBlockTagProvider.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
         }
         ModBlockTagProvider.PICKAXE_MINEABLE.add(KAOLIN_BRICK_WALL);
+        ModBlockTagProvider.WALLS.add(KAOLIN_BRICK_WALL);
         ModBlockTagProvider.PICKAXE_MINEABLE.add(TRAVERTINE_WALL);
+        ModBlockTagProvider.WALLS.add(TRAVERTINE_WALL);
         ModBlockTagProvider.PICKAXE_MINEABLE.add(SMOOTH_PINK_SANDSTONE_WALL);
+        ModBlockTagProvider.WALLS.add(SMOOTH_PINK_SANDSTONE_WALL);
         ModBlockTagProvider.PICKAXE_MINEABLE.add(CUT_PINK_SANDSTONE_STAIRS);
+        ModBlockTagProvider.STAIRS.add(CUT_PINK_SANDSTONE_STAIRS);
         ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_CHERT_BRICKS);
         ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_TRAVERTINE_BRICKS);
     }

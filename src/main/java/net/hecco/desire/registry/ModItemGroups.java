@@ -3,6 +3,7 @@ package net.hecco.desire.registry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.util.BlockFamilyGenerator;
@@ -15,6 +16,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
@@ -27,6 +29,8 @@ public class ModItemGroups {
                         entries.add(BlockFamilyGenerator.BLOCKS.get("chiseled_deepslate_bricks"));
                         entries.add(ModBlocks.BLACKSTONE_CHUNK);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("chiseled_blackstone"));
+                        entries.add(NSModBlocks.CHISELED_TRAVERTINE_BRICKS);
+                        entries.add(NSModBlocks.CHISELED_CHERT_BRICKS);
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("oak").getVariant("mosaic"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("oak").getVariant("mosaic_stairs"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("oak").getVariant("mosaic_slab"));
@@ -54,6 +58,11 @@ public class ModItemGroups {
                         entries.add(Blocks.BAMBOO_MOSAIC);
                         entries.add(Blocks.BAMBOO_MOSAIC_STAIRS);
                         entries.add(Blocks.BAMBOO_MOSAIC_SLAB);
+                        for (String wood : NSModBlocks.WOOD_TYPES) {
+                            entries.add(NSModBlocks.WOOD_MOSAICS.get(wood));
+                            entries.add(NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood));
+                            entries.add(NSModBlocks.WOOD_MOSAIC_SLABS.get(wood));
+                        }
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("crimson").getVariant("mosaic"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("crimson").getVariant("mosaic_stairs"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("crimson").getVariant("mosaic_slab"));
@@ -220,6 +229,7 @@ public class ModItemGroups {
                         }
                         entries.add(BlockFamilyGenerator.BLOCKS.get("cut_sandstone_stairs"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("cut_red_sandstone_stairs"));
+                        entries.add(NSModBlocks.CUT_PINK_SANDSTONE_STAIRS);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("quartz_brick_stairs"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("quartz_brick_slab"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("quartz_brick_wall"));
@@ -227,12 +237,18 @@ public class ModItemGroups {
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_granite_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_andesite_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_diorite_wall"));
+                        entries.add(NSModBlocks.KAOLIN_BRICK_WALL);
+                        for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {
+                            entries.add(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(color));
+                        }
+                        entries.add(NSModBlocks.TRAVERTINE_WALL);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_sandstone_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_red_sandstone_wall"));
+                        entries.add(NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("smooth_quartz_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("prismarine_brick_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("dark_prismarine_wall"));
-                        }).build());
+                    }).build());
     public static void register() {
 
         if (Desire.isModLoaded(Desire.JADENS_NETHER_EXPANSION)) {

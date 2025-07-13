@@ -175,7 +175,7 @@ public class ModModelProvider extends DesireModelProvider {
         fence(blockStateModelGenerator, JNEModBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
 
 
-
+        wall(blockStateModelGenerator, NSModBlocks.KAOLIN_BRICK_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "kaolin_bricks")));
         for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {
             wall(blockStateModelGenerator, NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(color), Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, color.getName() + "_kaolin_bricks")));
         }
@@ -186,6 +186,12 @@ public class ModModelProvider extends DesireModelProvider {
             stairs(blockStateModelGenerator, NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood), NSModBlocks.WOOD_MOSAICS.get(wood));
             slab(blockStateModelGenerator, NSModBlocks.WOOD_MOSAIC_SLABS.get(wood), NSModBlocks.WOOD_MOSAICS.get(wood));
         }
+
+        blockStateModelGenerator.registerSingleton(NSModBlocks.CHISELED_TRAVERTINE_BRICKS, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(NSModBlocks.CHISELED_CHERT_BRICKS, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        sideTopStairs(blockStateModelGenerator, NSModBlocks.CUT_PINK_SANDSTONE_STAIRS, Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_slab"), Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_top"), Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_top"));
+        wall(blockStateModelGenerator, NSModBlocks.TRAVERTINE_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine")));
+        wall(blockStateModelGenerator, NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "smooth_pink_sandstone")));
     }
 
     @Override

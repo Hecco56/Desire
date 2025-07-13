@@ -20,7 +20,7 @@ public abstract class DesireBlockLootTableProvider extends FabricBlockLootTableP
 
     public final String MODID;
 
-    public static final ArrayList<Block> usedBlocks = new ArrayList<>();
+    public final ArrayList<Block> usedBlocks = new ArrayList<>();
     @Override
     public void addDrop(Block block, LootTable.Builder lootTable) {
         if(usedBlocks.contains(block)) {
