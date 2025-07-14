@@ -5,6 +5,7 @@ import net.hecco.desire.compat.blocks.*;
 import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.oldutil.ModCompat;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -47,30 +48,36 @@ public class NSModBlocks {
 
     public static void register() {
         for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {
-            Desire.LOGGER.info(color.getName() + " " + color.getName() + "_kaolin_brick_wall");
             DYED_KAOLIN_BRICK_WALLS.put(color, registerBlock(color.getName() + "_kaolin_brick_wall", new CompatWallBlock(AbstractBlock.Settings.copy(KAOLIN_BRICK_WALL).mapColor(color), MOD_ID)));
-            ModBlockTagProvider.PICKAXE_MINEABLE.add(DYED_KAOLIN_BRICK_WALLS.get(color));
-            ModBlockTagProvider.WALLS.add(DYED_KAOLIN_BRICK_WALLS.get(color));
+            BlockFamilyGenerator.PICKAXE_MINEABLE.add(DYED_KAOLIN_BRICK_WALLS.get(color));
+            BlockFamilyGenerator.WALLS.add(DYED_KAOLIN_BRICK_WALLS.get(color));
+            BlockFamilyGenerator.CUSTOM_WALL_MODEL.add(DYED_KAOLIN_BRICK_WALLS.get(color));
         }
         for (String wood : WOOD_TYPES) {
             WOOD_MOSAICS.put(wood, registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
             WOOD_MOSAIC_STAIRS.put(wood, registerBlock(wood + "_mosaic_stairs", new CompatStairsBlock(WOOD_MOSAICS.get(wood).getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
             WOOD_MOSAIC_SLABS.put(wood, registerBlock(wood + "_mosaic_slab", new CompatSlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
-            ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAICS.get(wood));
-            ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
-            ModBlockTagProvider.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
-            ModBlockTagProvider.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
-            ModBlockTagProvider.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAICS.get(wood));
+            BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
+            BlockFamilyGenerator.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
         }
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(KAOLIN_BRICK_WALL);
-        ModBlockTagProvider.WALLS.add(KAOLIN_BRICK_WALL);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(TRAVERTINE_WALL);
-        ModBlockTagProvider.WALLS.add(TRAVERTINE_WALL);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(SMOOTH_PINK_SANDSTONE_WALL);
-        ModBlockTagProvider.WALLS.add(SMOOTH_PINK_SANDSTONE_WALL);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CUT_PINK_SANDSTONE_STAIRS);
-        ModBlockTagProvider.STAIRS.add(CUT_PINK_SANDSTONE_STAIRS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_CHERT_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_TRAVERTINE_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(KAOLIN_BRICK_WALL);
+        BlockFamilyGenerator.WALLS.add(KAOLIN_BRICK_WALL);
+        BlockFamilyGenerator.CUSTOM_WALL_MODEL.add(KAOLIN_BRICK_WALL);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(TRAVERTINE_WALL);
+        BlockFamilyGenerator.WALLS.add(TRAVERTINE_WALL);
+        BlockFamilyGenerator.CUSTOM_WALL_MODEL.add(TRAVERTINE_WALL);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(SMOOTH_PINK_SANDSTONE_WALL);
+        BlockFamilyGenerator.WALLS.add(SMOOTH_PINK_SANDSTONE_WALL);
+        BlockFamilyGenerator.CUSTOM_WALL_MODEL.add(SMOOTH_PINK_SANDSTONE_WALL);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CUT_PINK_SANDSTONE_STAIRS);
+        BlockFamilyGenerator.STAIRS.add(CUT_PINK_SANDSTONE_STAIRS);
+        BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(CUT_PINK_SANDSTONE_STAIRS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CHISELED_CHERT_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CHISELED_TRAVERTINE_BRICKS);
     }
 }

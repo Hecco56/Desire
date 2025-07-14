@@ -63,6 +63,21 @@
     "desire:red_concrete_brick_slab",
     "desire:red_terracotta_mosaic_slab",
     "desire:black_concrete_brick_slab",
-    "desire:black_terracotta_mosaic_slab"
+    "desire:black_terracotta_mosaic_slab",
+    "netherexp:claret_mosaic_slab",
+    "natures_spirit:aspen_mosaic_stairs",
+    "natures_spirit:cedar_mosaic_stairs",
+    "natures_spirit:cypress_mosaic_stairs",
+    "natures_spirit:fir_mosaic_stairs",
+    "natures_spirit:ghaf_mosaic_stairs",
+    "natures_spirit:larch_mosaic_stairs",
+    "natures_spirit:maple_mosaic_stairs",
+    "natures_spirit:olive_mosaic_stairs",
+    "natures_spirit:palo_verde_mosaic_stairs",
+    "natures_spirit:redwood_mosaic_stairs",
+    "natures_spirit:saxaul_mosaic_stairs",
+    "natures_spirit:willow_mosaic_stairs",
+    "bountifulfares:hoary_mosaic_stairs",
+    "bountifulfares:walnut_mosaic_stairs"
   ]
 }

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.desire.Desire;
 import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.loot.LootTable;
 import net.minecraft.registry.Registries;
@@ -32,11 +33,10 @@ public abstract class DesireBlockLootTableProvider extends FabricBlockLootTableP
 
     @Override
     public void generate() {
-        for (Block block : ModBlockTagProvider.SLABS) {
+        for (Block block : BlockFamilyGenerator.SLABS) {
             addDrop(block, slabDrops(block));
         }
         for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(MODID)) {
-            Desire.LOGGER.info(ModDatagenUtils.allBlockIdsInNamespace(MODID) + "");
             Block block = Registries.BLOCK.get(id);
             if(usedBlocks.contains(block)) { continue; }
             this.addDrop(block);

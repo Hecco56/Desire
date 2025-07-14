@@ -6,6 +6,7 @@ import net.hecco.desire.compat.blocks.*;
 import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.oldutil.ModCompat;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -35,21 +36,21 @@ public class JNEModBlocks {
     }
 
     public static void register() {
-        ModBlockTagProvider.AXE_MINEABLE.add(CLARET_MOSAIC);
-        ModBlockTagProvider.AXE_MINEABLE.add(CLARET_MOSAIC_STAIRS);
-        ModBlockTagProvider.AXE_MINEABLE.add(CLARET_MOSAIC_SLAB);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(POLISHED_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(POLISHED_RED_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(POLISHED_BLUE_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CRACKED_BLUE_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CRACKED_RED_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_BLUE_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(CHISELED_RED_NETHER_BRICKS);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(RED_NETHER_BRICK_FENCE);
-        ModBlockTagProvider.PICKAXE_MINEABLE.add(BLUE_NETHER_BRICK_FENCE);
-        ModBlockTagProvider.STAIRS.add(CLARET_MOSAIC_STAIRS);
-        ModBlockTagProvider.SLABS.add(CLARET_MOSAIC_SLAB);
-        ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(CLARET_MOSAIC_STAIRS, CLARET_MOSAIC);
-        ModDatagenUtils.VARIANT_TO_BASE_BLOCK.put(CLARET_MOSAIC_SLAB, CLARET_MOSAIC);
+        BlockFamilyGenerator.AXE_MINEABLE.add(CLARET_MOSAIC);
+        BlockFamilyGenerator.AXE_MINEABLE.add(CLARET_MOSAIC_STAIRS);
+        BlockFamilyGenerator.AXE_MINEABLE.add(CLARET_MOSAIC_SLAB);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(POLISHED_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(POLISHED_RED_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(POLISHED_BLUE_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CRACKED_BLUE_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CRACKED_RED_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CHISELED_BLUE_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(CHISELED_RED_NETHER_BRICKS);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(RED_NETHER_BRICK_FENCE);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(BLUE_NETHER_BRICK_FENCE);
+        BlockFamilyGenerator.STAIRS.add(CLARET_MOSAIC_STAIRS);
+        BlockFamilyGenerator.SLABS.add(CLARET_MOSAIC_SLAB);
+        BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(CLARET_MOSAIC_STAIRS);
+        BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(CLARET_MOSAIC_SLAB);
     }
 }

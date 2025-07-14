@@ -14,11 +14,6 @@ import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-    public static final ArrayList<Block> STAIRS = new ArrayList<>();
-    public static final ArrayList<Block> SLABS = new ArrayList<>();
-    public static final ArrayList<Block> WALLS = new ArrayList<>();
-    public static final ArrayList<Block> PICKAXE_MINEABLE = new ArrayList<>();
-    public static final ArrayList<Block> AXE_MINEABLE = new ArrayList<>();
 
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);

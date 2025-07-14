@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_kaolin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "natures_spirit:brown_kaolin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:brown_kaolin_brick_wall_from_brown_kaolin_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_brown_kaolin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:brown_kaolin_brick_wall_from_brown_kaolin_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

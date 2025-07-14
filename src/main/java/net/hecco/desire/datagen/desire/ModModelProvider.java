@@ -2,6 +2,7 @@ package net.hecco.desire.datagen.desire;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.bountifulfares.BFModBlocks;
 import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireModelProvider;
@@ -188,10 +189,20 @@ public class ModModelProvider extends DesireModelProvider {
         }
 
         blockStateModelGenerator.registerSingleton(NSModBlocks.CHISELED_TRAVERTINE_BRICKS, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerParentedItemModel(NSModBlocks.CHISELED_TRAVERTINE_BRICKS, Registries.BLOCK.getId(NSModBlocks.CHISELED_TRAVERTINE_BRICKS).withPrefixedPath("block/"));
         blockStateModelGenerator.registerSingleton(NSModBlocks.CHISELED_CHERT_BRICKS, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerParentedItemModel(NSModBlocks.CHISELED_CHERT_BRICKS, Registries.BLOCK.getId(NSModBlocks.CHISELED_CHERT_BRICKS).withPrefixedPath("block/"));
         sideTopStairs(blockStateModelGenerator, NSModBlocks.CUT_PINK_SANDSTONE_STAIRS, Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_slab"), Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_top"), Identifier.of(Desire.NATURES_SPIRIT, "block/cut_pink_sandstone_top"));
         wall(blockStateModelGenerator, NSModBlocks.TRAVERTINE_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine")));
-        wall(blockStateModelGenerator, NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "smooth_pink_sandstone")));
+        customTextureWall(blockStateModelGenerator, NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL, Identifier.of(Desire.NATURES_SPIRIT, "block/pink_sandstone_top"));
+
+
+        for (String wood : BFModBlocks.WOOD_TYPES) {
+            blockStateModelGenerator.registerSimpleCubeAll(BFModBlocks.WOOD_MOSAICS.get(wood));
+            blockStateModelGenerator.registerParentedItemModel(BFModBlocks.WOOD_MOSAICS.get(wood), Identifier.of(Desire.BOUNTIFUL_FARES, wood + "_mosaic").withPrefixedPath("block/"));
+            stairs(blockStateModelGenerator, BFModBlocks.WOOD_MOSAIC_STAIRS.get(wood), BFModBlocks.WOOD_MOSAICS.get(wood));
+            slab(blockStateModelGenerator, BFModBlocks.WOOD_MOSAIC_SLABS.get(wood), BFModBlocks.WOOD_MOSAICS.get(wood));
+        }
     }
 
     @Override

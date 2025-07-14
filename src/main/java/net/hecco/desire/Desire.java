@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.desire.compat.ModPacks;
+import net.hecco.desire.compat.bountifulfares.BFModBlocks;
 import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DatagenItems;
@@ -22,6 +23,7 @@ public class Desire implements ModInitializer {
 	public static final String MOD_ID = "desire";
 	public static final String NATURES_SPIRIT = "natures_spirit";
 	public static final String JADENS_NETHER_EXPANSION = "netherexp";
+	public static final String BOUNTIFUL_FARES = "bountifulfares";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -48,6 +50,7 @@ public class Desire implements ModInitializer {
 		//COMPAT
 		JNEModBlocks.register();
 		NSModBlocks.register();
+		BFModBlocks.register();
 
 		DatagenItems.register();
 		ModPacks.registerBuiltinPacks();

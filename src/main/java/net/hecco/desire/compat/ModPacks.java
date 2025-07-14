@@ -27,6 +27,7 @@ public class ModPacks {
         if (modContainer.isPresent()) {
             registerBuiltinDataPack(modContainer.get(), Desire.JADENS_NETHER_EXPANSION);
             registerBuiltinDataPack(modContainer.get(), Desire.NATURES_SPIRIT);
+            registerBuiltinDataPack(modContainer.get(), Desire.BOUNTIFUL_FARES);
         }
     }
 }

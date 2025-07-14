@@ -2,6 +2,7 @@ package net.hecco.desire.datagen.nether_exp;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireRecipeProvider;
 import net.hecco.desire.util.BlockFamilyGenerator;
@@ -47,6 +48,13 @@ public class JNERecipeProvider extends DesireRecipeProvider {
                 .input('B', Items.NETHER_BRICK)
                 .criterion("has_blue_nether_bricks", conditionsFromItem(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks"))))
                 .offerTo(exporter);
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_NETHER_BRICKS, Items.NETHER_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_RED_NETHER_BRICKS, Items.RED_NETHER_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Items.RED_NETHER_BRICK_SLAB);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_slab")));
+
 
 
         generateCraftingFix(exporter, BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"), Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "polished_basalt_bricks")));
