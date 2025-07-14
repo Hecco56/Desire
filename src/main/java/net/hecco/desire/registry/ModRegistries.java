@@ -3,6 +3,8 @@ package net.hecco.desire.registry;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
+import net.hecco.desire.compat.bountifulfares.BFModBlocks;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
@@ -36,7 +38,19 @@ public class ModRegistries {
     }
 
     public static void registerFlammables() {
-        for (String name : WoodType.stream().map(WoodType::name).toList()) {
+        for (WoodType woodType : WoodType.stream().toList()) {
+            if (woodType.name() != "bamboo" && !woodType.name().contains(":")) {
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic"), 5, 20);
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic_stairs"), 5, 20);
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic_slab"), 5, 20);
+            }
+        }
+        for (String name : NSModBlocks.WOOD_TYPES) {
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_stairs"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_slab"), 5, 20);
+        }
+        for (String name : BFModBlocks.WOOD_TYPES) {
             FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), 5, 20);
             FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_stairs"), 5, 20);
             FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_slab"), 5, 20);
