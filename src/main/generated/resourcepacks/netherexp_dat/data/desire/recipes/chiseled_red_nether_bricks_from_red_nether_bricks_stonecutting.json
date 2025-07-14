@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "item": "netherexp:blue_nether_brick_slab"
+    "item": "minecraft:red_nether_bricks"
   },
   "result": "netherexp:chiseled_red_nether_bricks"
 }

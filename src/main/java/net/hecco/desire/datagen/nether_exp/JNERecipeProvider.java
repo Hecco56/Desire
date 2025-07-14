@@ -49,11 +49,38 @@ public class JNERecipeProvider extends DesireRecipeProvider {
                 .criterion("has_blue_nether_bricks", conditionsFromItem(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks"))))
                 .offerTo(exporter);
 
+        offerPillarRecipe(exporter, JNEModBlocks.RED_NETHER_BRICK_PILLAR, Blocks.RED_NETHER_BRICKS);
+        offerPillarRecipe(exporter, JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.NETHER_BRICK_FENCE_GATE, 2)
+                .pattern("B#B")
+                .pattern("B#B")
+                .input('#', Blocks.NETHER_BRICKS)
+                .input('B', Items.NETHER_BRICK)
+                .criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.RED_NETHER_BRICK_FENCE_GATE, 2)
+                .pattern("B#B")
+                .pattern("B#B")
+                .input('#', Blocks.RED_NETHER_BRICKS)
+                .input('B', Items.NETHER_BRICK)
+                .criterion(hasItem(Blocks.RED_NETHER_BRICKS), conditionsFromItem(Blocks.RED_NETHER_BRICKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.BLUE_NETHER_BRICK_FENCE_GATE, 2)
+                .pattern("B#B")
+                .pattern("B#B")
+                .input('#', Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")))
+                .input('B', Items.NETHER_BRICK)
+                .criterion("has_blue_nether_bricks", conditionsFromItem(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks"))))
+                .offerTo(exporter);
+
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_NETHER_BRICKS, Items.NETHER_BRICKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_RED_NETHER_BRICKS, Items.RED_NETHER_BRICKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Items.RED_NETHER_BRICK_SLAB);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_slab")));
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Items.RED_NETHER_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.RED_NETHER_BRICK_PILLAR, Items.RED_NETHER_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));
 
 
 

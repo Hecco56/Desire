@@ -134,11 +134,11 @@ public class ModRecipeProvider extends DesireRecipeProvider {
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("copper_pillar"), Blocks.COPPER_BLOCK);
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"), Blocks.EXPOSED_COPPER);
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"), Blocks.WEATHERED_COPPER);
-        offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"), Blocks.WEATHERED_COPPER);
+        offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"), Blocks.OXIDIZED_COPPER);
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("waxed_copper_pillar"), Blocks.WAXED_COPPER_BLOCK);
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("waxed_exposed_copper_pillar"), Blocks.WAXED_EXPOSED_COPPER);
         offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("waxed_weathered_copper_pillar"), Blocks.WAXED_WEATHERED_COPPER);
-        offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("waxed_oxidized_copper_pillar"), Blocks.WAXED_WEATHERED_COPPER);
+        offerPillarRecipe(exporter, BlockFamilyGenerator.BLOCKS.get("waxed_oxidized_copper_pillar"), Blocks.WAXED_OXIDIZED_COPPER);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.FLINT, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("flint_block"));
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("polished_flint_block"), BlockFamilyGenerator.BLOCKS.get("flint_block"));
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("chiseled_calcite"), BlockFamilyGenerator.BLOCKS.get("calcite_slab"));

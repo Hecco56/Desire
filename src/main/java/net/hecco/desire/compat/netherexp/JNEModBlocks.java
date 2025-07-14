@@ -11,6 +11,7 @@ import net.minecraft.block.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class JNEModBlocks {
@@ -26,8 +27,13 @@ public class JNEModBlocks {
     public static final Block CRACKED_BLUE_NETHER_BRICKS = registerBlock("cracked_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
     public static final Block CHISELED_RED_NETHER_BRICKS = registerBlock("chiseled_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
     public static final Block CHISELED_BLUE_NETHER_BRICKS = registerBlock("chiseled_blue_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
+    public static final Block RED_NETHER_BRICK_PILLAR = registerBlock("red_nether_brick_pillar", new CompatPillarBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));
+    public static final Block BLUE_NETHER_BRICK_PILLAR = registerBlock("blue_nether_brick_pillar", new CompatPillarBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
     public static final Block RED_NETHER_BRICK_FENCE = registerBlock("red_nether_brick_fence", new CompatFenceBlock(AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block BLUE_NETHER_BRICK_FENCE = registerBlock("blue_nether_brick_fence", new CompatFenceBlock(AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE).mapColor(MapColor.BRIGHT_TEAL), MOD_ID));
+    public static final Block NETHER_BRICK_FENCE_GATE = registerBlock("nether_brick_fence_gate", new CompatNetherBrickFenceGateBlock(AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE).sounds(BlockSoundGroup.NETHER_BRICKS), MOD_ID));
+    public static final Block RED_NETHER_BRICK_FENCE_GATE = registerBlock("red_nether_brick_fence_gate", new CompatNetherBrickFenceGateBlock(AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE).mapColor(MapColor.DARK_RED).sounds(BlockSoundGroup.NETHER_BRICKS), MOD_ID));
+    public static final Block BLUE_NETHER_BRICK_FENCE_GATE = registerBlock("blue_nether_brick_fence_gate", new CompatNetherBrickFenceGateBlock(AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE).mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.NETHER_BRICKS), MOD_ID));
     private static Block registerBlock(String name, Block block) {
         Block newBlock = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
         ModCompat.COMPAT_BLOCKS.put(Identifier.of(MOD_ID, name), newBlock);
@@ -48,6 +54,11 @@ public class JNEModBlocks {
         BlockFamilyGenerator.PICKAXE_MINEABLE.add(CHISELED_RED_NETHER_BRICKS);
         BlockFamilyGenerator.PICKAXE_MINEABLE.add(RED_NETHER_BRICK_FENCE);
         BlockFamilyGenerator.PICKAXE_MINEABLE.add(BLUE_NETHER_BRICK_FENCE);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(RED_NETHER_BRICK_PILLAR);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(BLUE_NETHER_BRICK_PILLAR);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(NETHER_BRICK_FENCE_GATE);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(RED_NETHER_BRICK_FENCE_GATE);
+        BlockFamilyGenerator.PICKAXE_MINEABLE.add(BLUE_NETHER_BRICK_FENCE_GATE);
         BlockFamilyGenerator.STAIRS.add(CLARET_MOSAIC_STAIRS);
         BlockFamilyGenerator.SLABS.add(CLARET_MOSAIC_SLAB);
         BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(CLARET_MOSAIC_STAIRS);

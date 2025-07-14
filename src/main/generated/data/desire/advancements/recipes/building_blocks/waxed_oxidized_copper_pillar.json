@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_waxed_weathered_copper": {
+    "has_waxed_oxidized_copper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:waxed_weathered_copper"
+              "minecraft:waxed_oxidized_copper"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_waxed_weathered_copper",
+      "has_waxed_oxidized_copper",
       "has_the_recipe"
     ]
   ],

@@ -9,8 +9,6 @@ import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.WoodType;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -285,34 +283,36 @@ public class ModItemGroups {
             ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP,
                             Identifier.of(Desire.NATURES_SPIRIT, "tab")))
                     .register(entries -> {
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "cut_pink_sandstone")), NSModBlocks.CUT_PINK_SANDSTONE_STAIRS);
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "smooth_pink_sandstone_slab")), NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL);
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine_slab")), NSModBlocks.TRAVERTINE_WALL);
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine_brick_slab")), NSModBlocks.CHISELED_TRAVERTINE_BRICKS);
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "chert_brick_wall")), NSModBlocks.CHISELED_CHERT_BRICKS);
-                                for (String wood : NSModBlocks.WOOD_TYPES) {
-                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, wood + "_planks")), NSModBlocks.WOOD_MOSAICS.get(wood));
-                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, wood + "_stairs")), NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood));
-                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, wood + "_slab")), NSModBlocks.WOOD_MOSAIC_SLABS.get(wood));
+                                if (Desire.isModLoaded(Desire.NATURES_SPIRIT)) {
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "cut_pink_sandstone")), NSModBlocks.CUT_PINK_SANDSTONE_STAIRS);
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "smooth_pink_sandstone_slab")), NSModBlocks.SMOOTH_PINK_SANDSTONE_WALL);
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine_slab")), NSModBlocks.TRAVERTINE_WALL);
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine_brick_slab")), NSModBlocks.CHISELED_TRAVERTINE_BRICKS);
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "chert_brick_wall")), NSModBlocks.CHISELED_CHERT_BRICKS);
+                                    for (String wood : NSModBlocks.WOOD_TYPES) {
+                                        entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, NSModBlocks.PREV_ITEM.get(NSModBlocks.WOOD_TYPES.indexOf(wood)))), NSModBlocks.WOOD_MOSAICS.get(wood));
+                                        entries.addAfter(NSModBlocks.WOOD_MOSAICS.get(wood), NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood));
+                                        entries.addAfter(NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood), NSModBlocks.WOOD_MOSAIC_SLABS.get(wood));
+                                    }
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "pink_kaolin_brick_slab")), NSModBlocks.KAOLIN_BRICK_WALL);
+                                    entries.addAfter(NSModBlocks.KAOLIN_BRICK_WALL.asItem(), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.WHITE));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.WHITE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_GRAY));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_GRAY), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GRAY));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GRAY), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLACK));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLACK), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BROWN));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BROWN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.RED));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.RED), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.ORANGE));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.ORANGE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.YELLOW));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.YELLOW), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIME));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIME), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GREEN));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GREEN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.CYAN));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.CYAN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_BLUE));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_BLUE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLUE));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLUE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PURPLE));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PURPLE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.MAGENTA));
+                                    entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.MAGENTA), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PINK));
                                 }
-                                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "pink_kaolin_brick_slab")), NSModBlocks.KAOLIN_BRICK_WALL);
-                                entries.addAfter(NSModBlocks.KAOLIN_BRICK_WALL.asItem(), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.WHITE));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.WHITE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_GRAY));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_GRAY), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GRAY));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GRAY), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLACK));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLACK), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BROWN));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BROWN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.RED));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.RED), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.ORANGE));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.ORANGE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.YELLOW));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.YELLOW), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIME));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIME), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GREEN));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.GREEN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.CYAN));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.CYAN), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_BLUE));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.LIGHT_BLUE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLUE));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.BLUE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PURPLE));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PURPLE), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.MAGENTA));
-                                entries.addAfter(NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.MAGENTA), NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(DyeColor.PINK));
-                        }
+                            }
                     );
 
         }

@@ -21,6 +21,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
+
 public class ModModelProvider extends DesireModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -29,6 +31,7 @@ public class ModModelProvider extends DesireModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         for (Block block : BlockFamilyGenerator.CUBE_ALL) {
             blockStateModelGenerator.registerSimpleCubeAll(block);
+            Desire.LOGGER.info(block + "");
         }
         for (Block block : BlockFamilyGenerator.STAIRS) {
             if (!BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.contains(block)) {
@@ -118,10 +121,9 @@ public class ModModelProvider extends DesireModelProvider {
         sideTopWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("flintstone_wall"), Identifier.of(Desire.MOD_ID, "block/flintstone_side"), Identifier.of(Desire.MOD_ID, "block/flintstone_top"), Identifier.of(Desire.MOD_ID, "block/flintstone_bottom"));
         sideTopStairs(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_brick_stairs"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"));
         sideTopSlab(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_brick_slab"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"), Identifier.of(Desire.MOD_ID, "block/polished_granite_bricks_top"));
-        blockStateModelGenerator.registerSingleton(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant("block"), TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_stone_wall"), Identifier.of(Desire.MOD_ID, "block/polished_stone_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_stone_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_stone"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_mud_wall"), Identifier.of(Desire.MOD_ID, "block/polished_mud_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_mud_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_mud"));
-        polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("rough_concrete_wall"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_post"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block"));
+        polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("rough_concrete_wall"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_post"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_wall_side"), Identifier.of(Desire.MOD_ID, "block/rough_concrete_block_top"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_calcite_wall"), Identifier.of(Desire.MOD_ID, "block/polished_calcite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_calcite_wall_side"), Identifier.of(Desire.MOD_ID, "block/polished_calcite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_andesite_wall"), new Identifier(Desire.MOD_ID, "block/polished_andesite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_andesite_wall_side"), new Identifier("minecraft", "block/polished_andesite"));
         polishedWall(blockStateModelGenerator, BlockFamilyGenerator.BLOCKS.get("polished_granite_wall"), new Identifier(Desire.MOD_ID, "block/polished_granite_wall_post"), Identifier.of(Desire.MOD_ID, "block/polished_granite_wall_side"), new Identifier("minecraft", "block/polished_granite"));
@@ -175,6 +177,10 @@ public class ModModelProvider extends DesireModelProvider {
 
         fence(blockStateModelGenerator, JNEModBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
 
+        blockStateModelGenerator.registerAxisRotated(JNEModBlocks.RED_NETHER_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.RED_NETHER_BRICK_PILLAR, Registries.BLOCK.getId(JNEModBlocks.RED_NETHER_BRICK_PILLAR).withPrefixedPath("block/"));
+        blockStateModelGenerator.registerAxisRotated(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, Registries.BLOCK.getId(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR).withPrefixedPath("block/"));
 
         wall(blockStateModelGenerator, NSModBlocks.KAOLIN_BRICK_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "kaolin_bricks")));
         for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {

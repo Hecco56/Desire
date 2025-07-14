@@ -26,6 +26,7 @@ public class NSModBlocks {
 
     public static final List<String> WOOD_TYPES = List.of("aspen", "cedar", "cypress", "fir", "ghaf", "larch", "maple", "olive", "palo_verde", "redwood", "saxaul", "willow");
     public static final List<MapColor> WOOD_MAP_COLORS = List.of(MapColor.PALE_YELLOW, MapColor.GRAY, MapColor.OAK_TAN, MapColor.DIRT_BROWN, MapColor.BROWN, MapColor.LIGHT_GRAY, MapColor.ORANGE, MapColor.PALE_GREEN, MapColor.LICHEN_GREEN, MapColor.RED, MapColor.LIGHT_GRAY, MapColor.TERRACOTTA_BROWN);
+    public static final List<String> PREV_ITEM = List.of("yellow_aspen_leaves", "cedar_sapling", "cypress_sapling", "fir_sapling", "ghaf_sapling", "larch_sapling", "yellow_maple_sapling", "olive_sapling", "palo_verde_sapling", "redwood_sapling", "saxaul_sapling", "willow_sapling");
 
     public static final Block KAOLIN_BRICK_WALL = registerBlock("kaolin_brick_wall", new CompatWallBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).instrument(Instrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F), MOD_ID));
     public static final Map<DyeColor, Block> DYED_KAOLIN_BRICK_WALLS = new HashMap<>();
