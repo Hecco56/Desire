@@ -156,6 +156,8 @@ public class ModRecipeProvider extends DesireRecipeProvider {
             offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get(color + "_terracotta_mosaic"), Registries.BLOCK.get(Identifier.of("minecraft", color + "_glazed_terracotta")));
             generateSSWFamily(exporter, BlockFamilyGenerator.BLOCKS.get(color + "_terracotta_mosaic"), color + "_terracotta_mosaic");
         }
+        generateSSWFamily(exporter, Blocks.DRIPSTONE_BLOCK, "dripstone");
+
 
         StonecutterRecipeTreeGenerator.putRecipe(BlockFamilyGenerator.BLOCKS.get("stone_wall"), Blocks.STONE);
         StonecutterRecipeTreeGenerator.putRecipe(BlockFamilyGenerator.BLOCKS.get("chiseled_stone"), Blocks.STONE);
@@ -322,19 +324,13 @@ public class ModRecipeProvider extends DesireRecipeProvider {
         StonecutterRecipeTreeGenerator.putRecipe(BlockFamilyGenerator.BLOCKS.get("chiseled_polished_basalt_bricks"), BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"));
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("chiseled_blackstone"), Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("dripstone_stairs"), Blocks.DRIPSTONE_BLOCK);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("dripstone_slab"), Blocks.DRIPSTONE_BLOCK);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("dripstone_wall"), Blocks.DRIPSTONE_BLOCK);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("carved_dripstone"), Blocks.DRIPSTONE_BLOCK);
 
 
 
         StonecutterRecipeTreeGenerator.generateRecipes(exporter);
-    }
-    
-    private Block getFirstBlockNameMatch(String name) {
-        Set<Identifier> ids = Registries.BLOCK.getIds();
-        for (Identifier id : ids) {
-            if (Objects.equals(id.getPath(), name)) {
-                return Registries.BLOCK.get(id);
-            }
-        }
-        return null;
     }
 }

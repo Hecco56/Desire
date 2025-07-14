@@ -350,6 +350,17 @@ public class ModBlocks {
                 .block("", "pillar", new PillarBlock(AbstractBlock.Settings.copy(Blocks.BRICKS)), false)
         ;
 
+        new BlockFamilyGenerator(
+                "dripstone",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.DRIPSTONE_BLOCK,
+                AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK),
+                false
+        )
+                .stairs().slab().wall()
+        ;
+
         BlockFamilyGenerator.registerSingleBlock("copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
         BlockFamilyGenerator.registerSingleBlock("exposed_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);
         BlockFamilyGenerator.registerSingleBlock("weathered_copper_pillar", new OxidizablePillarBlock(Oxidizable.OxidationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)), Mineables.PICKAXE, MinMiningToolTier.NONE, false);

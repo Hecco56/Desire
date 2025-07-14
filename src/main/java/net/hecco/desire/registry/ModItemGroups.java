@@ -177,6 +177,9 @@ public class ModItemGroups {
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("calcite").getVariant("brick_wall"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("calcite").getVariant("chiseled_bricks"));
                         entries.add(Blocks.DRIPSTONE_BLOCK);
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("dripstone_stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("dripstone_slab"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("dripstone_wall"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("carved_dripstone"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"));
                         entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get("rough_concrete").getVariant(""));

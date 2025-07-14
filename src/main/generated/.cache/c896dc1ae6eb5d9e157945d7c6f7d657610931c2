@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-13T21:45:53.0800874	Desire/Block Loot Tables
+// 1.20.1	2025-07-13T21:57:08.6951819	Desire/Block Loot Tables
 9d42af0a754e2d474237540476709e39afab4e49 data\desire\loot_tables\blocks\light_blue_terracotta_mosaic_stairs.json
 dd22aef5c2875b8dd8ad275a66bf424f69edf8bf data\desire\loot_tables\blocks\polished_granite_brick_slab.json
 761ba522a69d0d53d6acf445f716f4abcef204cd data\natures_spirit\loot_tables\blocks\light_blue_kaolin_brick_wall.json
@@ -70,6 +70,7 @@ b68d83c1d71f23b968abe16da8d78b0be06f10ce data\desire\loot_tables\blocks\magenta_
 66507379e2284e862ef6ce039d38d7f471e0076b data\desire\loot_tables\blocks\green_terracotta_mosaic_stairs.json
 ad133f3774ef0b010f1fb45a67bb70f265517c6e data\desire\loot_tables\blocks\blue_concrete_bricks.json
 465157d94be83fbe7f21c99041d060aa738b2028 data\desire\loot_tables\blocks\cherry_mosaic_stairs.json
+fb13045a902d464a2b314a0d3b9bf6123c564f7d data\desire\loot_tables\blocks\dripstone_slab.json
 86a9f082b180204d442235212679ecaad889f5ba data\natures_spirit\loot_tables\blocks\cypress_mosaic.json
 dafcbbc73c8b7cd0cc7d2622678610ddddb1c28a data\desire\loot_tables\blocks\dark_oak_mosaic.json
 912b3957df8bab244493000d4027219983f70469 data\desire\loot_tables\blocks\orange_terracotta_mosaic_stairs.json
@@ -207,6 +208,7 @@ cbe639f485b0a96395f404ecdb9fe30ce7641c6d data\desire\loot_tables\blocks\polished
 aa053eec76d49e4c890b120751b4fd6cd2890c5a data\desire\loot_tables\blocks\polished_granite_brick_wall.json
 4827270f851d588096094d474eda1e24c3a804d6 data\desire\loot_tables\blocks\waxed_copper_pillar.json
 99aaf2b23789315961758c0aabf866ae36d2b5c7 data\desire\loot_tables\blocks\cyan_terracotta_mosaic_stairs.json
+0dcbe30cf3ca5c69665e017b3c1278a03698c786 data\desire\loot_tables\blocks\dripstone_stairs.json
 98f0fa80919e9fcec75d3dc12216271743490c89 data\desire\loot_tables\blocks\gray_concrete_brick_slab.json
 c2c5c905f337fa65cbf5c27b779d083d11fa6bac data\desire\loot_tables\blocks\prismarine_brick_wall.json
 2b2a4bde1a1c86393b28fa3ff9b81ef1ddeed22d data\natures_spirit\loot_tables\blocks\brown_kaolin_bricks.json
@@ -225,6 +227,7 @@ c596192c093b2e82f3478a624ae2809939d85ddc data\desire\loot_tables\blocks\mossy_co
 5cbc9be0db5bd317e6547d2d41eb2c297fe8f5ce data\desire\loot_tables\blocks\magenta_terracotta_mosaic_slab.json
 f65f88d371dd30cf512cbb958759287b7296397f data\desire\loot_tables\blocks\polished_calcite_wall.json
 e3b8a928f26a1704c4a21c0b492ff999b41fd104 data\desire\loot_tables\blocks\polished_basalt_bricks.json
+317f24b86eb9f63f196c8606697252974daa4365 data\desire\loot_tables\blocks\dripstone_wall.json
 df72bb1ea562b93758a2eea46355d5d0e7a1613b data\desire\loot_tables\blocks\crimson_mosaic.json
 439cc0cbe4595e2a964a45ed57ae052a66ee3506 data\netherexp\loot_tables\blocks\claret_mosaic_stairs.json
 627a09ccbf2d40c5d17126d853c947768978ef63 data\netherexp\loot_tables\blocks\red_nether_brick_fence.json
