@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "natures_spirit:ghaf_mosaic_slab",
+                  "block": "bountifulfares:walnut_mosaic_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -25,7 +25,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "natures_spirit:ghaf_mosaic_slab"
+          "name": "bountifulfares:walnut_mosaic_slab"
         }
       ],
       "rolls": 1.0

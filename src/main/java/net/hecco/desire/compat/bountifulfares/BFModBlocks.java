@@ -46,9 +46,9 @@ public class BFModBlocks {
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_SLABS.get(wood));
         }
     }
 }

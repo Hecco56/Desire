@@ -52,6 +52,11 @@ public class ModBlockLootTableProvider extends DesireBlockLootTableProvider {
             if(usedBlocks.contains(block)) { continue; }
             this.addDrop(block);
         }
+        for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(Desire.BOUNTIFUL_FARES)) {
+            Block block = Registries.BLOCK.get(id);
+            if(usedBlocks.contains(block)) { continue; }
+            this.addDrop(block);
+        }
     }
 
     public LootTable.Builder placeableRockDrops(Block block) {
