@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "desire:block/purple_scute_shingles",
-    "side": "desire:block/purple_scute_shingles",
-    "top": "desire:block/purple_scute_shingles"
-  }
-}

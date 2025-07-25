@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "desire:yellow_terracotta_mosaic"
+  },
+  "result": "desire:yellow_terracotta_mosaic_stairs"
+}

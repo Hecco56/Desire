@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "desire:block/red_scute_shingles",
-    "side": "desire:block/red_scute_shingles",
-    "top": "desire:block/red_scute_shingles"
-  }
-}

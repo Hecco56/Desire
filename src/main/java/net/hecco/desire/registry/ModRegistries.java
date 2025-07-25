@@ -3,16 +3,15 @@ package net.hecco.desire.registry;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
-import net.hecco.desire.datagen.ModDatagenUtils;
-import net.hecco.desire.util.BlockSetGenerator;
+import net.hecco.desire.compat.bountifulfares.BFModBlocks;
+import net.hecco.desire.compat.natures_spirit.NSModBlocks;
+import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ToolComponent;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.block.WoodType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -29,20 +28,32 @@ public class ModRegistries {
     }
 
     public static void registerOxidizables() {
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"));
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"));
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("oxidized_copper_pillar"));
-        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_copper_pillar"));
-        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("exposed_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_exposed_copper_pillar"));
-        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("weathered_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_weathered_copper_pillar"));
-        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockSetGenerator.BLOCK_SET_BLOCKS.get("oxidized_copper_pillar"), BlockSetGenerator.BLOCK_SET_BLOCKS.get("waxed_oxidized_copper_pillar"));
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockFamilyGenerator.BLOCKS.get("copper_pillar"), BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"));
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"));
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"));
+        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockFamilyGenerator.BLOCKS.get("copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_copper_pillar"));
+        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_exposed_copper_pillar"));
+        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_weathered_copper_pillar"));
+        OxidizableBlocksRegistry.registerWaxableBlockPair(BlockFamilyGenerator.BLOCKS.get("oxidized_copper_pillar"), BlockFamilyGenerator.BLOCKS.get("waxed_oxidized_copper_pillar"));
     }
 
     public static void registerFlammables() {
-        for (String name : BlockSetGenerator.WoodVariantsBlockMaker.WOOD_TYPES) {
-            FlammableBlockRegistry.getDefaultInstance().add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_mosaic"), 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_mosaic_stairs"), 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(BlockSetGenerator.BLOCK_SET_BLOCKS.get(name + "_mosaic_slab"), 5, 20);
+        for (WoodType woodType : WoodType.stream().toList()) {
+            if (woodType.name() != "bamboo" && !woodType.name().contains(":")) {
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic"), 5, 20);
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic_stairs"), 5, 20);
+                FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(woodType.name() + "_mosaic_slab"), 5, 20);
+            }
+        }
+        for (String name : NSModBlocks.WOOD_TYPES) {
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_stairs"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_slab"), 5, 20);
+        }
+        for (String name : BFModBlocks.WOOD_TYPES) {
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_stairs"), 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(BlockFamilyGenerator.BLOCKS.get(name + "_mosaic_slab"), 5, 20);
         }
     }
 
@@ -52,19 +63,18 @@ public class ModRegistries {
                 BlockPos pos = hitResult.getBlockPos();
                 ItemStack stack = player.getStackInHand(hand);
                 BlockState state = world.getBlockState(pos);
-                ToolComponent component = player.getStackInHand(hand).get(DataComponentTypes.TOOL);
-                if (component != null && component.isCorrectForDrops(state)) {
+                if (stack.getItem() instanceof PickaxeItem) {
                     world.playSound(player, pos, SoundEvents.BLOCK_DRIPSTONE_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     if (player instanceof ServerPlayerEntity) {
                         Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, pos, stack);
                     }
                     if (Random.create().nextFloat() > 0.1f) {
-                        world.setBlockState(pos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone").getDefaultState(), 11);
+                        world.setBlockState(pos, BlockFamilyGenerator.BLOCKS.get("carved_dripstone").getDefaultState(), 11);
                     } else {
-                        world.setBlockState(pos, BlockSetGenerator.BLOCK_SET_BLOCKS.get("carved_dripstone_ore").getDefaultState(), 11);
+                        world.setBlockState(pos, BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore").getDefaultState(), 11);
                     }
                     world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
-                    stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+                    stack.damage(1, player, (playerx) -> playerx.sendToolBreakStatus(hand));
                     return ActionResult.SUCCESS;
                 }
             }

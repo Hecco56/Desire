@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_kaolin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "natures_spirit:blue_kaolin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:blue_kaolin_brick_wall_from_blue_kaolin_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_kaolin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:blue_kaolin_brick_wall_from_blue_kaolin_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

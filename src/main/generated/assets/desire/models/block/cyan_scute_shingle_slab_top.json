@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "desire:block/cyan_scute_shingles",
-    "side": "desire:block/cyan_scute_shingles",
-    "top": "desire:block/cyan_scute_shingles"
-  }
-}
