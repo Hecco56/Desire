@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "desire:green_concrete_bricks"
-  },
-  "result": "desire:green_concrete_brick_slab"
-}

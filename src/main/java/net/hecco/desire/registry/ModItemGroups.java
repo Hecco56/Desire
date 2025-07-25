@@ -235,6 +235,14 @@ public class ModItemGroups {
                             entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get(color + "_terracotta").getVariant("mosaic_slab"));
                             entries.add(BlockFamilyGenerator.BLOCK_FAMILIES.get(color + "_terracotta").getVariant("mosaic_wall"));
                         }
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("scute_shingles"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("scute_shingle_stairs"));
+                        entries.add(BlockFamilyGenerator.BLOCKS.get("scute_shingle_slab"));
+                        for (String color : ModDatagenUtils.VANILLA_COLORS) {
+                            entries.add(BlockFamilyGenerator.BLOCKS.get(color + "_scute_shingles"));
+                            entries.add(BlockFamilyGenerator.BLOCKS.get(color + "_scute_shingle_stairs"));
+                            entries.add(BlockFamilyGenerator.BLOCKS.get(color + "_scute_shingle_slab"));
+                        }
                         entries.add(BlockFamilyGenerator.BLOCKS.get("cut_sandstone_stairs"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("cut_red_sandstone_stairs"));
                         entries.add(NSModBlocks.CUT_PINK_SANDSTONE_STAIRS);

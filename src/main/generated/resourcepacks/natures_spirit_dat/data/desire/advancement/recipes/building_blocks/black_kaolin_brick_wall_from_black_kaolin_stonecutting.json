@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_kaolin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "natures_spirit:black_kaolin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:black_kaolin_brick_wall_from_black_kaolin_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_black_kaolin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:black_kaolin_brick_wall_from_black_kaolin_stonecutting"
+    ]
+  }
+}

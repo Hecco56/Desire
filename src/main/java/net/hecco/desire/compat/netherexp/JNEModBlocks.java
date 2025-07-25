@@ -18,7 +18,7 @@ public class JNEModBlocks {
     public static final String MOD_ID = Desire.JADENS_NETHER_EXPANSION;
 
     public static final Block CLARET_MOSAIC = registerBlock("claret_mosaic", new CompatBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
-    public static final Block CLARET_MOSAIC_STAIRS = registerBlock("claret_mosaic_stairs", new CompatStairsBlock(CLARET_MOSAIC.getDefaultState(), FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
+    public static final Block CLARET_MOSAIC_STAIRS = registerBlock("claret_mosaic_stairs", new CompatStairsBlock(CLARET_MOSAIC, FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block CLARET_MOSAIC_SLAB = registerBlock("claret_mosaic_slab", new CompatSlabBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).mapColor(MapColor.DARK_RED), MOD_ID));
     public static final Block POLISHED_NETHER_BRICKS = registerBlock("polished_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.NETHER_BRICKS), MOD_ID));
     public static final Block POLISHED_RED_NETHER_BRICKS = registerBlock("polished_red_nether_bricks", new CompatBlock(FabricBlockSettings.copy(Blocks.RED_NETHER_BRICKS), MOD_ID));

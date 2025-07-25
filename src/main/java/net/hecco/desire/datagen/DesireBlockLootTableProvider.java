@@ -9,19 +9,23 @@ import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.loot.LootTable;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 public abstract class DesireBlockLootTableProvider extends FabricBlockLootTableProvider {
-    protected DesireBlockLootTableProvider(FabricDataOutput dataOutput, String modID) {
-        super(dataOutput);
+
+    protected DesireBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup, String modID) {
+        super(dataOutput, registryLookup);
         this.MODID = modID;
     }
 
     public final String MODID;
 
     public final ArrayList<Block> usedBlocks = new ArrayList<>();
+
     @Override
     public void addDrop(Block block, LootTable.Builder lootTable) {
         if(usedBlocks.contains(block)) {

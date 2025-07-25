@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:red_concrete_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "desire:red_concrete_brick_stairs"
+  }
+}

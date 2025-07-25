@@ -12,7 +12,7 @@ public class CompatNetherBrickFenceGateBlock extends FenceGateBlock {
     public static final WoodType NETHER_BRICK = new WoodType("nether_brick", new BlockSetType("nether_brick"), BlockSoundGroup.NETHER_BRICKS, BlockSoundGroup.NETHER_BRICKS, SoundEvents.BLOCK_NETHER_BRICKS_PLACE, SoundEvents.BLOCK_NETHER_BRICKS_PLACE);
 
     public CompatNetherBrickFenceGateBlock(Settings settings, String modId) {
-        super(settings, NETHER_BRICK);
+        super(NETHER_BRICK, settings);
         this.MODID = modId;
     }
 

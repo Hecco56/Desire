@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cedar_mosaic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "natures_spirit:cedar_mosaic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "natures_spirit:cedar_mosaic_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cedar_mosaic"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "natures_spirit:cedar_mosaic_slab"
+    ]
+  }
+}

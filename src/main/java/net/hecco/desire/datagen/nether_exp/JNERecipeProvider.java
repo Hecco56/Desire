@@ -2,31 +2,34 @@ package net.hecco.desire.datagen.nether_exp;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.hecco.desire.Desire;
-import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.compat.netherexp.JNEModBlocks;
 import net.hecco.desire.datagen.DesireRecipeProvider;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.Identifier;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 import static net.minecraft.data.family.BlockFamilies.register;
 
 public class JNERecipeProvider extends DesireRecipeProvider {
-    public JNERecipeProvider(FabricDataOutput output) {
-        super(output);
+
+    public JNERecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
         offerMosaicRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.CLARET_MOSAIC, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_slab")));
-        generateFamily(exporter, register(JNEModBlocks.CLARET_MOSAIC).stairs(JNEModBlocks.CLARET_MOSAIC_STAIRS).slab(JNEModBlocks.CLARET_MOSAIC_SLAB).build());
+        generateFamily(exporter, register(JNEModBlocks.CLARET_MOSAIC).stairs(JNEModBlocks.CLARET_MOSAIC_STAIRS).slab(JNEModBlocks.CLARET_MOSAIC_SLAB).build(), FeatureSet.of(FeatureFlags.VANILLA));
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_NETHER_BRICKS, Blocks.NETHER_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS, Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks")));

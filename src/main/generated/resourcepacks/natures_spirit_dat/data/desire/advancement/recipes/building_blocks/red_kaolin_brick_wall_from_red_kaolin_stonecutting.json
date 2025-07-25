@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_kaolin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "natures_spirit:red_kaolin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:red_kaolin_brick_wall_from_red_kaolin_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_kaolin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:red_kaolin_brick_wall_from_red_kaolin_stonecutting"
+    ]
+  }
+}

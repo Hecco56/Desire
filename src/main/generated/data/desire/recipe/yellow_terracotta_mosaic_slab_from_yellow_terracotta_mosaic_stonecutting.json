@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:yellow_terracotta_mosaic"
+  },
+  "result": {
+    "count": 2,
+    "id": "desire:yellow_terracotta_mosaic_slab"
+  }
+}

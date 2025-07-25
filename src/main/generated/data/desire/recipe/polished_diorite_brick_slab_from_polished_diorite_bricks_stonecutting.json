@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:polished_diorite_bricks"
+  },
+  "result": {
+    "count": 2,
+    "id": "desire:polished_diorite_brick_slab"
+  }
+}

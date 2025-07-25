@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "desire:red_concrete_bricks"
-  },
-  "result": "desire:red_concrete_brick_wall"
-}

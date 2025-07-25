@@ -5,27 +5,32 @@ import net.hecco.desire.Desire;
 import net.hecco.desire.compat.natures_spirit.NSModBlocks;
 import net.hecco.desire.datagen.DesireRecipeProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
 
 public class NSRecipeProvider extends DesireRecipeProvider {
-    public NSRecipeProvider(FabricDataOutput output) {
-        super(output);
+
+    public NSRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
         for (String wood : NSModBlocks.WOOD_TYPES) {
             offerMosaicRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NSModBlocks.WOOD_MOSAICS.get(wood), Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, wood + "_slab")));
-            generateFamily(exporter, register(NSModBlocks.WOOD_MOSAICS.get(wood)).stairs(NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood)).slab(NSModBlocks.WOOD_MOSAIC_SLABS.get(wood)).build());
+            generateFamily(exporter, register(NSModBlocks.WOOD_MOSAICS.get(wood)).stairs(NSModBlocks.WOOD_MOSAIC_STAIRS.get(wood)).slab(NSModBlocks.WOOD_MOSAIC_SLABS.get(wood)).build(), FeatureSet.of(FeatureFlags.VANILLA));
         }
 
         offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NSModBlocks.CHISELED_TRAVERTINE_BRICKS, Registries.ITEM.get(Identifier.of(Desire.NATURES_SPIRIT, "travertine_brick_slab")));

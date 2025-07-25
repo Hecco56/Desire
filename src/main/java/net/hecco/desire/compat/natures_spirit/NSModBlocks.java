@@ -2,7 +2,6 @@ package net.hecco.desire.compat.natures_spirit;
 
 import net.hecco.desire.Desire;
 import net.hecco.desire.compat.blocks.*;
-import net.hecco.desire.datagen.desire.ModBlockTagProvider;
 import net.hecco.desire.datagen.desire.ModDatagenUtils;
 import net.hecco.desire.oldutil.ModCompat;
 import net.hecco.desire.util.BlockFamilyGenerator;
@@ -10,7 +9,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
-import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -28,12 +27,12 @@ public class NSModBlocks {
     public static final List<MapColor> WOOD_MAP_COLORS = List.of(MapColor.PALE_YELLOW, MapColor.GRAY, MapColor.OAK_TAN, MapColor.DIRT_BROWN, MapColor.BROWN, MapColor.LIGHT_GRAY, MapColor.ORANGE, MapColor.PALE_GREEN, MapColor.LICHEN_GREEN, MapColor.RED, MapColor.LIGHT_GRAY, MapColor.TERRACOTTA_BROWN);
     public static final List<String> PREV_ITEM = List.of("yellow_aspen_leaves", "cedar_sapling", "cypress_sapling", "fir_sapling", "ghaf_sapling", "larch_sapling", "yellow_maple_sapling", "olive_sapling", "palo_verde_sapling", "redwood_sapling", "saxaul_sapling", "willow_sapling");
 
-    public static final Block KAOLIN_BRICK_WALL = registerBlock("kaolin_brick_wall", new CompatWallBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).instrument(Instrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F), MOD_ID));
+    public static final Block KAOLIN_BRICK_WALL = registerBlock("kaolin_brick_wall", new CompatWallBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F), MOD_ID));
     public static final Map<DyeColor, Block> DYED_KAOLIN_BRICK_WALLS = new HashMap<>();
 
     public static final Block TRAVERTINE_WALL = registerBlock("travertine_wall", new CompatWallBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE).mapColor(MapColor.LIGHT_GRAY).strength(1.5f), MOD_ID));
-    public static final Block SMOOTH_PINK_SANDSTONE_WALL = registerBlock("smooth_pink_sandstone_wall", new CompatWallBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).instrument(Instrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F), MOD_ID));
-    public static final Block CUT_PINK_SANDSTONE_STAIRS = registerBlock("cut_pink_sandstone_stairs", new CompatStairsBlock(Blocks.CUT_SANDSTONE.getDefaultState(), AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).instrument(Instrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F), MOD_ID));
+    public static final Block SMOOTH_PINK_SANDSTONE_WALL = registerBlock("smooth_pink_sandstone_wall", new CompatWallBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F), MOD_ID));
+    public static final Block CUT_PINK_SANDSTONE_STAIRS = registerBlock("cut_pink_sandstone_stairs", new CompatStairsBlock(Blocks.CUT_SANDSTONE, AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F), MOD_ID));
     public static final Block CHISELED_TRAVERTINE_BRICKS = registerBlock("chiseled_travertine_bricks", new CompatBlock(AbstractBlock.Settings.copy(TRAVERTINE_WALL), MOD_ID));
     public static final Block CHISELED_CHERT_BRICKS = registerBlock("chiseled_chert_bricks", new CompatBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE).mapColor(MapColor.OAK_TAN).strength(0.9f), MOD_ID));
     public static final Map<String, Block> WOOD_MOSAICS = new HashMap<>();
@@ -55,16 +54,20 @@ public class NSModBlocks {
             BlockFamilyGenerator.CUSTOM_WALL_MODEL.add(DYED_KAOLIN_BRICK_WALLS.get(color));
         }
         for (String wood : WOOD_TYPES) {
-            WOOD_MOSAICS.put(wood, registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
-            WOOD_MOSAIC_STAIRS.put(wood, registerBlock(wood + "_mosaic_stairs", new CompatStairsBlock(WOOD_MOSAICS.get(wood).getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
-            WOOD_MOSAIC_SLABS.put(wood, registerBlock(wood + "_mosaic_slab", new CompatSlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
+            Block mosaicBlock = registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            Block stairsBlock = registerBlock(wood + "_mosaic_stairs", new CompatStairsBlock(mosaicBlock, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            Block slabBlock = registerBlock(wood + "_mosaic_slab", new CompatSlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            WOOD_MOSAICS.put(wood, mosaicBlock);
+            WOOD_MOSAIC_STAIRS.put(wood, stairsBlock);
+            WOOD_MOSAIC_SLABS.put(wood, slabBlock);
+
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAICS.get(wood));
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_SLABS.get(wood));
         }
         BlockFamilyGenerator.PICKAXE_MINEABLE.add(KAOLIN_BRICK_WALL);
         BlockFamilyGenerator.WALLS.add(KAOLIN_BRICK_WALL);

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:waxed_oxidized_copper"
+  },
+  "result": {
+    "count": 1,
+    "id": "desire:waxed_oxidized_copper_pillar"
+  }
+}

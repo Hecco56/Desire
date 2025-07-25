@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_claret_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "netherexp:claret_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "netherexp:claret_mosaic"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_claret_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "netherexp:claret_mosaic"
+    ]
+  }
+}

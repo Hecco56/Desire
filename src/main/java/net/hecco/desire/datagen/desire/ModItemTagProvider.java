@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
-    public static final TagKey<Item> ROCKS = TagKey.of(RegistryKeys.ITEM, new Identifier(Desire.MOD_ID, "rocks"));
+    public static final TagKey<Item> ROCKS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Desire.MOD_ID, "rocks"));
 
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);

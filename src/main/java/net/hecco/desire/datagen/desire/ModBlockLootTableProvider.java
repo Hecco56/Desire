@@ -7,6 +7,7 @@ import net.hecco.desire.datagen.DesireBlockLootTableProvider;
 import net.hecco.desire.registry.ModBlocks;
 import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -19,13 +20,18 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.IntStream;
 
 public class ModBlockLootTableProvider extends DesireBlockLootTableProvider {
-    public ModBlockLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput, Desire.MOD_ID);
+
+
+    public ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup, Desire.MOD_ID);
     }
 
     @Override
@@ -33,7 +39,8 @@ public class ModBlockLootTableProvider extends DesireBlockLootTableProvider {
         addDrop(ModBlocks.STONE_BOULDER, placeableRockDrops(ModBlocks.STONE_BOULDER));
         addDrop(ModBlocks.DEEPSLATE_SHEET, placeableRockDrops(ModBlocks.DEEPSLATE_SHEET));
         addDrop(ModBlocks.BLACKSTONE_CHUNK, placeableRockDrops(ModBlocks.BLACKSTONE_CHUNK));
-        addDrop(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), dropsWithSilkTouch(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), this.applyExplosionDecay(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), ItemEntry.builder(Items.NAUTILUS_SHELL).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))));
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        addDrop(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), dropsWithSilkTouch(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), this.applyExplosionDecay(BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore"), ItemEntry.builder(Items.NAUTILUS_SHELL).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))).apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE))))));
         for (Block block : BlockFamilyGenerator.SLABS) {
             addDrop(block, slabDrops(block));
         }
@@ -48,6 +55,11 @@ public class ModBlockLootTableProvider extends DesireBlockLootTableProvider {
             this.addDrop(block);
         }
         for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(Desire.NATURES_SPIRIT)) {
+            Block block = Registries.BLOCK.get(id);
+            if(usedBlocks.contains(block)) { continue; }
+            this.addDrop(block);
+        }
+        for(Identifier id : ModDatagenUtils.allBlockIdsInNamespace(Desire.BOUNTIFUL_FARES)) {
             Block block = Registries.BLOCK.get(id);
             if(usedBlocks.contains(block)) { continue; }
             this.addDrop(block);

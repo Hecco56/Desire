@@ -7,6 +7,7 @@ import net.hecco.desire.util.BlockFamilyGenerator;
 import net.hecco.desire.util.MinMiningToolTier;
 import net.hecco.desire.util.Mineables;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -295,6 +296,17 @@ public class ModBlocks {
                 .block("", "block", false)
         ;
 
+        new BlockFamilyGenerator(
+                "scute",
+                Mineables.PICKAXE,
+                MinMiningToolTier.NONE,
+                Blocks.WHITE_CONCRETE,
+                AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).sounds(BlockSoundGroup.BAMBOO_WOOD).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(0.8F, 16F),
+                false
+        )
+                .block("", "shingles", true).stairs().slab()
+        ;
+
         for (DyeColor color : DyeColor.values()) {
             new BlockFamilyGenerator(
                     color.getName() + "_concrete",
@@ -315,6 +327,17 @@ public class ModBlocks {
                     false
             )
                     .block("", "mosaic", true).stairs().slab().wall()
+            ;
+
+            new BlockFamilyGenerator(
+                    color.getName() + "_scute",
+                    Mineables.PICKAXE,
+                    MinMiningToolTier.NONE,
+                    Blocks.WHITE_CONCRETE,
+                    AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE).mapColor(color).sounds(BlockSoundGroup.BAMBOO_WOOD).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(0.8F, 16F),
+                    false
+            )
+                    .block("", "shingles", true).stairs().slab()
             ;
         }
         new BlockFamilyGenerator(

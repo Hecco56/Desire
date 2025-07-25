@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:brown_concrete_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "desire:brown_concrete_brick_wall"
+  }
+}

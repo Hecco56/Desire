@@ -39,16 +39,20 @@ public class BFModBlocks {
 
     public static void register() {
         for (String wood : WOOD_TYPES) {
-            WOOD_MOSAICS.put(wood, registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
-            WOOD_MOSAIC_STAIRS.put(wood, registerBlock(wood + "_mosaic_stairs", new CompatStairsBlock(WOOD_MOSAICS.get(wood).getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
-            WOOD_MOSAIC_SLABS.put(wood, registerBlock(wood + "_mosaic_slab", new CompatSlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID)));
+            Block mosaicBlock = registerBlock(wood + "_mosaic", new CompatBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            Block stairsBlock = registerBlock(wood + "_mosaic_stairs", new CompatStairsBlock(mosaicBlock, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            Block slabBlock = registerBlock(wood + "_mosaic_slab", new CompatSlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(WOOD_MAP_COLORS.get(WOOD_TYPES.indexOf(wood))), MOD_ID));
+            WOOD_MOSAICS.put(wood, mosaicBlock);
+            WOOD_MOSAIC_STAIRS.put(wood, stairsBlock);
+            WOOD_MOSAIC_SLABS.put(wood, slabBlock);
+
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAICS.get(wood));
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_STAIRS.get(wood));
             BlockFamilyGenerator.AXE_MINEABLE.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.STAIRS.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.SLABS.add(WOOD_MOSAIC_SLABS.get(wood));
             BlockFamilyGenerator.CUSTOM_STAIRS_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
-            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_STAIRS.get(wood));
+            BlockFamilyGenerator.CUSTOM_SLAB_MODEL.add(WOOD_MOSAIC_SLABS.get(wood));
         }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "desire:flintstone"
+  },
+  "result": {
+    "count": 2,
+    "id": "desire:flintstone_brick_slab"
+  }
+}

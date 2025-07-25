@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hecco.desire.Desire;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -75,8 +74,8 @@ public class BlockFamilyGenerator {
 
 
     public static void registerSingleBlock(String name, Block block, Mineables mineable, MinMiningToolTier minMiningToolTier, boolean generateModel) {
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
-        Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name), new BlockItem(block, new Item.Settings()));
+        Block block1 = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
         switch (mineable) {
             case PICKAXE -> PICKAXE_MINEABLE.add(block1);
             case AXE -> AXE_MINEABLE.add(block1);
@@ -97,8 +96,8 @@ public class BlockFamilyGenerator {
 
 
     private Block registerBlock(String name, Mineables mineable, Block block) {
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
-        Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name), new BlockItem(block, new Item.Settings()));
+        Block block1 = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
         switch (mineable) {
             case PICKAXE -> PICKAXE_MINEABLE.add(block1);
             case AXE -> AXE_MINEABLE.add(block1);
@@ -116,7 +115,7 @@ public class BlockFamilyGenerator {
     }
 
     private Block registerBlockNoItem(String name, Mineables mineable, Block block) {
-        Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
+        Block block1 = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
         switch (mineable) {
             case PICKAXE -> PICKAXE_MINEABLE.add(block1);
             case AXE -> AXE_MINEABLE.add(block1);
@@ -168,6 +167,8 @@ public class BlockFamilyGenerator {
             this.suffix = "_brick";
         } else if (suffix == "tiles") {
             this.suffix = "_tile";
+        } else if (suffix == "shingles") {
+            this.suffix = "_shingle";
         }
 
         if (generateModel) {
@@ -265,7 +266,7 @@ public class BlockFamilyGenerator {
     }
 
     public BlockFamilyGenerator fenceGate(WoodType woodType) {
-        Block block = registerBlock(name + "_fence_gate", mineable, new FenceGateBlock(settings, woodType));
+        Block block = registerBlock(name + "_fence_gate", mineable, new FenceGateBlock(woodType, settings));
         FENCE_GATES.add(block);
         VARIANT_TO_BASE_BLOCK.put(block, baseBlock);
 
@@ -284,9 +285,9 @@ public class BlockFamilyGenerator {
         LOGS_TO_WOODS.put(log, wood);
         LOGS_TO_WOODS.put(strippedLog, strippedWood);
         if (burnable) {
-            FLAMMABLE_LOG_TAGS.add(TagKey.of(RegistryKeys.BLOCK, new Identifier(MOD_ID, this.name + "_logs")));
+            FLAMMABLE_LOG_TAGS.add(TagKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, this.name + "_logs")));
         } else {
-            LOG_TAGS.add(TagKey.of(RegistryKeys.BLOCK, new Identifier(MOD_ID, this.name + "_logs")));
+            LOG_TAGS.add(TagKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, this.name + "_logs")));
         }
         if (overworld) {
             OVERWORLD_NATURAL_LOGS.add(log);
@@ -299,7 +300,7 @@ public class BlockFamilyGenerator {
     }
 
     public BlockFamilyGenerator door(BlockSetType blockSetType, boolean wooden) {
-        Block block = registerBlock(name + "_door", mineable, new DoorBlock(settings, blockSetType));
+        Block block = registerBlock(name + "_door", mineable, new DoorBlock(blockSetType, settings));
         if (wooden) {
             WOODEN_DOORS.add(block);
         } else {
@@ -312,7 +313,7 @@ public class BlockFamilyGenerator {
     }
 
     public BlockFamilyGenerator trapdoor(BlockSetType blockSetType, boolean wooden) {
-        Block block = registerBlock(name + "_trapdoor", mineable, new TrapdoorBlock(settings, blockSetType));
+        Block block = registerBlock(name + "_trapdoor", mineable, new TrapdoorBlock(blockSetType, settings));
         if (wooden) {
             WOODEN_TRAPDOORS.add(block);
         } else {
@@ -325,7 +326,7 @@ public class BlockFamilyGenerator {
     }
 
     public BlockFamilyGenerator pressurePlate(BlockSetType blockSetType, boolean wooden, boolean stone) {
-        Block block = registerBlock(name + "_pressure_plate", mineable, new PressurePlateBlock(wooden ? PressurePlateBlock.ActivationRule.EVERYTHING : PressurePlateBlock.ActivationRule.MOBS, settings.solid().noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), blockSetType));
+        Block block = registerBlock(name + "_pressure_plate", mineable, new PressurePlateBlock(blockSetType, settings.solid().noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)));
         if (wooden) {
             WOODEN_PRESSURE_PLATES.add(block);
         } else if (stone) {
@@ -339,7 +340,7 @@ public class BlockFamilyGenerator {
     }
 
     public BlockFamilyGenerator button(BlockSetType blockSetType, boolean wooden, boolean stone, int pressTicks) {
-        Block block = registerBlock(name + "_button", mineable, new ButtonBlock(AbstractBlock.Settings.create().noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), blockSetType, pressTicks, wooden));
+        Block block = registerBlock(name + "_button", mineable, new ButtonBlock(blockSetType, pressTicks, AbstractBlock.Settings.create().noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)));
         if (wooden) {
             WOODEN_BUTTONS.add(block);
         } else if (stone) {
@@ -436,7 +437,7 @@ public class BlockFamilyGenerator {
     }
 
     public void addWoodSetToVanillaItemGroups(String idBefore, String woodBefore) {
-        Item beforeButton = Registries.ITEM.get(new Identifier(idBefore, woodBefore + "_button"));
+        Item beforeButton = Registries.ITEM.get(Identifier.of(idBefore, woodBefore + "_button"));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.addAfter(beforeButton, this.getVariant("log"));
             entries.addAfter(this.getVariant("log"), this.getVariant("wood"));
@@ -452,18 +453,18 @@ public class BlockFamilyGenerator {
             entries.addAfter(this.getVariant("trapdoor"), this.getVariant("pressure_plate"));
             entries.addAfter(this.getVariant("pressure_plate"), this.getVariant("button"));
         });
-        Item beforeLog = Registries.ITEM.get(new Identifier(idBefore, woodBefore + "_log"));
+        Item beforeLog = Registries.ITEM.get(Identifier.of(idBefore, woodBefore + "_log"));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(beforeLog, this.getVariant("log"));
         });
         try {
-            Item beforeLeaves = Registries.ITEM.get(new Identifier(idBefore, woodBefore + "_leaves"));
+            Item beforeLeaves = Registries.ITEM.get(Identifier.of(idBefore, woodBefore + "_leaves"));
             ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
                 entries.addAfter(beforeLeaves, this.getVariant("leaves"));
             });
         } catch (Exception ignored) {}
         try {
-            Item beforeSapling = Registries.ITEM.get(new Identifier(idBefore, woodBefore + "_sapling"));
+            Item beforeSapling = Registries.ITEM.get(Identifier.of(idBefore, woodBefore + "_sapling"));
             ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
                 entries.addAfter(beforeSapling, this.getVariant("sapling"));
             });

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rough_concrete": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desire:rough_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:rough_concrete_block_from_rough_concrete_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rough_concrete"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:rough_concrete_block_from_rough_concrete_stonecutting"
+    ]
+  }
+}

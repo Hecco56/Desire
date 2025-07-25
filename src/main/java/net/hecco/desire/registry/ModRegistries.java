@@ -10,6 +10,7 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -74,7 +75,7 @@ public class ModRegistries {
                         world.setBlockState(pos, BlockFamilyGenerator.BLOCKS.get("carved_dripstone_ore").getDefaultState(), 11);
                     }
                     world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
-                    stack.damage(1, player, (playerx) -> playerx.sendToolBreakStatus(hand));
+                    stack.damage(1, player, LivingEntity.getSlotForHand(hand));
                     return ActionResult.SUCCESS;
                 }
             }

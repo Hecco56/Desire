@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "desire:block/pink_scute_shingles",
+    "side": "desire:block/pink_scute_shingles",
+    "top": "desire:block/pink_scute_shingles"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "netherexp:blue_nether_bricks"
-  },
-  "result": "netherexp:polished_blue_nether_bricks"
-}

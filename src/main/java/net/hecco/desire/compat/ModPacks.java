@@ -14,7 +14,7 @@ public class ModPacks {
     private static void registerBuiltinDataPack(ModContainer modContainer, String packId) {
         if (Desire.isModLoaded(packId)) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    new Identifier(Desire.MOD_ID, packId + "_dat"),
+                    Identifier.of(Desire.MOD_ID, packId + "_dat"),
                     modContainer,
                     Text.translatable("pack." + Desire.MOD_ID + "." + packId),
                     ResourcePackActivationType.ALWAYS_ENABLED

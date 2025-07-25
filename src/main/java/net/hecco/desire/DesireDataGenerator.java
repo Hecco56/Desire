@@ -11,15 +11,6 @@ import net.minecraft.util.Identifier;
 public class DesireDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-		FabricDataGenerator.Pack jnePack = fabricDataGenerator.createBuiltinResourcePack(new Identifier(Desire.MOD_ID, Desire.JADENS_NETHER_EXPANSION + "_dat"));
-		jnePack.addProvider(JNERecipeProvider::new);
-
-		FabricDataGenerator.Pack nsPack = fabricDataGenerator.createBuiltinResourcePack(new Identifier(Desire.MOD_ID, Desire.NATURES_SPIRIT + "_dat"));
-		nsPack.addProvider(NSRecipeProvider::new);
-
-		FabricDataGenerator.Pack bfPack = fabricDataGenerator.createBuiltinResourcePack(new Identifier(Desire.MOD_ID, Desire.BOUNTIFUL_FARES + "_dat"));
-		bfPack.addProvider(BFRecipeProvider::new);
-
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(ModBlockLootTableProvider::new);
 		pack.addProvider(ModBlockTagProvider::new);
@@ -27,5 +18,14 @@ public class DesireDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLangProvider::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
+
+		FabricDataGenerator.Pack jnePack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(Desire.MOD_ID, Desire.JADENS_NETHER_EXPANSION + "_dat"));
+		jnePack.addProvider(JNERecipeProvider::new);
+
+		FabricDataGenerator.Pack nsPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(Desire.MOD_ID, Desire.NATURES_SPIRIT + "_dat"));
+		nsPack.addProvider(NSRecipeProvider::new);
+
+		FabricDataGenerator.Pack bfPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(Desire.MOD_ID, Desire.BOUNTIFUL_FARES + "_dat"));
+		bfPack.addProvider(BFRecipeProvider::new);
 	}
 }
