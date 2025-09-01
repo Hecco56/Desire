@@ -321,6 +321,7 @@ public class ModRecipeProvider extends DesireRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("chiseled_deepslate_bricks"), Blocks.POLISHED_DEEPSLATE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("chiseled_deepslate_bricks"), Blocks.DEEPSLATE);
 
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("chiseled_bricks"), Blocks.BRICKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BlockFamilyGenerator.BLOCKS.get("brick_pillar"), Blocks.BRICKS);
 
         StonecutterRecipeTreeGenerator.putRecipe(BlockFamilyGenerator.BLOCKS.get("polished_basalt_bricks"), Blocks.POLISHED_BASALT);

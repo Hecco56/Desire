@@ -275,7 +275,7 @@ public class ModBlocks {
                 "flintstone",
                 Mineables.PICKAXE,
                 MinMiningToolTier.NONE,
-                register("flintstone", new Block(AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY))),
+                BlockFamilyGenerator.registerSingleBlock("flintstone", new Block(AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY)), Mineables.PICKAXE, MinMiningToolTier.NONE, false),
                 AbstractBlock.Settings.copy(Blocks.SANDSTONE).mapColor(MapColor.STONE_GRAY),
                 false
         )
@@ -288,7 +288,7 @@ public class ModBlocks {
                 "rough_concrete",
                 Mineables.PICKAXE,
                 MinMiningToolTier.NONE,
-                register("rough_concrete", new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY))),
+                BlockFamilyGenerator.registerSingleBlock("rough_concrete", new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)), Mineables.PICKAXE, MinMiningToolTier.NONE, false),
                 AbstractBlock.Settings.copy(Blocks.RED_CONCRETE).strength(2.2f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY),
                 false
         )

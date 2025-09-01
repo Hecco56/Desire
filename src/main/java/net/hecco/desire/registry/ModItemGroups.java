@@ -11,6 +11,7 @@ import net.hecco.desire.util.BlockFamilyGenerator;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -207,14 +208,24 @@ public class ModItemGroups {
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_blackstone_tile_slab"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("polished_blackstone_tile_wall"));
                         entries.add(JNEModBlocks.POLISHED_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.RED_NETHER_BRICK_PILLAR);
                         entries.add(JNEModBlocks.POLISHED_RED_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CRACKED_RED_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CHISELED_RED_NETHER_BRICKS);
                         entries.add(JNEModBlocks.RED_NETHER_BRICK_FENCE);
+                        entries.add(JNEModBlocks.RED_NETHER_BRICK_FENCE_GATE);
+                        entries.add(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR);
                         entries.add(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS);
                         entries.add(JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS);
                         entries.add(JNEModBlocks.BLUE_NETHER_BRICK_FENCE);
+                        entries.add(JNEModBlocks.BLUE_NETHER_BRICK_FENCE_GATE);
+                        entries.add(JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR);
+                        entries.add(JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS);
+                        entries.add(JNEModBlocks.YELLOW_NETHER_BRICK_FENCE);
+                        entries.add(JNEModBlocks.YELLOW_NETHER_BRICK_FENCE_GATE);
                         entries.add(BlockFamilyGenerator.BLOCKS.get("copper_pillar"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("exposed_copper_pillar"));
                         entries.add(BlockFamilyGenerator.BLOCKS.get("weathered_copper_pillar"));
@@ -275,15 +286,32 @@ public class ModItemGroups {
                 entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_stairs")), JNEModBlocks.CLARET_MOSAIC_STAIRS);
                 entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "claret_slab")), JNEModBlocks.CLARET_MOSAIC_SLAB);
                 entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "nether_brick_pillar")), JNEModBlocks.POLISHED_NETHER_BRICKS);
-                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "red_nether_brick_wall")), JNEModBlocks.POLISHED_RED_NETHER_BRICKS);
+                entries.addAfter(Items.RED_NETHER_BRICK_WALL, JNEModBlocks.RED_NETHER_BRICK_PILLAR);
+                entries.addAfter(JNEModBlocks.RED_NETHER_BRICK_PILLAR, JNEModBlocks.POLISHED_RED_NETHER_BRICKS);
                 entries.addAfter(JNEModBlocks.POLISHED_RED_NETHER_BRICKS, JNEModBlocks.CRACKED_RED_NETHER_BRICKS);
                 entries.addAfter(JNEModBlocks.CRACKED_RED_NETHER_BRICKS, JNEModBlocks.CHISELED_RED_NETHER_BRICKS);
-                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_wall")), JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS);
+                entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_wall")), JNEModBlocks.BLUE_NETHER_BRICK_PILLAR);
+                entries.addAfter(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS);
                 entries.addAfter(JNEModBlocks.POLISHED_BLUE_NETHER_BRICKS, JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS);
                 entries.addAfter(JNEModBlocks.CRACKED_BLUE_NETHER_BRICKS, JNEModBlocks.CHISELED_BLUE_NETHER_BRICKS);
             }
             );
 
+
+            if (Desire.isModLoaded(Desire.GARDENS_OF_THE_DEAD)) {
+                ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP,
+                                Identifier.of(Desire.JADENS_NETHER_EXPANSION, "netherexp_compat")))
+                        .register(entries -> {
+                                    entries.addAfter(Registries.ITEM.get(Identifier.of(Desire.JADENS_NETHER_EXPANSION, "yellow_nether_brick_wall")), JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR);
+                                    entries.addAfter(JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR, JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS);
+                                    entries.addAfter(JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS, JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS);
+                                    entries.addAfter(JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS, JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS);
+                                    entries.addAfter(JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS, JNEModBlocks.YELLOW_NETHER_BRICK_FENCE);
+                                    entries.addAfter(JNEModBlocks.YELLOW_NETHER_BRICK_FENCE, JNEModBlocks.YELLOW_NETHER_BRICK_FENCE_GATE);
+                                }
+                        );
+
+            }
         }
 
 

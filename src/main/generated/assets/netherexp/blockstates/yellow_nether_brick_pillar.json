@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "netherexp:block/yellow_nether_brick_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "netherexp:block/yellow_nether_brick_pillar"
+    },
+    "axis=z": {
+      "model": "netherexp:block/yellow_nether_brick_pillar",
+      "x": 90
+    }
+  }
+}
