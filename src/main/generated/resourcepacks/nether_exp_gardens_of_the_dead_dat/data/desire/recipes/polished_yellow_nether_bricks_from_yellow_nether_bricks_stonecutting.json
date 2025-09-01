@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "netherexp:yellow_nether_bricks"
+  },
+  "result": "netherexp:polished_yellow_nether_bricks"
+}

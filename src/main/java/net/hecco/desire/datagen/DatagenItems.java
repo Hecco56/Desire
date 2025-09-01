@@ -18,6 +18,8 @@ public class DatagenItems {
         registerDatagenOnlyItem(Desire.JADENS_NETHER_EXPANSION, "polished_basalt_bricks");
         registerDatagenOnlyItem(Desire.JADENS_NETHER_EXPANSION, "blue_nether_bricks");
         registerDatagenOnlyItem(Desire.JADENS_NETHER_EXPANSION, "blue_nether_brick_slab");
+        registerDatagenOnlyItem(Desire.JADENS_NETHER_EXPANSION, "yellow_nether_bricks");
+        registerDatagenOnlyItem(Desire.JADENS_NETHER_EXPANSION, "yellow_nether_brick_slab");
         registerDatagenOnlyItem(Desire.NATURES_SPIRIT, "travertine_brick_slab");
         registerDatagenOnlyItem(Desire.NATURES_SPIRIT, "travertine_bricks");
         registerDatagenOnlyItem(Desire.NATURES_SPIRIT, "polished_travertine");

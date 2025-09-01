@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "netherexp:red_nether_brick_fence",
-    "netherexp:blue_nether_brick_fence"
+    "netherexp:blue_nether_brick_fence",
+    "netherexp:yellow_nether_brick_fence"
   ]
 }

@@ -74,7 +74,7 @@ public class BlockFamilyGenerator {
 
 
 
-    public static void registerSingleBlock(String name, Block block, Mineables mineable, MinMiningToolTier minMiningToolTier, boolean generateModel) {
+    public static Block registerSingleBlock(String name, Block block, Mineables mineable, MinMiningToolTier minMiningToolTier, boolean generateModel) {
         Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
         Block block1 = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
         switch (mineable) {
@@ -93,6 +93,8 @@ public class BlockFamilyGenerator {
         if (generateModel) {
             CUBE_ALL.add(block1);
         }
+
+        return block1;
     }
 
 

@@ -23,6 +23,7 @@ public class Desire implements ModInitializer {
 	public static final String MOD_ID = "desire";
 	public static final String NATURES_SPIRIT = "natures_spirit";
 	public static final String JADENS_NETHER_EXPANSION = "netherexp";
+	public static final String GARDENS_OF_THE_DEAD = "gardens_of_the_dead";
 	public static final String BOUNTIFUL_FARES = "bountifulfares";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);

@@ -182,6 +182,21 @@ public class ModModelProvider extends DesireModelProvider {
         blockStateModelGenerator.registerAxisRotated(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR, Registries.BLOCK.getId(JNEModBlocks.BLUE_NETHER_BRICK_PILLAR).withPrefixedPath("block/"));
 
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.POLISHED_YELLOW_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CRACKED_YELLOW_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS, Registries.BLOCK.getId(JNEModBlocks.CHISELED_YELLOW_NETHER_BRICKS).withPrefixedPath("block/"));
+
+        blockStateModelGenerator.registerAxisRotated(JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+        blockStateModelGenerator.registerParentedItemModel(JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR, Registries.BLOCK.getId(JNEModBlocks.YELLOW_NETHER_BRICK_PILLAR).withPrefixedPath("block/"));
+
+
+
         wall(blockStateModelGenerator, NSModBlocks.KAOLIN_BRICK_WALL, Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, "kaolin_bricks")));
         for (DyeColor color : ModDatagenUtils.VANILLA_COLORS.stream().map((color) -> DyeColor.byName(color, DyeColor.WHITE)).toList()) {
             wall(blockStateModelGenerator, NSModBlocks.DYED_KAOLIN_BRICK_WALLS.get(color), Registries.BLOCK.get(Identifier.of(Desire.NATURES_SPIRIT, color.getName() + "_kaolin_bricks")));

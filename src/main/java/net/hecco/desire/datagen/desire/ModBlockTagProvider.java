@@ -30,6 +30,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.FENCES)
                 .add(JNEModBlocks.RED_NETHER_BRICK_FENCE)
                 .add(JNEModBlocks.BLUE_NETHER_BRICK_FENCE)
+                .add(JNEModBlocks.YELLOW_NETHER_BRICK_FENCE)
         ;
 
         for (Block block : BlockFamilyGenerator.WALLS) {
